@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [], "id": "cdc001_synced_clean", "notes": "Two-flop synchronizer. Silence is the verdict: any finding here is a false positive.", "sdc": "design.sdc", "tier": 1, "top": "cdc001_synced_clean"}

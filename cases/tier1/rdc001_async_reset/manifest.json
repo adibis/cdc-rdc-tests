@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [{"line": 13, "rule": "RDC-001"}], "id": "rdc001_async_reset", "notes": "Async reset released by a clk_a register into a clk_b flop. Data is clk_b-clean so only the reset reports.", "sdc": "design.sdc", "tier": 1, "top": "rdc001_async_reset"}

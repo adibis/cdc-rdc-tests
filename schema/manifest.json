@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "icarium_benchmark case manifest",
+  "type": "object",
+  "required": ["id", "tier", "design", "top", "sdc", "expect"],
+  "properties": {
+    "id": {"type": "string"},
+    "tier": {"type": "integer", "enum": [1, 2, 3]},
+    "design": {"type": "string"},
+    "top": {"type": "string"},
+    "sdc": {"type": "string"},
+    "expect": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule", "line"],
+        "properties": {
+          "rule": {"type": "string"},
+          "line": {"type": "integer"}
+        }
+      }
+    },
+    "allow_extra": {"type": "boolean", "default": false},
+    "notes": {"type": "string"}
+  }
+}
