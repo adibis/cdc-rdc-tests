@@ -1,11 +1,11 @@
 // CDC-015: a 2FF chain in dst_clk whose ARST comes from a flop
 // registered in src_clk. Depth checks pass; the reset path is
-// where the chain loses steady state, so RDC-001 fires on
-// the same shape beside CDC-015.
+// where the chain loses steady state, so RDC-001 fires one
+// group finding for both flops beside CDC-015.
 // RDC-009 stays silent: the foreign reset still releases after
 // the shared global root, so source data settles first.
-// RDC-010 frames the reset side as a single-flop chain serving
-// a foreign clock: chain-clock errors plus the record note.
+// RDC-010 records the 1-flop chain, errors its foreign drive,
+// and warns the raw global use beside a served root.
 module bad_foreign_reset (
     input  logic src_clk,
     input  logic dst_clk,

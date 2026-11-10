@@ -1,13 +1,21 @@
 {
-  "id": "rdc008_missed_domain",
-  "tier": 1,
-  "design": "design.sv",
-  "top": "rdc008_missed_domain",
-  "sdc": "design.sdc",
-  "expect": [
-    {"rule": "RDC-008", "line": 20},
-    {"rule": "RDC-010", "line": 16}
-  ],
-  "allow_extra": false,
-  "notes": "From unit test 'a missed domain fires RDC-008 alone' (which admits RDC-010 notes). rst is synced in ca but raw in cb with two direct consumers sharing one always block. The RDC-010 record note on the authored ca chain is intended rule behavior, included here."
+ "id": "rdc008_missed_domain",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "rdc008_missed_domain",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-008",
+   "line": 20,
+   "severity": "error"
+  },
+  {
+   "rule": "RDC-010",
+   "line": 16,
+   "severity": "note"
+  }
+ ],
+ "allow_extra": false,
+ "notes": "From unit test 'a missed domain fires RDC-008 alone' (which admits RDC-010 notes). rst is synced in ca but raw in cb with two direct consumers sharing one always block. The RDC-010 record note on the authored ca chain is intended rule behavior, included here."
 }

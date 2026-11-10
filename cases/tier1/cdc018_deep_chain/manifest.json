@@ -1,1 +1,15 @@
-{"design": "design.sv", "expect": [{"line": 11, "rule": "CDC-018"}], "id": "cdc018_deep_chain", "notes": "Four-deep chain past the default threshold. The head must report the excess latency.", "sdc": "design.sdc", "tier": 1, "top": "cdc018_deep_chain"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 11,
+   "rule": "CDC-018",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc018_deep_chain",
+ "notes": "Four-deep chain past the default threshold. The head must report the excess latency.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc018_deep_chain"
+}

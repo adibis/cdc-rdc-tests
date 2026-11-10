@@ -1,1 +1,15 @@
-{"design": "design.sv", "expect": [{"line": 11, "rule": "CDC-016"}], "id": "cdc016_opposite_edge_chain", "notes": "Two-stage chain with posedge head and negedge tail on cb. The head must report the halved resolution time.", "sdc": "design.sdc", "tier": 1, "top": "cdc016_opposite_edge_chain"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 11,
+   "rule": "CDC-016",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc016_opposite_edge_chain",
+ "notes": "Two-stage chain with posedge head and negedge tail on cb. The head must report the halved resolution time.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc016_opposite_edge_chain"
+}

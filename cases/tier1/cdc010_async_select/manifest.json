@@ -1,1 +1,15 @@
-{"design": "design.sv", "expect": [{"line": 12, "rule": "CDC-010"}], "id": "cdc010_async_select", "notes": "Clock mux selected from a third async domain. The mux must report; data path is constant by design.", "sdc": "design.sdc", "tier": 1, "top": "cdc010_async_select"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 12,
+   "rule": "CDC-010",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc010_async_select",
+ "notes": "Clock mux selected from a third async domain. The mux must report; data path is constant by design.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc010_async_select"
+}

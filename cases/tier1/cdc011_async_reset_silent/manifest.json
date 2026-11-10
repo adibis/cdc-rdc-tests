@@ -1,1 +1,9 @@
-{"id": "cdc011_async_reset_silent", "tier": 1, "design": "design.sv", "top": "cdc011_async_reset_silent", "sdc": "design.sdc", "expect": [], "notes": "Untyped async reset reaches only ARST, never D. Must stay silent."}
+{
+ "id": "cdc011_async_reset_silent",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc011_async_reset_silent",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Untyped async reset reaches only ARST, never D. Must stay silent."
+}

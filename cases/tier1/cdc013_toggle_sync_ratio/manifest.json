@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 11, "rule": "CDC-013"}], "id": "cdc013_toggle_sync_ratio", "notes": "Fast toggle into a slow domain (2ns to 20ns) with both clocks declared but never async-grouped: the ratio alone decides, so the toggle flop must report and nothing else may fire.", "sdc": "design.sdc", "tier": 1, "top": "cdc013_toggle_sync_ratio"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 11,
+   "rule": "CDC-013",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc013_toggle_sync_ratio",
+ "notes": "Fast toggle into a slow domain (2ns to 20ns) with both clocks declared but never async-grouped: the ratio alone decides, so the toggle flop must report and nothing else may fire.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc013_toggle_sync_ratio"
+}

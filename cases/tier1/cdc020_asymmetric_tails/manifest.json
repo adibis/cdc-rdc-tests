@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 13, "rule": "CDC-020"}], "id": "cdc020_asymmetric_tails", "notes": "Two-bit source with mismatched tails (2FF on lane 0, 3FF on lane 1) to separate outputs: the source register must report the sliced-bus reconvergence.", "sdc": "design.sdc", "tier": 1, "top": "cdc020_asymmetric_tails"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 13,
+   "rule": "CDC-020",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc020_asymmetric_tails",
+ "notes": "Two-bit source with mismatched tails (2FF on lane 0, 3FF on lane 1) to separate outputs: the source register must report the sliced-bus reconvergence.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc020_asymmetric_tails"
+}

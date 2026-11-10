@@ -1,1 +1,15 @@
-{"design": "design.sv", "expect": [{"line": 13, "rule": "CDC-014"}], "id": "cdc014_gate_between_stages", "notes": "AND gate between two sync stages on cb. The chain head s1 must report; nothing else fires.", "sdc": "design.sdc", "tier": 1, "top": "cdc014_gate_between_stages"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 13,
+   "rule": "CDC-014",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc014_gate_between_stages",
+ "notes": "AND gate between two sync stages on cb. The chain head s1 must report; nothing else fires.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc014_gate_between_stages"
+}

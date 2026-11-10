@@ -1,1 +1,21 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 20, "rule": "CDC-004"}, {"line": 20, "rule": "CDC-014"}], "id": "cdc014_converging_lanes", "notes": "Two ca lanes converge through OR into one cb chain with an AND between its stages: CDC-004 reports the unprotected bus and one collapsed CDC-014 reports the inter-stage gate, both at the head flop.", "sdc": "design.sdc", "tier": 1, "top": "cdc014_converging_lanes"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 20,
+   "rule": "CDC-004",
+   "severity": "error"
+  },
+  {
+   "line": 20,
+   "rule": "CDC-014",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc014_converging_lanes",
+ "notes": "Two ca lanes converge through OR into one cb chain with an AND between its stages: CDC-004 reports the unprotected bus and one collapsed CDC-014 reports the inter-stage gate, both at the head flop.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc014_converging_lanes"
+}

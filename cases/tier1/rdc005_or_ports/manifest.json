@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 13, "rule": "RDC-005"}], "id": "rdc005_or_ports", "notes": "Two independent top ports ORed into one async reset pin with no flop behind the gate.", "sdc": "design.sdc", "tier": 1, "top": "rdc005_or_ports"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 13,
+   "rule": "RDC-005",
+   "severity": "warning"
+  }
+ ],
+ "id": "rdc005_or_ports",
+ "notes": "Two independent top ports ORed into one async reset pin with no flop behind the gate.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "rdc005_or_ports"
+}

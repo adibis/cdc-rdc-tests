@@ -7,12 +7,12 @@
  "expect": [
   {
    "rule": "CDC-022",
-   "line": 39
+   "line": 39,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-022/bad_handshake_src.sv; oracle rule set from fixture manifest.",
- "args": [
-  "--sync-depth",
-  "3"
- ]
+ "notes": "DEST_SYNC_FF=4 passes, but the ack-path SRC_SYNC_FF=2 sits below the params minimum sync_depth=3, and CDC-022 reads every depth parameter, so it warns at the instance on line 39. (Migrated from icarium fixtures/CDC-022/bad_handshake_src.sv; oracle rule set from fixture manifest.)",
+ "params": {
+  "sync_depth": 3
+ }
 }

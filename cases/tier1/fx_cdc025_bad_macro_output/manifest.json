@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-025",
-   "line": 17
+   "line": 17,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-025/bad_macro_output.sv; oracle rule set from fixture manifest."
+ "notes": "vendor_filter is a blackbox whose output macro_data feeds clk flop q_r with no clock association, so the endpoint is unresolvable and CDC-025 names the macro instance on line 17. (Migrated from icarium fixtures/CDC-025/bad_macro_output.sv; oracle rule set from fixture manifest.)"
 }

@@ -5,9 +5,8 @@
  "top": "good_depth_ok",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Migrated from icarium fixtures/CDC-002/good_depth_ok.sv; oracle rule set from fixture manifest.",
- "args": [
-  "--sync-depth",
-  "3"
- ]
+ "notes": "3FF chain exceeds the default minimum depth of 2, so CDC-002 stays silent. (Migrated from icarium fixtures/CDC-002/good_depth_ok.sv; oracle rule set from fixture manifest.)",
+ "params": {
+  "sync_depth": 3
+ }
 }

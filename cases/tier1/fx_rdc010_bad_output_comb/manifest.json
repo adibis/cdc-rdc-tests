@@ -7,16 +7,19 @@
  "expect": [
   {
    "rule": "RDC-004",
-   "line": 23
+   "line": 23,
+   "severity": "error"
   },
   {
    "rule": "RDC-010",
-   "line": 15
+   "line": 15,
+   "severity": "note"
   },
   {
    "rule": "RDC-010",
-   "line": 23
+   "line": 23,
+   "severity": "error"
   }
  ],
- "notes": "Migrated from icarium fixtures/RDC-010/bad_output_comb.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-010: a gate edits the synchronizer output before the consumer. The chain shaped the edge; the gate skews it. (Migrated from icarium carium fixtures/RDC-010/bad_output_comb.sv; oracle rule set from fixture manifest."
 }

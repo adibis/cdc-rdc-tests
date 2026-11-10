@@ -1,1 +1,15 @@
-{"design": "design.sv", "expect": [{"line": 11, "rule": "CDC-001"}], "id": "cdc001_async_data", "notes": "Unsynchronized flop-to-flop crossing across async groups. The capture flop must report.", "sdc": "design.sdc", "tier": 1, "top": "cdc001_async_data"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 11,
+   "rule": "CDC-001",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc001_async_data",
+ "notes": "Unsynchronized flop-to-flop crossing across async groups. The capture flop must report.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc001_async_data"
+}

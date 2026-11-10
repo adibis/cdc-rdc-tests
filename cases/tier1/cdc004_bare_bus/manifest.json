@@ -1,1 +1,15 @@
-{"id": "cdc004_bare_bus", "tier": 1, "design": "design.sv", "top": "cdc004_bare_bus", "sdc": "design.sdc", "expect": [{"rule": "CDC-004", "line": 12}], "notes": "Unprotected 2-bit bus crossing. Must report CDC-004 once on the destination flop, never per lane."}
+{
+ "id": "cdc004_bare_bus",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc004_bare_bus",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-004",
+   "line": 12,
+   "severity": "error"
+  }
+ ],
+ "notes": "Unprotected 2-bit bus crossing. Must report CDC-004 once on the destination flop, never per lane."
+}

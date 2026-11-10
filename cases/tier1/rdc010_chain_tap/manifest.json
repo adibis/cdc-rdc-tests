@@ -1,13 +1,21 @@
 {
-  "id": "rdc010_chain_tap",
-  "tier": 1,
-  "design": "design.sv",
-  "top": "rdc010_chain_tap",
-  "sdc": "design.sdc",
-  "expect": [
-    {"rule": "RDC-010", "line": 13},
-    {"rule": "RDC-010", "line": 15}
-  ],
-  "allow_extra": false,
-  "notes": "From unit test 'chain tap reports a note plus an err for RDC-010'. Consumer takes async reset from the head tap instead of the tail: record note on the tail (line 13), tap err on the consumer (line 15). Head reset value is explicit 1 so the incidental RDC-002 from the unit JSON's defaulted ARST_VALUE stays out."
+ "id": "rdc010_chain_tap",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "rdc010_chain_tap",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 13,
+   "severity": "note"
+  },
+  {
+   "rule": "RDC-010",
+   "line": 15,
+   "severity": "error"
+  }
+ ],
+ "allow_extra": false,
+ "notes": "From unit test 'chain tap reports a note plus an err for RDC-010'. Consumer takes async reset from the head tap instead of the tail: record note on the tail (line 13), tap err on the consumer (line 15). Head reset value is explicit 1 so the incidental RDC-002 from the unit JSON's defaulted ARST_VALUE stays out."
 }

@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-012",
-   "line": 15
+   "line": 15,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-012/bad_one_sided.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-012: the request syncs into dst before gating the capture, so the bus looks gated, but the payload advances every src cycle while the request is in flight. Nothing holds it stable. (Migrated from icarium carium fixtures/CDC-012/bad_one_sided.sv; oracle rule set from fixture manifest."
 }

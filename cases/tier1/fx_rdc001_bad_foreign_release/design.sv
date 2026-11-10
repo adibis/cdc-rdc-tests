@@ -1,10 +1,10 @@
 // RDC-001: a 2FF chain in dst_clk whose ARST comes from a flop
 // registered in src_clk. CDC-015 frames the chain side; RDC-001
-// frames the reset-release side. Both fire by design.
+// frames the reset side with one group finding for both flops.
 // RDC-009 stays silent: the foreign reset still releases after
 // the shared global root, so source data settles first.
-// RDC-010 frames the reset side as a single-flop chain serving
-// a foreign clock: chain-clock errors plus the record note.
+// RDC-010 records the 1-flop chain, errors its foreign drive,
+// and warns the raw global use beside a served root.
 module bad_foreign_release (
     input  logic src_clk,
     input  logic dst_clk,

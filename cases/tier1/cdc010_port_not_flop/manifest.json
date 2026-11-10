@@ -1,1 +1,15 @@
-{"id": "cdc010_port_not_flop", "tier": 1, "design": "design.sv", "top": "cdc010_port_not_flop", "sdc": "design.sdc", "expect": [{"rule": "CDC-026", "line": 16}], "notes": "Port select sharing a gated clock with a real data crossing. No wrong-domain verdict may fire; only the CDC-026 leg-pair note reports."}
+{
+ "id": "cdc010_port_not_flop",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc010_port_not_flop",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-026",
+   "line": 16,
+   "severity": "note"
+  }
+ ],
+ "notes": "Port select sharing a gated clock with a real data crossing. No wrong-domain verdict may fire; only the CDC-026 leg-pair note reports."
+}

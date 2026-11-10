@@ -1,1 +1,9 @@
-{"design": "design.sv", "expect": [], "id": "cdc023_enable_gate_clean", "notes": "Single clock ANDed with a same-domain enable. A gated clock, not a combine: silence is the verdict.", "sdc": "design.sdc", "tier": 1, "top": "cdc023_enable_gate_clean"}
+{
+ "design": "design.sv",
+ "expect": [],
+ "id": "cdc023_enable_gate_clean",
+ "notes": "Single clock ANDed with a same-domain enable. A gated clock, not a combine: silence is the verdict.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc023_enable_gate_clean"
+}

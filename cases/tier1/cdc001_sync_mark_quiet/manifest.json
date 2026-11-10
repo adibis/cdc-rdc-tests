@@ -1,1 +1,9 @@
-{"design": "design.sv", "expect": [], "id": "cdc001_sync_mark_quiet", "notes": "(* cdc_sync *) on the capture flop's output vouches for a vetted synchronizer; CDC-001 must stay silent. From unit test 'a vouched destination silences the rule'.", "sdc": "design.sdc", "tier": 1, "top": "cdc001_sync_mark_quiet"}
+{
+ "design": "design.sv",
+ "expect": [],
+ "id": "cdc001_sync_mark_quiet",
+ "notes": "(* cdc_sync *) on the capture flop's output vouches for a vetted synchronizer; CDC-001 must stay silent. From unit test 'a vouched destination silences the rule'.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc001_sync_mark_quiet"
+}

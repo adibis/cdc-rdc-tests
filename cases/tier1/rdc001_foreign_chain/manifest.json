@@ -1,13 +1,21 @@
 {
-  "id": "rdc001_foreign_chain",
-  "tier": 1,
-  "design": "design.sv",
-  "top": "rdc001_foreign_chain",
-  "sdc": "design.sdc",
-  "expect": [
-    {"rule": "CDC-015", "line": 13},
-    {"rule": "RDC-001", "line": 13}
-  ],
-  "allow_extra": false,
-  "notes": "From unit test 'a foreign-released chain fires CDC-015 and RDC-001'. A ca register releases the async reset of a two-flop cb chain whose data also crosses ca->cb. Both chain stages share one always block so the grouped RDC-001 dst line is unambiguous."
+ "id": "rdc001_foreign_chain",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "rdc001_foreign_chain",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-015",
+   "line": 13,
+   "severity": "error"
+  },
+  {
+   "rule": "RDC-001",
+   "line": 13,
+   "severity": "error"
+  }
+ ],
+ "allow_extra": false,
+ "notes": "From unit test 'a foreign-released chain fires CDC-015 and RDC-001'. A ca register releases the async reset of a two-flop cb chain whose data also crosses ca->cb. Both chain stages share one always block so the grouped RDC-001 dst line is unambiguous."
 }

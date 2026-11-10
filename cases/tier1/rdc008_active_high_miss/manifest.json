@@ -1,1 +1,21 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 20, "rule": "RDC-008"}, {"line": 16, "rule": "RDC-010"}], "id": "rdc008_active_high_miss", "notes": "Active-high rst is synced in ca but raw in cb with two direct consumers sharing one always block. The RDC-010 record note on the authored ca chain is intended rule behavior, included here.", "sdc": "design.sdc", "tier": 1, "top": "rdc008_active_high_miss"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 20,
+   "rule": "RDC-008",
+   "severity": "error"
+  },
+  {
+   "line": 16,
+   "rule": "RDC-010",
+   "severity": "note"
+  }
+ ],
+ "id": "rdc008_active_high_miss",
+ "notes": "Active-high rst is synced in ca but raw in cb with two direct consumers sharing one always block. The RDC-010 record note on the authored ca chain is intended rule behavior, included here.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "rdc008_active_high_miss"
+}

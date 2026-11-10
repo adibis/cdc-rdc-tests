@@ -1,1 +1,15 @@
-{"design": "design.sv", "expect": [{"line": 12, "rule": "CDC-017"}], "id": "cdc017_latch_in_path", "notes": "Transparent latch fed by a ca flop and captured by a cb flop. The latch must report.", "sdc": "design.sdc", "tier": 1, "top": "cdc017_latch_in_path"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 12,
+   "rule": "CDC-017",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc017_latch_in_path",
+ "notes": "Transparent latch fed by a ca flop and captured by a cb flop. The latch must report.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc017_latch_in_path"
+}

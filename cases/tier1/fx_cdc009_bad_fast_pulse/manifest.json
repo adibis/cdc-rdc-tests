@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-009",
-   "line": 11
+   "line": 11,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-009/bad_fast_pulse.sv; oracle rule set from fixture manifest."
+ "notes": "pulse_q is an edge detector (req_q & ~req_d) in the 4ns domain crossing to the 10ns domain, and 4x1.5=6 < 10 trips the fast-to-slow test, so CDC-009 warns at the source flop on line 11. (Migrated from icarium fixtures/CDC-009/bad_fast_pulse.sv; oracle rule set from fixture manifest.)"
 }

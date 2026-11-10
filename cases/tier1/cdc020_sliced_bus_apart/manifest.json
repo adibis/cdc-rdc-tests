@@ -1,1 +1,15 @@
-{"design": "design.sv", "expect": [{"line": 11, "rule": "CDC-020"}], "id": "cdc020_sliced_bus_apart", "notes": "Two-bit source sliced into per-lane sync chains. The source register must report the reconvergence risk.", "sdc": "design.sdc", "tier": 1, "top": "cdc020_sliced_bus_apart"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 11,
+   "rule": "CDC-020",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc020_sliced_bus_apart",
+ "notes": "Two-bit source sliced into per-lane sync chains. The source register must report the reconvergence risk.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc020_sliced_bus_apart"
+}

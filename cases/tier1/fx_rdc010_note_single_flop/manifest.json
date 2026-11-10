@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "RDC-010",
-   "line": 10
+   "line": 10,
+   "severity": "note"
   }
  ],
- "notes": "Migrated from icarium fixtures/RDC-010/note_single_flop.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-010: single-flop reset synchronizer (the OpenTitan idiom) serving one consumer. Proves duty by service; note only. (Migrated from icarium carium fixtures/RDC-010/note_single_flop.sv; oracle rule set from fixture manifest."
 }

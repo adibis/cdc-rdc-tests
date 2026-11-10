@@ -5,5 +5,5 @@
  "top": "good_level_signal",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Migrated from icarium fixtures/CDC-009/good_level_signal.sv; oracle rule set from fixture manifest."
+ "notes": "src_q is a plain level register, not an edge detector, so the pulse-capture hazard does not apply despite the 4:10 fast-to-slow ratio and CDC-009 stays silent. (Migrated from icarium fixtures/CDC-009/good_level_signal.sv; oracle rule set from fixture manifest.)"
 }

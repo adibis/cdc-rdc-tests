@@ -5,5 +5,5 @@
  "top": "good_xor_tail",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Migrated from icarium fixtures/CDC-013/good_xor_tail.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-013: the canonical pulse synchronizer. The toggle source matches the classifier, but the destination rebuilds one pulse per event from tail ^ tail_d, which is the fix, not the bug. (Migrated from icarium carium fixtures/CDC-013/good_xor_tail.sv; oracle rule set from fixture manifest."
 }

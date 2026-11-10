@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-004",
-   "line": 9
+   "line": 9,
+   "severity": "error"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-004/bad_port_bus.sv; oracle rule set from fixture manifest."
+ "notes": "The 4-bit ca-typed input bus d lands directly on cb flop dst_q with no coherence mechanism, so CDC-004 fires at line 9. (Migrated from icarium fixtures/CDC-004/bad_port_bus.sv; oracle rule set from fixture manifest.)"
 }

@@ -5,5 +5,5 @@
  "top": "good_2ff",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Migrated from icarium fixtures/CDC-001/good_2ff.sv; oracle rule set from fixture manifest."
+ "notes": "Textbook 2FF synchronizer: src_q crosses ca->cb into s1_q with s2_q as the second stage, so depth 2 meets the default minimum and CDC-001 stays silent. (Migrated from icarium fixtures/CDC-001/good_2ff.sv; oracle rule set from fixture manifest.)"
 }

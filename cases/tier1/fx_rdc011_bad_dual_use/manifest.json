@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "RDC-011",
-   "line": 21
+   "line": 21,
+   "severity": "error"
   }
  ],
- "notes": "Migrated from icarium fixtures/RDC-011/bad_dual_use.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-011: one reset net drives an async pin (a_q), a sync pin (s_q), and both at once (c_q, whose D-mux keys on the same net). The groups can never leave reset together. (Migrated from icarium carium fixtures/RDC-011/bad_dual_use.sv; oracle rule set from fixture manifest."
 }

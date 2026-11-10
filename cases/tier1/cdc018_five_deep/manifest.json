@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 11, "rule": "CDC-018"}], "id": "cdc018_five_deep", "notes": "Five-deep chain past the default threshold of 4. The head must report the excess latency.", "sdc": "design.sdc", "tier": 1, "top": "cdc018_five_deep"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 11,
+   "rule": "CDC-018",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc018_five_deep",
+ "notes": "Five-deep chain past the default threshold of 4. The head must report the excess latency.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc018_five_deep"
+}

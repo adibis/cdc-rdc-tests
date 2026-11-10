@@ -5,5 +5,5 @@
  "top": "good_single_chain",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Migrated from icarium fixtures/CDC-005/good_single_chain.sv; oracle rule set from fixture manifest."
+ "notes": "One source flop feeds exactly one synchronizer chain with no fanout to a second chain, so there is no reconvergent pair for CDC-005 to flag. (Migrated from icarium fixtures/CDC-005/good_single_chain.sv; oracle rule set from fixture manifest.)"
 }

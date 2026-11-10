@@ -1,1 +1,20 @@
-{"design": "design.sv", "expect": [{"line": 11, "rule": "CDC-023"}, {"line": 12, "rule": "CDC-025"}], "id": "cdc023_clock_combine", "notes": "AND of ca and cb clocks a flop. The gate reports CDC-023 and the domainless endpoint reports CDC-025.", "sdc": "design.sdc", "tier": 1, "top": "cdc023_clock_combine"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 11,
+   "rule": "CDC-023",
+   "severity": "warning"
+  },
+  {
+   "line": 12,
+   "rule": "CDC-025",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc023_clock_combine",
+ "notes": "AND of ca and cb clocks a flop. The gate reports CDC-023 and the domainless endpoint reports CDC-025.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc023_clock_combine"
+}

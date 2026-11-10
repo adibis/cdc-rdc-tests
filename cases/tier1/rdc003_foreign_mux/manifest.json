@@ -1,13 +1,21 @@
 {
-  "id": "rdc003_foreign_mux",
-  "tier": 1,
-  "design": "design.sv",
-  "top": "rdc003_foreign_mux",
-  "sdc": "design.sdc",
-  "expect": [
-    {"rule": "CDC-001", "line": 13},
-    {"rule": "RDC-003", "line": 13}
-  ],
-  "allow_extra": false,
-  "notes": "From unit test 'a foreign reset mux fires RDC-003 beside CDC-001'. Explicit const-leg assign mux (A=0,B=d,S=src_q) matches the unit netlist exactly; proc keeps the assign as $mux."
+ "id": "rdc003_foreign_mux",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "rdc003_foreign_mux",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-001",
+   "line": 13,
+   "severity": "error"
+  },
+  {
+   "rule": "RDC-003",
+   "line": 13,
+   "severity": "error"
+  }
+ ],
+ "allow_extra": false,
+ "notes": "From unit test 'a foreign reset mux fires RDC-003 beside CDC-001'. Explicit const-leg assign mux (A=0,B=d,S=src_q) matches the unit netlist exactly; proc keeps the assign as $mux."
 }

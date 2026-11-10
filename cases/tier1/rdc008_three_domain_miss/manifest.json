@@ -1,1 +1,26 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 20, "rule": "RDC-010"}, {"line": 26, "rule": "RDC-010"}, {"line": 30, "rule": "RDC-008"}], "id": "rdc008_three_domain_miss", "notes": "Shared rst is synced in ca and cb but raw in cc with two direct consumers. The two RDC-010 record notes on the authored chains are intended rule behavior, included here.", "sdc": "design.sdc", "tier": 1, "top": "rdc008_three_domain_miss"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 20,
+   "rule": "RDC-010",
+   "severity": "note"
+  },
+  {
+   "line": 26,
+   "rule": "RDC-010",
+   "severity": "note"
+  },
+  {
+   "line": 30,
+   "rule": "RDC-008",
+   "severity": "error"
+  }
+ ],
+ "id": "rdc008_three_domain_miss",
+ "notes": "Shared rst is synced in ca and cb but raw in cc with two direct consumers. The two RDC-010 record notes on the authored chains are intended rule behavior, included here.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "rdc008_three_domain_miss"
+}

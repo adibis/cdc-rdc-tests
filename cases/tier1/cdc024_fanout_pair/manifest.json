@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 16, "rule": "CDC-024"}], "id": "cdc024_fanout_pair", "notes": "Twin 2FF chains from one source flop drive independent outputs with no recombination: CDC-024 alone at the source flop, no CDC-005.", "sdc": "design.sdc", "tier": 1, "top": "cdc024_fanout_pair"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 16,
+   "rule": "CDC-024",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc024_fanout_pair",
+ "notes": "Twin 2FF chains from one source flop drive independent outputs with no recombination: CDC-024 alone at the source flop, no CDC-005.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc024_fanout_pair"
+}

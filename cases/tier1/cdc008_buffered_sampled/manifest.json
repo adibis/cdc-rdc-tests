@@ -1,1 +1,15 @@
-{"id": "cdc008_buffered_sampled", "tier": 1, "design": "design.sv", "top": "cdc008_buffered_sampled", "sdc": "design.sdc", "expect": [{"rule": "CDC-008", "line": 14}], "notes": "Buffered clock sampled as data (double inversion; yosys folds buf primitives). The AND gate (terminal load) must report."}
+{
+ "id": "cdc008_buffered_sampled",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc008_buffered_sampled",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-008",
+   "line": 14,
+   "severity": "error"
+  }
+ ],
+ "notes": "Buffered clock sampled as data (double inversion; yosys folds buf primitives). The AND gate (terminal load) must report."
+}

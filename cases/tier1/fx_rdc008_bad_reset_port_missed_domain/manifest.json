@@ -7,12 +7,14 @@
  "expect": [
   {
    "rule": "RDC-008",
-   "line": 28
+   "line": 28,
+   "severity": "error"
   },
   {
    "rule": "RDC-010",
-   "line": 19
+   "line": 19,
+   "severity": "note"
   }
  ],
- "notes": "Migrated from icarium fixtures/RDC-008/bad_reset_port_missed_domain.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-008: raw_rst_n has a proper chain in clk_a, proving the builder knows the port needs syncing, but two clk_b flops take the raw port with no chain in their domain. The miss, not the raw port alone, is the finding. (Migrated from icarium carium fixtures/RDC-008/bad_reset_port_missed_domain.sv; oracle rule set from fixture manifest."
 }

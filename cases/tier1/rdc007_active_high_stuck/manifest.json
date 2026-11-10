@@ -1,1 +1,21 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 12, "rule": "RDC-007"}, {"line": 12, "rule": "RDC-010"}], "id": "rdc007_active_high_stuck", "notes": "Active-high chain with head D tied to asserted 1. The RDC-010 record note on the authored chain is intended rule behavior, included here.", "sdc": "design.sdc", "tier": 1, "top": "rdc007_active_high_stuck"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 12,
+   "rule": "RDC-007",
+   "severity": "error"
+  },
+  {
+   "line": 12,
+   "rule": "RDC-010",
+   "severity": "note"
+  }
+ ],
+ "id": "rdc007_active_high_stuck",
+ "notes": "Active-high chain with head D tied to asserted 1. The RDC-010 record note on the authored chain is intended rule behavior, included here.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "rdc007_active_high_stuck"
+}

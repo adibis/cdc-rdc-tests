@@ -1,6 +1,6 @@
 // Crossing into an undeclared domain: a ca flop feeds a 2-deep chain
 // on clkx, which has no create_clock. The crossing itself stays blind
-// to every async check; must report CDC-021 on the first consumer.
+// to every async check; CDC-021 reports one representative consumer.
 module cdc021_undeclared_dst_crossing (
     input  logic ca,
     input  logic clkx,

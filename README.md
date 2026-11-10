@@ -4,9 +4,9 @@ An independent CDC/RDC benchmark corpus: small designs with known-good
 verdicts, so any checker can measure recall and precision against ground
 truth instead of against another tool's output.
 
-Tier 1 holds 208 micro-cases covering all 36 icarium rules, each with
-firing and silence verdicts. 61 cases expect silence; 7 pass extra
-checker args (sync-depth bar); every rule fires in at least two cases.
+Tier 1 holds 206 micro-cases covering all 36 icarium rules, each with
+firing and silence verdicts. 60 cases expect silence; 7 pass neutral
+checker params (sync-depth bar); every rule fires in at least two cases.
 
 ## Tiers
 
@@ -45,13 +45,15 @@ should agree with.
 - `cases/tierN/<id>/` — `design.sv`, `design.sdc`, `manifest.json`
 - `docs/catalog.md` — per-rule case listing (generated, see `scripts/`)
 - `docs/method.md` — how verdicts read and how to run another checker
+- `docs/attributes.md` — waiver-attribute spellings and semantics
+- `docs/rule-map.md` — corpus rule numbering with contracts
 - `schema/manifest.json` — manifest schema
 - `run.py` — elaborate, check, diff to oracle
 
 ## Run
 
 ```sh
-python3 run.py --icarium-bin /path/to/icarium [--tier 1] [--case ID]
+python3 run.py --icarium-bin /path/to/icarium [--tier 1] [--case ID] [--ignore-notes]
 ```
 
 Needs `yosys` on PATH and an icarium binary. Exit 0 when every case

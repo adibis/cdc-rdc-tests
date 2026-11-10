@@ -7,12 +7,14 @@
  "expect": [
   {
    "rule": "CDC-010",
-   "line": 12
+   "line": 12,
+   "severity": "error"
   },
   {
    "rule": "CDC-026",
-   "line": 14
+   "line": 14,
+   "severity": "note"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-010/bad_async_mux_select.sv; oracle rule set from fixture manifest."
+ "notes": "gclk muxes ca/cb under en_q, which is clocked by cc, async to both gated legs, so the select can chop the output clock and CDC-010 fires at line 12; f_q also runs on muxed gclk, so CDC-026 adds its leg-pair ledger note at line 14. (Migrated from icarium fixtures/CDC-010/bad_async_mux_select.sv; oracle rule set from fixture manifest.)"
 }

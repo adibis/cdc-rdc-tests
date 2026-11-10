@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-026",
-   "line": 23
+   "line": 23,
+   "severity": "note"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-012/good_ormux_union.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-012: a bus crossing into an OR-muxed clock (the glitch-free mux output shape). Union membership is unprovable per-leg, so the gating verdict belongs to the leg-pair report, not CDC-012. (Migrated from icarium carium fixtures/CDC-012/good_ormux_union.sv; oracle rule set from fixture manifest."
 }

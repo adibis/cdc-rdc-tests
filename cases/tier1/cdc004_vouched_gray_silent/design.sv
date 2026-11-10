@@ -7,7 +7,7 @@ module cdc004_vouched_gray_silent (
     input  logic [1:0] d,
     output logic [1:0] q
 );
-    (* cdc_gray = 1 *) logic [1:0] src_q;
+    (* cdc_gray *) logic [1:0] src_q;
     always_ff @(posedge ca) src_q <= d;
     always_ff @(posedge cb) q <= src_q;
 endmodule

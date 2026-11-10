@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-026",
-   "line": 13
+   "line": 13,
+   "severity": "note"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-010/good_shared_clock.sv; oracle rule set from fixture manifest."
+ "notes": "en_q is clocked by cb, one of the muxed legs, so the select is synchronous to a gated domain and CDC-010 stays silent; the CDC-026 ledger note at f_q on line 13 still fires, since multiclock crossings always report. (Migrated from icarium fixtures/CDC-010/good_shared_clock.sv; oracle rule set from fixture manifest.)"
 }

@@ -5,5 +5,5 @@
  "top": "good_slow_toggle",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Migrated from icarium fixtures/CDC-013/good_slow_toggle.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-013: a toggle source running slow to fast. The shape matches, but the ratio clears, so no events can cancel. (Migrated from icarium carium fixtures/CDC-013/good_slow_toggle.sv; oracle rule set from fixture manifest."
 }

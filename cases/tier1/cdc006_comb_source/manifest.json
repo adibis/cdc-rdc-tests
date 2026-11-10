@@ -1,1 +1,15 @@
-{"id": "cdc006_comb_source", "tier": 1, "design": "design.sv", "top": "cdc006_comb_source", "sdc": "design.sdc", "expect": [{"rule": "CDC-006", "line": 14}], "notes": "Foreign-typed ports feeding a 2-chain through logic alone. Must report CDC-006 on the first stage."}
+{
+ "id": "cdc006_comb_source",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc006_comb_source",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-006",
+   "line": 14,
+   "severity": "error"
+  }
+ ],
+ "notes": "Foreign-typed ports feeding a 2-chain through logic alone. Must report CDC-006 on the first stage."
+}

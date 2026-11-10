@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 14, "rule": "CDC-017"}], "id": "cdc017_latch_comb_source", "notes": "An AND sits between the ca source flop and the latch D, but transparency still carries the foreign signal through: the latch must report.", "sdc": "design.sdc", "tier": 1, "top": "cdc017_latch_comb_source"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 14,
+   "rule": "CDC-017",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc017_latch_comb_source",
+ "notes": "An AND sits between the ca source flop and the latch D, but transparency still carries the foreign signal through: the latch must report.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc017_latch_comb_source"
+}

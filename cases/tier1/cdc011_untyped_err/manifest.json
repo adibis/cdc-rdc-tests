@@ -1,1 +1,15 @@
-{"id": "cdc011_untyped_err", "tier": 1, "design": "design.sv", "top": "cdc011_untyped_err", "sdc": "design.sdc", "expect": [{"rule": "CDC-011", "line": 12}], "notes": "Untyped input fanning to two async domains. Must error CDC-011 exactly once (one finding per port)."}
+{
+ "id": "cdc011_untyped_err",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc011_untyped_err",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-011",
+   "line": 12,
+   "severity": "error"
+  }
+ ],
+ "notes": "Untyped input fanning to two async domains. Must error CDC-011 exactly once (one finding per port)."
+}

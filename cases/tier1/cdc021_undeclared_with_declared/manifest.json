@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 17, "rule": "CDC-021"}], "id": "cdc021_undeclared_with_declared", "notes": "ca/cb are declared and async with a clean 2FF between them, but clkx drives two flops with no create_clock: the declared half stays quiet and the first clkx consumer must report CDC-021.", "sdc": "design.sdc", "tier": 1, "top": "cdc021_undeclared_with_declared"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 17,
+   "rule": "CDC-021",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc021_undeclared_with_declared",
+ "notes": "ca/cb are declared and async with a clean 2FF between them, but clkx drives two flops with no create_clock: the declared half stays quiet and the first clkx consumer must report CDC-021.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc021_undeclared_with_declared"
+}

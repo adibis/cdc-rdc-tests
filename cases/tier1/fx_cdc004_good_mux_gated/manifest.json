@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-012",
-   "line": 11
+   "line": 11,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-004/good_mux_gated.sv; oracle rule set from fixture manifest."
+ "notes": "dst_q samples src_q only when cb-domain en_q is high, so the bus is gated and CDC-004 stays silent; but nothing holds src_q stable until the destination samples it, so CDC-012 warns at the source register on line 11. (Migrated from icarium fixtures/CDC-004/good_mux_gated.sv; oracle rule set from fixture manifest.)"
 }

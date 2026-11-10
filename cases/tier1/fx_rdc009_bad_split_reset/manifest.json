@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "RDC-009",
-   "line": 17
+   "line": 17,
+   "severity": "error"
   }
  ],
- "notes": "Migrated from icarium fixtures/RDC-009/bad_split_reset.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-009: source and destination flops sit on different async resets under one clock. Same clock, different release order: the source can come out of reset while the receiver samples. (Migrated from icarium carium fixtures/RDC-009/bad_split_reset.sv; oracle rule set from fixture manifest."
 }

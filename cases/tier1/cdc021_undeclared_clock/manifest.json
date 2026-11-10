@@ -1,1 +1,15 @@
-{"design": "design.sv", "expect": [{"line": 8, "rule": "CDC-021"}], "id": "cdc021_undeclared_clock", "notes": "Toggle flop clocked by clkx with an empty SDC: nothing is declared by design, so the flop must report CDC-021.", "sdc": "design.sdc", "tier": 1, "top": "cdc021_undeclared_clock"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 8,
+   "rule": "CDC-021",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc021_undeclared_clock",
+ "notes": "Toggle flop clocked by clkx with an empty SDC: nothing is declared by design, so the flop must report CDC-021.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc021_undeclared_clock"
+}

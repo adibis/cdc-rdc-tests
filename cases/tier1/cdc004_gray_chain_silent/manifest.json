@@ -1,1 +1,9 @@
-{"id": "cdc004_gray_chain_silent", "tier": 1, "design": "design.sv", "top": "cdc004_gray_chain_silent", "sdc": "design.sdc", "expect": [], "notes": "Gray-coded bus into a 2-deep multi-bit chain. Structural gray plus chain clears CDC-004; must stay silent."}
+{
+ "id": "cdc004_gray_chain_silent",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc004_gray_chain_silent",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Gray-coded bus into a 2-deep multi-bit chain. Structural gray plus chain clears CDC-004; must stay silent."
+}

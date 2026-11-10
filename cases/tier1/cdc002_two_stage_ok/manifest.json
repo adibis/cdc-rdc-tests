@@ -1,1 +1,0 @@
-{"allow_extra": false, "design": "design.sv", "expect": [], "id": "cdc002_two_stage_ok", "notes": "Clean 2FF synchronizer, silent at the default --sync-depth 2. Fires CDC-002 only with the bar raised to 3; that config-gated run is covered by the unit test.", "sdc": "design.sdc", "tier": 1, "top": "cdc002_two_stage_ok"}

@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 11, "rule": "CDC-016"}], "id": "cdc016_negedge_head", "notes": "Reversed opposite-edge chain: negedge head, posedge tail on cb. Either order halves resolution time, so the head must report.", "sdc": "design.sdc", "tier": 1, "top": "cdc016_negedge_head"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 11,
+   "rule": "CDC-016",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc016_negedge_head",
+ "notes": "Reversed opposite-edge chain: negedge head, posedge tail on cb. Either order halves resolution time, so the head must report.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc016_negedge_head"
+}

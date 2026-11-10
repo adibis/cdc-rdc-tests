@@ -1,1 +1,15 @@
-{"id": "cdc008_divided_sampled", "tier": 1, "design": "design.sv", "top": "cdc008_divided_sampled", "sdc": "design.sdc", "expect": [{"rule": "CDC-008", "line": 12}], "notes": "Divided clock sampled as data. The AND gate (terminal load) must report; divider and toggle inverter are clock distribution."}
+{
+ "id": "cdc008_divided_sampled",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc008_divided_sampled",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-008",
+   "line": 12,
+   "severity": "error"
+  }
+ ],
+ "notes": "Divided clock sampled as data. The AND gate (terminal load) must report; divider and toggle inverter are clock distribution."
+}

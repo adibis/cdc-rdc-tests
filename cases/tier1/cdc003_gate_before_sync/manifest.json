@@ -1,1 +1,21 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 19, "rule": "CDC-003"}, {"line": 19, "rule": "CDC-003"}], "id": "cdc003_gate_before_sync", "notes": "AND of two ca flops feeds one shared 2FF chain: CDC-003 fires once per source path (not CDC-001), both findings at the head stage.", "sdc": "design.sdc", "tier": 1, "top": "cdc003_gate_before_sync"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 19,
+   "rule": "CDC-003",
+   "severity": "error"
+  },
+  {
+   "line": 19,
+   "rule": "CDC-003",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc003_gate_before_sync",
+ "notes": "AND of two ca flops feeds one shared 2FF chain: CDC-003 fires once per source path (not CDC-001), both findings at the head stage.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc003_gate_before_sync"
+}

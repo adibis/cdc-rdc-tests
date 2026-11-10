@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-017",
-   "line": 16
+   "line": 16,
+   "severity": "error"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-017/bad_latch_stage.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-017: a latch posed as a first sync stage. While the enable holds, the src-domain value flows transparently to the dst flop's D pin with no resolution time at all. (Migrated from icarium carium fixtures/CDC-017/bad_latch_stage.sv; oracle rule set from fixture manifest."
 }

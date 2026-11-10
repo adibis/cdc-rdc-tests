@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-011",
-   "line": 9
+   "line": 9,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-011/bad_port_srst.sv; oracle rule set from fixture manifest."
+ "notes": "rst has no input-delay typing and drives the SRST pin of a clk-domain flop, and untyped captures into D or SRST both count, so CDC-011 warns at line 9. (Migrated from icarium fixtures/CDC-011/bad_port_srst.sv; oracle rule set from fixture manifest.)"
 }

@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-013",
-   "line": 13
+   "line": 13,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-013/bad_toggle_bare.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-013: a fast toggle source into a 2FF chain with no XOR tail. The chain output tracks the toggle level, so two fast toggles between slow samples vanish without a trace. (Migrated from icarium carium fixtures/CDC-013/bad_toggle_bare.sv; oracle rule set from fixture manifest."
 }

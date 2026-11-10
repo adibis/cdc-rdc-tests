@@ -1,1 +1,21 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 17, "rule": "CDC-001"}, {"line": 17, "rule": "RDC-003"}], "id": "rdc003_srst_gated_enable", "notes": "A cb flop takes sync reset from a ca flop ANDed with a cb-domain enable. The local gate does not domesticate the foreign leg.", "sdc": "design.sdc", "tier": 1, "top": "rdc003_srst_gated_enable"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 17,
+   "rule": "CDC-001",
+   "severity": "error"
+  },
+  {
+   "line": 17,
+   "rule": "RDC-003",
+   "severity": "error"
+  }
+ ],
+ "id": "rdc003_srst_gated_enable",
+ "notes": "A cb flop takes sync reset from a ca flop ANDed with a cb-domain enable. The local gate does not domesticate the foreign leg.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "rdc003_srst_gated_enable"
+}

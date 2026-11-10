@@ -1,12 +1,16 @@
 {
-  "id": "rdc009_split_domain",
-  "tier": 1,
-  "design": "design.sv",
-  "top": "rdc009_split_domain",
-  "sdc": "design.sdc",
-  "expect": [
-    {"rule": "RDC-009", "line": 13}
-  ],
-  "allow_extra": false,
-  "notes": "From unit test 'data across reset domains fires RDC-009'. src on ra feeds dst on rb with no shared release; same clock, so clocks play no part."
+ "id": "rdc009_split_domain",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "rdc009_split_domain",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-009",
+   "line": 13,
+   "severity": "error"
+  }
+ ],
+ "allow_extra": false,
+ "notes": "From unit test 'data across reset domains fires RDC-009'. src on ra feeds dst on rb with no shared release; same clock, so clocks play no part."
 }

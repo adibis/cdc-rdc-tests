@@ -5,5 +5,5 @@
  "top": "good_same_edge",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Migrated from icarium fixtures/CDC-016/good_same_edge.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-016: both stages on the positive edge. Depth reads 2 with full-period resolution, so nothing fires. (Migrated from icarium carium fixtures/CDC-016/good_same_edge.sv; oracle rule set from fixture manifest."
 }

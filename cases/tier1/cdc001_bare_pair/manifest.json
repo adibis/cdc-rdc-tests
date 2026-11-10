@@ -1,1 +1,0 @@
-{"design": "design.sv", "expect": [{"line": 12, "rule": "CDC-001"}], "id": "cdc001_bare_pair", "notes": "Unsynchronized flop-to-flop crossing across async groups; the capture flop must report with chain depth 1. From unit test 'bare async pair fires with depth and endpoints'.", "sdc": "design.sdc", "tier": 1, "top": "cdc001_bare_pair"}

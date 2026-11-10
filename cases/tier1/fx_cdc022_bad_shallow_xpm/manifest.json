@@ -7,12 +7,12 @@
  "expect": [
   {
    "rule": "CDC-022",
-   "line": 34
+   "line": 34,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-022/bad_shallow_xpm.sv; oracle rule set from fixture manifest.",
- "args": [
-  "--sync-depth",
-  "3"
- ]
+ "notes": "Blackbox stub: the macro body ships in the vendor tree, so the analyzer sees the instantiation, its type, and its parameter overrides, never the stages inside. (Migrated from icarium carium fixtures/CDC-022/bad_shallow_xpm.sv; oracle rule set from fixture manifest.",
+ "params": {
+  "sync_depth": 3
+ }
 }

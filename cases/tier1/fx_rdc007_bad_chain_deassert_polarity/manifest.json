@@ -7,12 +7,14 @@
  "expect": [
   {
    "rule": "RDC-007",
-   "line": 16
+   "line": 16,
+   "severity": "error"
   },
   {
    "rule": "RDC-010",
-   "line": 16
+   "line": 16,
+   "severity": "note"
   }
  ],
- "notes": "Migrated from icarium fixtures/RDC-007/bad_chain_deassert_polarity.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-007: an active-low reset chain whose head loads 1'b0, the asserted value, instead of 1'b1. Structurally a fine chain otherwise, so recognition accepts it; the tail then holds downstream consumers in reset forever. (Migrated from icarium carium fixtures/RDC-007/bad_chain_deassert_polarity.sv; oracle rule set from fixture manifest."
 }

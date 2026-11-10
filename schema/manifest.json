@@ -3,6 +3,7 @@
   "title": "icarium_benchmark case manifest",
   "type": "object",
   "required": ["id", "tier", "design", "top", "sdc", "expect"],
+  "additionalProperties": false,
   "properties": {
     "id": {"type": "string"},
     "tier": {"type": "integer", "enum": [1, 2, 3]},
@@ -14,15 +15,24 @@
       "items": {
         "type": "object",
         "required": ["rule"],
+        "additionalProperties": false,
+        "oneOf": [{"required": ["line"]}, {"required": ["dst"]}],
         "properties": {
-          "rule": {"type": "string"},
-          "line": {"type": "integer"},
-          "dst": {"type": "string"}
+          "rule": {"type": "string", "pattern": "^(CDC|RDC)-[0-9]+$"},
+          "line": {"type": "integer", "minimum": 1},
+          "dst": {"type": "string", "minLength": 1},
+          "severity": {"type": "string", "enum": ["error", "warning", "note"]}
         }
       }
     },
     "allow_extra": {"type": "boolean", "default": false},
-    "args": {"type": "array", "items": {"type": "string"}},
+    "params": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sync_depth": {"type": "integer", "minimum": 1}
+      }
+    },
     "notes": {"type": "string"}
   }
 }

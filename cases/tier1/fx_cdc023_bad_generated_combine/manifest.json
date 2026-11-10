@@ -7,12 +7,14 @@
  "expect": [
   {
    "rule": "CDC-023",
-   "line": 12
+   "line": 12,
+   "severity": "warning"
   },
   {
    "rule": "CDC-025",
-   "line": 13
+   "line": 13,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-023/bad_generated_combine.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-023: a declared divide-by-2 ANDed with a second real clock. The generated leg is still a declared identity, so the gate declines exactly like the two-create_clock case. (Migrated from icarium carium fixtures/CDC-023/bad_generated_combine.sv; oracle rule set from fixture manifest."
 }

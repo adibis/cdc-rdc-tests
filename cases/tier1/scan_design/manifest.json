@@ -1,1 +1,40 @@
-{"design": "design.sv", "expect": [{"line": 21, "rule": "CDC-010"}, {"line": 25, "rule": "CDC-001"}, {"line": 25, "rule": "CDC-026"}, {"line": 32, "rule": "CDC-001"}, {"line": 32, "rule": "RDC-006"}, {"line": 38, "rule": "CDC-001"}], "id": "scan_design", "notes": "Muxed clock, muxed reset, and plain async pair sharing one enable. Six findings, one per leg.", "sdc": "design.sdc", "tier": 1, "top": "scan_ignored"}
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 21,
+   "rule": "CDC-010",
+   "severity": "error"
+  },
+  {
+   "line": 25,
+   "rule": "CDC-001",
+   "severity": "error"
+  },
+  {
+   "line": 25,
+   "rule": "CDC-026",
+   "severity": "note"
+  },
+  {
+   "line": 32,
+   "rule": "CDC-001",
+   "severity": "error"
+  },
+  {
+   "line": 32,
+   "rule": "RDC-006",
+   "severity": "warning"
+  },
+  {
+   "line": 38,
+   "rule": "CDC-001",
+   "severity": "error"
+  }
+ ],
+ "id": "scan_design",
+ "notes": "Muxed clock, muxed reset, and plain async pair sharing one enable: three data crossings, the clock-mux select, the multiclock receiver, and the muxed reset.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "scan_ignored"
+}

@@ -7,8 +7,9 @@
  "expect": [
   {
    "rule": "CDC-024",
-   "line": 12
+   "line": 12,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-005/good_no_reconverge.sv; oracle rule set from fixture manifest."
+ "notes": "Good for CDC-005 (the twin chains never recombine) but bad for CDC-024 by design: the fanout itself still needs judgement. (Migrated from icarium carium fixtures/CDC-005/good_no_reconverge.sv; oracle rule set from fixture manifest."
 }

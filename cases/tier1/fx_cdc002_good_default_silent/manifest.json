@@ -5,5 +5,5 @@
  "top": "good_default_silent",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Migrated from icarium fixtures/CDC-002/good_default_silent.sv; oracle rule set from fixture manifest."
+ "notes": "Same 2FF chain with no params override, so the default minimum of 2 is met exactly and CDC-002 stays silent. (Migrated from icarium fixtures/CDC-002/good_default_silent.sv; oracle rule set from fixture manifest.)"
 }

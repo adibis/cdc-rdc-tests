@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 16, "rule": "CDC-019"}], "id": "cdc019_gray_unmarked_fire", "notes": "A 3-bit gray counter registered lane by lane and crossed apart with no cdc_gray mark: only a marked lane vouches the group, so the first-sorted source lane must still report.", "sdc": "design.sdc", "tier": 1, "top": "cdc019_gray_unmarked_fire"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 16,
+   "rule": "CDC-019",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc019_gray_unmarked_fire",
+ "notes": "A 3-bit gray counter registered lane by lane and crossed apart with no cdc_gray mark: only a marked lane vouches the group, so the first-sorted source lane must still report.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc019_gray_unmarked_fire"
+}

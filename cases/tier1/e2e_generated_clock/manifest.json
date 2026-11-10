@@ -1,1 +1,9 @@
-{"design": "design.sv", "expect": [], "id": "e2e_generated_clock", "notes": "Divider plus two-flop sync into the divided clock. Same group, two stages: every checker stays silent.", "sdc": "design.sdc", "tier": 1, "top": "generated_clock"}
+{
+ "design": "design.sv",
+ "expect": [],
+ "id": "e2e_generated_clock",
+ "notes": "Divider plus two-flop sync into the divided clock. Same group, two stages: every checker stays silent.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "generated_clock"
+}

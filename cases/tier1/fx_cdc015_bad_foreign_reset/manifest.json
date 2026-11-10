@@ -7,28 +7,34 @@
  "expect": [
   {
    "rule": "CDC-015",
-   "line": 30
+   "line": 30,
+   "severity": "error"
   },
   {
    "rule": "RDC-001",
-   "line": 36
+   "line": 36,
+   "severity": "error"
   },
   {
    "rule": "RDC-010",
-   "line": 18
+   "line": 18,
+   "severity": "note"
   },
   {
    "rule": "RDC-010",
-   "line": 24
+   "line": 24,
+   "severity": "warning"
   },
   {
    "rule": "RDC-010",
-   "line": 30
+   "line": 30,
+   "severity": "error"
   },
   {
    "rule": "RDC-010",
-   "line": 36
+   "line": 36,
+   "severity": "error"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-015/bad_foreign_reset.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-015: a 2FF chain in dst_clk whose ARST comes from a flop registered in src_clk. Depth checks pass; the reset path is where the chain loses steady state, so RDC-001 fires one group finding for both flops beside CDC-015. RDC-009 stays silent: the foreign reset still releases after the shared global root, so source data settles first. RDC-010 records the 1-flop chain, errors its foreign drive, and warns the raw global use beside a served root. (Migrated from icarium carium fixtures/CDC-015/bad_foreign_reset.sv; oracle rule set from fixture manifest."
 }

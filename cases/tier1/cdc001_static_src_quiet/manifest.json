@@ -1,1 +1,9 @@
-{"design": "design.sv", "expect": [], "id": "cdc001_static_src_quiet", "notes": "(* cdc_static *) on the launch flop's output asserts a held-constant source; CDC-001 must stay silent. From unit test 'a held-constant source silences the rule'.", "sdc": "design.sdc", "tier": 1, "top": "cdc001_static_src_quiet"}
+{
+ "design": "design.sv",
+ "expect": [],
+ "id": "cdc001_static_src_quiet",
+ "notes": "(* cdc_static *) on the launch flop's output asserts a held-constant source; CDC-001 must stay silent. From unit test 'a held-constant source silences the rule'.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc001_static_src_quiet"
+}

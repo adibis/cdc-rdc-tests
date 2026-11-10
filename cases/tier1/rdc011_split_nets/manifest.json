@@ -1,10 +1,10 @@
 {
-  "id": "rdc011_split_nets",
-  "tier": 1,
-  "design": "design.sv",
-  "top": "rdc011_split_nets",
-  "sdc": "design.sdc",
-  "expect": [],
-  "allow_extra": false,
-  "notes": "From unit test 'split reset nets stay silent on RDC-011'. Async and sync resets come from separate ports; the design is fully clean."
+ "id": "rdc011_split_nets",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "rdc011_split_nets",
+ "sdc": "design.sdc",
+ "expect": [],
+ "allow_extra": false,
+ "notes": "From unit test 'split reset nets stay silent on RDC-011'. Async and sync resets come from separate ports; the design is fully clean."
 }

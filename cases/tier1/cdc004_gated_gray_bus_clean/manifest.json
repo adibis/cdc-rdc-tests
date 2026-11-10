@@ -1,1 +1,9 @@
-{"design": "design.sv", "expect": [], "id": "cdc004_gated_gray_bus_clean", "notes": "Gray-coded bus sampled behind a synced enable mux. Gating clears CDC-004, gray clears CDC-012: silence is the verdict.", "sdc": "design.sdc", "tier": 1, "top": "cdc004_gated_gray_bus_clean"}
+{
+ "design": "design.sv",
+ "expect": [],
+ "id": "cdc004_gated_gray_bus_clean",
+ "notes": "Gray-coded bus sampled behind a synced enable mux. Gating clears CDC-004, gray clears CDC-012: silence is the verdict.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc004_gated_gray_bus_clean"
+}

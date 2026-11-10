@@ -7,12 +7,12 @@
  "expect": [
   {
    "rule": "CDC-002",
-   "line": 10
+   "line": 10,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-002/bad_depth_short.sv; oracle rule set from fixture manifest.",
- "args": [
-  "--sync-depth",
-  "3"
- ]
+ "notes": "The 2FF chain satisfies CDC-001, but params raise the site minimum to sync_depth=3, so CDC-002 warns at the first stage on line 10. (Migrated from icarium fixtures/CDC-002/bad_depth_short.sv; oracle rule set from fixture manifest.)",
+ "params": {
+  "sync_depth": 3
+ }
 }

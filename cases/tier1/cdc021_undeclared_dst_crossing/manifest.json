@@ -1,1 +1,16 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 13, "rule": "CDC-021"}], "id": "cdc021_undeclared_dst_crossing", "notes": "A ca flop feeds a 2-deep chain on clkx, which has no create_clock: the crossing stays blind to every async check and only the first clkx consumer must report CDC-021.", "sdc": "design.sdc", "tier": 1, "top": "cdc021_undeclared_dst_crossing"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 13,
+   "rule": "CDC-021",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc021_undeclared_dst_crossing",
+ "notes": "A ca flop feeds a 2-deep chain on clkx, which has no create_clock: the crossing stays blind to every async check and CDC-021 reports one representative clkx consumer (line 13).",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc021_undeclared_dst_crossing"
+}

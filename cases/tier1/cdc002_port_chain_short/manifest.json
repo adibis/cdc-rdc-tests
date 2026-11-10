@@ -1,1 +1,24 @@
-{"allow_extra": false, "args": ["--sync-depth", "3"], "design": "design.sv", "expect": [{"line": 12, "rule": "CDC-002"}, {"line": 12, "rule": "CDC-006"}], "id": "cdc002_port_chain_short", "notes": "Typed async port into a 2FF chain: short once the bar rises to 3 (CDC-002 on the head), and the unregistered port source also trips CDC-006 by design.", "sdc": "design.sdc", "tier": 1, "top": "cdc002_port_chain_short"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 12,
+   "rule": "CDC-002",
+   "severity": "warning"
+  },
+  {
+   "line": 12,
+   "rule": "CDC-006",
+   "severity": "error"
+  }
+ ],
+ "id": "cdc002_port_chain_short",
+ "notes": "Typed async port into a 2FF chain: short once the bar rises to 3 (CDC-002 on the head), and the unregistered port source also trips CDC-006 by design.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc002_port_chain_short",
+ "params": {
+  "sync_depth": 3
+ }
+}

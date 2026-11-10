@@ -7,12 +7,14 @@
  "expect": [
   {
    "rule": "RDC-010",
-   "line": 15
+   "line": 15,
+   "severity": "note"
   },
   {
    "rule": "RDC-010",
-   "line": 27
+   "line": 27,
+   "severity": "warning"
   }
  ],
- "notes": "Migrated from icarium fixtures/RDC-010/warn_raw_root.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-010: one consumer takes the synchronized reset while its sibling on the same clock uses the raw root. The sibling's release runs ahead; human review decides intent (warn). (Migrated from icarium carium fixtures/RDC-010/warn_raw_root.sv; oracle rule set from fixture manifest."
 }

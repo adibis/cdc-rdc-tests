@@ -1,1 +1,21 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 17, "rule": "CDC-005"}, {"line": 17, "rule": "CDC-024"}], "id": "cdc005_reconvergent_pair", "notes": "Twin 2FF chains from one source flop recombine in a downstream AND: CDC-005 reports the reconvergence and CDC-024 the fanout, both at the source flop.", "sdc": "design.sdc", "tier": 1, "top": "cdc005_reconvergent_pair"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 17,
+   "rule": "CDC-005",
+   "severity": "warning"
+  },
+  {
+   "line": 17,
+   "rule": "CDC-024",
+   "severity": "warning"
+  }
+ ],
+ "id": "cdc005_reconvergent_pair",
+ "notes": "Twin 2FF chains from one source flop recombine in a downstream AND: CDC-005 reports the reconvergence and CDC-024 the fanout, both at the source flop.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc005_reconvergent_pair"
+}

@@ -7,12 +7,14 @@
  "expect": [
   {
    "rule": "CDC-003",
-   "line": 12
+   "line": 12,
+   "severity": "error"
   },
   {
    "rule": "CDC-003",
-   "line": 12
+   "line": 12,
+   "severity": "error"
   }
  ],
- "notes": "Migrated from icarium fixtures/CDC-003/bad_comb_before_sync.sv; oracle rule set from fixture manifest."
+ "notes": "p_q and r_q combine through an AND gate before the s1_q/s2_q synchronizer, so each source flop crosses with combinational hops into a proven 2-deep chain and CDC-003 fires once per source pair, both attributed to the sync first stage on line 12. (Migrated from icarium fixtures/CDC-003/bad_comb_before_sync.sv; oracle rule set from fixture manifest.)"
 }

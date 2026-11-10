@@ -1,1 +1,21 @@
-{"allow_extra": false, "design": "design.sv", "expect": [{"line": 17, "rule": "RDC-010"}, {"line": 23, "rule": "RDC-008"}], "id": "rdc008_split_blocks_miss", "notes": "rst is synced in ca but raw in cb, where two consumers in separate always blocks take it direct. The RDC-010 record note on the authored ca chain is intended rule behavior, included here.", "sdc": "design.sdc", "tier": 1, "top": "rdc008_split_blocks_miss"}
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 17,
+   "rule": "RDC-010",
+   "severity": "note"
+  },
+  {
+   "line": 23,
+   "rule": "RDC-008",
+   "severity": "error"
+  }
+ ],
+ "id": "rdc008_split_blocks_miss",
+ "notes": "rst is synced in ca but raw in cb, where two consumers in separate always blocks take it direct. The RDC-010 record note on the authored ca chain is intended rule behavior, included here.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "rdc008_split_blocks_miss"
+}
