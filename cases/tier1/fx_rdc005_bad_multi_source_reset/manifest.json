@@ -11,5 +11,5 @@
    "severity": "warning"
   }
  ],
- "notes": "RDC-005: two independent board resets ANDed onto one ARST pin with no flop behind the gate. The sources release at independent times, so the release edge is undefined. RDC-004 skips port-only comb, which is why this rule exists. (Migrated from icarium carium fixtures/RDC-005/bad_multi_source_reset.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-005: two independent board resets ANDed onto one ARST pin with no flop behind the gate. The sources release at independent times, so the release edge is undefined. RDC-004 skips port-only comb, which is why this rule exists. (Migrated from icarium fixtures/RDC-005/bad_multi_source_reset.sv; oracle rule set from fixture manifest.)"
 }

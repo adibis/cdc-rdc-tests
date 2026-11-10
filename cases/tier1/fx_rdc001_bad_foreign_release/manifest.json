@@ -36,5 +36,5 @@
    "severity": "error"
   }
  ],
- "notes": "RDC-001: a 2FF chain in dst_clk whose ARST comes from a flop registered in src_clk. CDC-015 frames the chain side; RDC-001 frames the reset side with one group finding for both flops. RDC-009 stays silent: the foreign reset still releases after the shared global root, so source data settles first. RDC-010 records the 1-flop chain, errors its foreign drive, and warns the raw global use beside a served root. (Migrated from icarium carium fixtures/RDC-001/bad_foreign_release.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-001: a 2FF chain in dst_clk whose ARST comes from a flop registered in src_clk. CDC-015 frames the chain side; RDC-001 frames the reset side with one group finding for both flops. RDC-009 stays silent: the foreign reset still releases after the shared global root, so source data settles first. RDC-010 records the 1-flop chain, errors its foreign drive, and warns the raw global use beside a served root. (Migrated from icarium fixtures/RDC-001/bad_foreign_release.sv; oracle rule set from fixture manifest.)"
 }

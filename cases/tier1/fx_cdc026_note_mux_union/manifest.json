@@ -11,5 +11,5 @@
    "severity": "note"
   }
  ],
- "notes": "CDC-026: destination clocked by a $mux union of two async clocks. The crossing is synchronized, so only the leg-pair record fires: sets, pairs, select, and chain depth. (Migrated from icarium carium fixtures/CDC-026/note_mux_union.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-026: destination clocked by a $mux union of two async clocks. The crossing is synchronized, so only the leg-pair record fires: sets, pairs, select, and chain depth. (Migrated from icarium fixtures/CDC-026/note_mux_union.sv; oracle rule set from fixture manifest.)"
 }

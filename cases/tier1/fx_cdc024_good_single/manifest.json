@@ -5,5 +5,5 @@
  "top": "good_single",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "CDC-024: one source into one 2FF chain. No fanout, no finding. (Migrated from icarium carium fixtures/CDC-024/good_single.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-024: one source into one 2FF chain. No fanout, no finding. (Migrated from icarium fixtures/CDC-024/good_single.sv; oracle rule set from fixture manifest.)"
 }

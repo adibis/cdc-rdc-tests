@@ -11,5 +11,5 @@
    "severity": "note"
   }
  ],
- "notes": "RDC-010: textbook 2FF reset synchronizer serving one consumer on the same clock. Clean shape; only the chain note reports. (Migrated from icarium carium fixtures/RDC-010/note_chain.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-010: textbook 2FF reset synchronizer serving one consumer on the same clock. Clean shape; only the chain note reports. (Migrated from icarium fixtures/RDC-010/note_chain.sv; oracle rule set from fixture manifest.)"
 }

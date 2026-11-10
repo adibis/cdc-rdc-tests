@@ -11,5 +11,5 @@
    "severity": "warning"
   }
  ],
- "notes": "CDC-024: one source bit fans out to two independent 2FF chains in the same foreign domain. The chains never recombine, so CDC-005 stays silent; the fanout itself still needs the independence judgement. (Migrated from icarium carium fixtures/CDC-024/bad_fanout.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-024: one source bit fans out to two independent 2FF chains in the same foreign domain. The chains never recombine, so CDC-005 stays silent; the fanout itself still needs the independence judgement. (Migrated from icarium fixtures/CDC-024/bad_fanout.sv; oracle rule set from fixture manifest.)"
 }

@@ -11,5 +11,5 @@
    "severity": "note"
   }
  ],
- "notes": "CDC-026: AND-OR clock mux with independent enables. Both legs can pass at once, so pairs stay async and the record names each gate. CDC-023 stays silent: the shape resolves to a union domain instead of leaving flops unknown. (Migrated from icarium carium fixtures/CDC-026/note_or_mux.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-026: AND-OR clock mux with independent enables. Both legs can pass at once, so pairs stay async and the record names each gate. CDC-023 stays silent: the shape resolves to a union domain instead of leaving flops unknown. (Migrated from icarium fixtures/CDC-026/note_or_mux.sv; oracle rule set from fixture manifest.)"
 }

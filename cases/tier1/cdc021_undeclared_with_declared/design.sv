@@ -1,6 +1,6 @@
 // Mixed design: ca/cb are declared and async with a clean 2FF between
 // them, but clkx drives two flops with no create_clock behind it. The
-// declared half is quiet; must report CDC-021 on the first consumer.
+// declared half is quiet; CDC-021 reports one representative consumer.
 module cdc021_undeclared_with_declared (
     input  logic ca,
     input  logic cb,

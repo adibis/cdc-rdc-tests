@@ -21,5 +21,5 @@
    "severity": "note"
   }
  ],
- "notes": "CDC-026: source and destination muxed by the same select. Cross leg-pairs can never co-occur, so the record marks them exclusive instead of async. CDC-006 joins in: port d is async to the cb leg feeding the union-clocked head. (Migrated from icarium carium fixtures/CDC-026/note_shared_select.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-026: source and destination muxed by the same select. Cross leg-pairs can never co-occur, so the record marks them exclusive instead of async. CDC-006 joins in: port d is async to the cb leg feeding the union-clocked head. (Migrated from icarium fixtures/CDC-026/note_shared_select.sv; oracle rule set from fixture manifest.)"
 }

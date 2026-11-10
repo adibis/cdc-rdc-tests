@@ -11,5 +11,5 @@
    "severity": "error"
   }
  ],
- "notes": "CDC-014: the gate feeds a second stage, but the head also taps out to a port. A tapped head feeds logic, not a stage: CDC-014 stays silent and CDC-001 frames the short chain. (Migrated from icarium carium fixtures/CDC-014/good_tapped_gate.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-014: the gate feeds a second stage, but the head also taps out to a port. A tapped head feeds logic, not a stage: CDC-014 stays silent and CDC-001 frames the short chain. (Migrated from icarium fixtures/CDC-014/good_tapped_gate.sv; oracle rule set from fixture manifest.)"
 }

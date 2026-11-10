@@ -11,5 +11,5 @@
    "severity": "warning"
   }
  ],
- "notes": "CDC-019: a 2-to-4 one-hot decoder registered lane by lane, each lane crossing through its own 2FF. Every lane is 1-bit so CDC-004 stays out, but the shared decoder couples them. (Migrated from icarium carium fixtures/CDC-019/bad_onehot_decode.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-019: a 2-to-4 one-hot decoder registered lane by lane, each lane crossing through its own 2FF. Every lane is 1-bit so CDC-004 stays out, but the shared decoder couples them. (Migrated from icarium fixtures/CDC-019/bad_onehot_decode.sv; oracle rule set from fixture manifest.)"
 }

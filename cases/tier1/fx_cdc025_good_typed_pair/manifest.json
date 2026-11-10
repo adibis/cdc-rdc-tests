@@ -5,5 +5,5 @@
  "top": "good_typed_pair",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "CDC-025: fully typed single-clock path. Every endpoint has a clock association and the pairs are synchronous: silent. (Migrated from icarium carium fixtures/CDC-025/good_typed_pair.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-025: fully typed single-clock path. Every endpoint has a clock association and the pairs are synchronous: silent. (Migrated from icarium fixtures/CDC-025/good_typed_pair.sv; oracle rule set from fixture manifest.)"
 }

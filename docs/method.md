@@ -19,8 +19,9 @@ duplicate findings one-for-one (multiset, not set).
   findings. They guard precision: a checker that fires everywhere
   fails the suite.
 - **`params`** holds neutral checker parameters the scenario needs
-  (today only `sync_depth`, default 2). The design and the intent
-  stay portable; the runner translates params to flags.
+  (today only `sync_depth`, default 2, consumed by CDC-002 and
+  CDC-022). The design and the intent stay portable; the runner
+  translates params to flags.
 - **`--ignore-notes`** drops note-severity expects and findings on
   both sides, for violation-oriented checkers that keep no
   informational records. Strict mode (default) pins everything.
@@ -55,4 +56,5 @@ lint, memory opacity, reset-port policy — are excluded on purpose
 (see the README). What this corpus asserts, any correct checker
 should agree with; where reasonable checkers disagree, the case
 doesn't belong here. CDC-007 is reserved (no rule claims it),
-which is why no case targets it.
+which is why no case targets it. Which endpoint each pinned line
+belongs to is stated in `docs/locators.md`.

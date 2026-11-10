@@ -7,7 +7,10 @@ the exact spelling it uses so no checker has to guess.
 All attributes attach to the signal declaration (`logic`, `input`,
 `output`). Matching is case-sensitive except where noted. A foreign
 checker implements these as waivers: when the promise holds for a
-finding's endpoint, the finding drops.
+finding's endpoint, the finding drops. The honored-by lists below
+match the reference checker's mark consumers exactly, and silence
+oracles pin the net effect on real designs; the two sections marked
+"not used in this corpus" specify spellings no case pins yet.
 
 ## cdc_sync
 

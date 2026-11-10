@@ -11,5 +11,5 @@
    "severity": "error"
   }
  ],
- "notes": "CDC-016: stage 1 samples on the positive edge of dst_clk, stage 2 on the negative edge. Depth reads 2, but each value gets half a period to resolve instead of a full one. (Migrated from icarium carium fixtures/CDC-016/bad_opposite_edge.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-016: stage 1 samples on the positive edge of dst_clk, stage 2 on the negative edge. Depth reads 2, but each value gets half a period to resolve instead of a full one. (Migrated from icarium fixtures/CDC-016/bad_opposite_edge.sv; oracle rule set from fixture manifest.)"
 }

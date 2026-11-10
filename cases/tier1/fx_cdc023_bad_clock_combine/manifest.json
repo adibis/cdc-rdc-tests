@@ -16,5 +16,5 @@
    "severity": "warning"
   }
  ],
- "notes": "CDC-023: two declared clocks ANDed onto one net feeding a flop clock. The tracer declines instead of picking a leg, and the rule names the gate, the net, and the clocks. (Migrated from icarium carium fixtures/CDC-023/bad_clock_combine.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-023: two declared clocks ANDed onto one net feeding a flop clock. The tracer declines instead of picking a leg, and the rule names the gate, the net, and the clocks. (Migrated from icarium fixtures/CDC-023/bad_clock_combine.sv; oracle rule set from fixture manifest.)"
 }

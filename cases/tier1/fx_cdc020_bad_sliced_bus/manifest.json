@@ -11,5 +11,5 @@
    "severity": "warning"
   }
  ],
- "notes": "CDC-020: a true 4-bit register sliced into wires, each lane 2FF-synced apart and recombined. Every crossing is width 1, so CDC-004 misses the bus the lanes still form together. (Migrated from icarium carium fixtures/CDC-020/bad_sliced_bus.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-020: a true 4-bit register sliced into wires, each lane 2FF-synced apart and recombined. Every crossing is width 1, so CDC-004 misses the bus the lanes still form together. (Migrated from icarium fixtures/CDC-020/bad_sliced_bus.sv; oracle rule set from fixture manifest.)"
 }

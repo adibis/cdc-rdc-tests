@@ -9,7 +9,7 @@
   }
  ],
  "id": "cdc021_undeclared_with_declared",
- "notes": "ca/cb are declared and async with a clean 2FF between them, but clkx drives two flops with no create_clock: the declared half stays quiet and the first clkx consumer must report CDC-021.",
+ "notes": "ca/cb are declared and async with a clean 2FF between them, but clkx drives two flops with no create_clock: the declared half stays quiet and CDC-021 reports one representative clkx consumer (line 17).",
  "sdc": "design.sdc",
  "tier": 1,
  "top": "cdc021_undeclared_with_declared"

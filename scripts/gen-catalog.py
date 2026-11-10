@@ -3,6 +3,7 @@
 import glob
 import json
 import os
+import sys
 from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,7 +19,10 @@ def loc(e):
 
 cases = []
 for mf in glob.glob(os.path.join(ROOT, "cases", "tier*", "*", "manifest.json")):
-    cases.append(json.load(open(mf)))
+    try:
+        cases.append(json.load(open(mf)))
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError) as e:
+        sys.exit(f"gen-catalog: bad manifest {mf}: {e}")
 
 tiers = defaultdict(list)
 for m in cases:

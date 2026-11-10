@@ -10,6 +10,9 @@ clock: a single-bit signal lands and is used directly, with no
 second stage to filter metastability. Add a 2FF chain, or assert
 (* cdc_sync *) on a vetted synchronizer, (* cdc_static *) on a
 source held constant, (* cdc_handshake *) on a capture register.
+Typed input ports fire as sources, and crossings leaving through
+an output port fire on the boundary; untyped inputs defer to
+CDC-011, which owns the missing-typing verdict.
 
 ## CDC-002 (warning) — Insufficient synchronizer depth
 
@@ -86,7 +89,11 @@ payload until a synced-back ack confirms the sample.
 A toggling source runs fast to slow past the period ratio:
 two toggles between destination samples cancel to zero edges
 and both events are silently lost. Handshake, backpressure,
-or the canonical XOR-tail pulse synchronizer closes it.
+or the canonical XOR-tail pulse synchronizer closes it. The
+bar is a 1.5x period ratio — the rule fires when the source
+period times 1.5 still sits below the destination period —
+and both periods must come from declared clocks, since an
+undeclared frequency cannot ground a fast-to-slow claim.
 
 ## CDC-014 (error) — Combinational logic between synchronizer stages
 
@@ -100,7 +107,9 @@ gate past the chain's final stage.
 A synchronizer chain takes its async reset from another clock
 domain: every foreign deassertion races the chain clock, so the
 resolving flops never reach steady state. Reset the chain from
-its own domain, or synchronize the reset into it.
+its own domain, or synchronize the reset into it. Fires beside
+RDC-001 on the shared shape by design: this rule frames the
+chain's release, RDC-001 the consumer's, each a different fix.
 
 ## CDC-016 (error) — Opposite-edge stages in a synchronizer chain
 
@@ -148,6 +157,12 @@ other check touching the domain silently skips. Declare it.
 A CDC macro carries its stage count as a parameter, not a flop
 chain, so CDC-002 cannot see it. Under a project minimum the
 instance reads short. Raise the parameter or lower the bar.
+A macro is a blackbox instantiation recognized by its type
+name (XPM primitives and the runner's configured list); its
+depth comes from the vendor depth parameter (DEST_SYNC_FF
+and kin), never from assumed defaults — a macro without the
+parameter stays silent. The bar is the same `sync_depth`
+minimum CDC-002 uses, so one number governs both.
 
 ## CDC-023 (warning) — Clock net driven by a combine of declared clocks
 
@@ -251,11 +266,13 @@ a reset domain stays silent. Clocks do not matter here.
 ## RDC-010 (note) — Reset synchronizer chain record and checks
 
 Every recognized reset synchronizer is recorded for review:
-stages, clock, polarity, head constant, async root. Shape
-defects report beside the record: a chain on the wrong clock
-for its consumers, internal taps feeding resets, and gates
-editing the output all break the release contract; consumers
-on the raw root in a served domain report at warn.
+stages, clock, polarity, head constant, async root. Severity
+follows what breaks: defects that destroy the shaped release
+edge itself — wrong consumer clock, internal tap, gate on the
+output — report at error, since the chain's contract fails no
+matter what the consumer does. A consumer on the raw root in
+a served domain reports at warn: it runs ahead of its synced
+siblings, which corrupts only if the two sides interact.
 
 ## RDC-011 (error) — One net drives both sync and async resets
 

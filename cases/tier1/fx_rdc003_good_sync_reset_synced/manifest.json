@@ -5,5 +5,5 @@
  "top": "good_sync_reset_synced",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "RDC-003: the foreign reset passes through a 2FF chain in dst_clk before touching the sync reset. Same-domain drive at the select, so nothing fires. (Migrated from icarium carium fixtures/RDC-003/good_sync_reset_synced.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-003: the foreign reset passes through a 2FF chain in dst_clk before touching the sync reset. Same-domain drive at the select, so nothing fires. (Migrated from icarium fixtures/RDC-003/good_sync_reset_synced.sv; oracle rule set from fixture manifest.)"
 }

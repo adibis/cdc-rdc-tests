@@ -5,5 +5,5 @@
  "top": "good_declared_toggle",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "CDC-021: the same toggle, but clk_aux is declared. The domain is real, so nothing fires. (Migrated from icarium carium fixtures/CDC-021/good_declared_toggle.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-021: the same toggle, but clk_aux is declared. The domain is real, so nothing fires. (Migrated from icarium fixtures/CDC-021/good_declared_toggle.sv; oracle rule set from fixture manifest.)"
 }

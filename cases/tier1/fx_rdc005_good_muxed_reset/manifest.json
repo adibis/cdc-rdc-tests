@@ -11,5 +11,5 @@
    "severity": "note"
   }
  ],
- "notes": "RDC-005: the two sources mux-select into a reset-sync chain instead of ANDing onto the pin. Chain members exempt, and the consumer's reset comes from the tail flop, so the port count never reaches two without a flop behind it. (Migrated from icarium carium fixtures/RDC-005/good_muxed_reset.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-005: the two sources mux-select into a reset-sync chain instead of ANDing onto the pin. Chain members exempt, and the consumer's reset comes from the tail flop, so the port count never reaches two without a flop behind it. (Migrated from icarium fixtures/RDC-005/good_muxed_reset.sv; oracle rule set from fixture manifest.)"
 }

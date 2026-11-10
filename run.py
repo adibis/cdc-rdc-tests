@@ -13,6 +13,7 @@ green).
 """
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -68,28 +69,52 @@ def check(icarium, net, sdc, top, args):
 
 
 def validate_manifest(m):
-    """Stdlib shape check; the JSON schema file is the contract."""
+    """Stdlib shape check mirroring schema/manifest.json."""
+    if not isinstance(m, dict):
+        return "manifest must be an object"
+    known = {"id", "tier", "design", "top", "sdc", "expect",
+             "allow_extra", "params", "notes"}
+    if set(m) - known:
+        return f"manifest unknown keys {sorted(set(m) - known)}"
     for k in ("id", "tier", "design", "top", "sdc", "expect"):
         if k not in m:
             return f"manifest missing {k!r}"
+    if not isinstance(m["tier"], int) or m["tier"] not in (1, 2, 3):
+        return "manifest tier must be 1, 2, or 3"
     if not isinstance(m["expect"], list):
         return "manifest expect must be a list"
     for e in m["expect"]:
+        if not isinstance(e, dict):
+            return "manifest expect entries must be objects"
+        if set(e) - {"rule", "line", "dst", "severity"}:
+            return f"manifest expect unknown keys {sorted(set(e) - {'rule', 'line', 'dst', 'severity'})}"
         if "rule" not in e:
             return "manifest expect entry without rule"
         if ("line" in e) == ("dst" in e):
             return "manifest expect wants exactly one of line/dst"
         if "line" in e and (not isinstance(e["line"], int) or e["line"] < 1):
             return "manifest expect line must be >= 1"
-        if "dst" in e and not e["dst"]:
-            return "manifest expect dst must be non-empty"
+        if "dst" in e and (not isinstance(e["dst"], str) or not e["dst"]):
+            return "manifest expect dst must be a non-empty string"
         if "severity" in e and e["severity"] not in SEVERITIES:
             return f"manifest severity must be one of {SEVERITIES}"
+    if "allow_extra" in m and not isinstance(m["allow_extra"], bool):
+        return "manifest allow_extra must be a boolean"
     if "params" in m:
         p = m["params"]
-        if set(p) - {"sync_depth"} or not isinstance(p.get("sync_depth"), int):
+        if not isinstance(p, dict) or set(p) - {"sync_depth"}:
             return "manifest params allows only {sync_depth: int}"
+        if "sync_depth" in p and \
+           (not isinstance(p["sync_depth"], int) or p["sync_depth"] < 1):
+            return "manifest sync_depth must be >= 1"
     return None
+
+
+def read_manifest(path):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError) as e:
+        return e
 
 
 def params_to_args(m):
@@ -99,10 +124,9 @@ def params_to_args(m):
 
 
 def run_case(icarium, manifest, ignore_notes):
-    try:
-        m = json.loads(manifest.read_text())
-    except (json.JSONDecodeError, OSError) as e:
-        return manifest.parent.name, [f"bad manifest: {e}"]
+    m = read_manifest(manifest)
+    if not isinstance(m, dict):
+        return manifest.parent.name, [f"bad manifest: {m}"]
     bad = validate_manifest(m)
     if bad:
         return m.get("id", manifest.parent.name), [bad]
@@ -142,7 +166,7 @@ def run_case(icarium, manifest, ignore_notes):
         if hit is not None:
             unmatched.remove(hit)
         else:
-            errors.append(f"missing {e}; got {[(f[0], f[1]) for f in findings]}")
+            errors.append(f"missing {e}; got {[(f[0], f[1], f[2]) for f in findings]}")
     if unmatched and not m.get("allow_extra", False):
         errors.append(f"extra findings {unmatched}")
     return m["id"], errors
@@ -158,20 +182,21 @@ def main():
     if shutil.which("yosys") is None:
         print("run.py: yosys not on PATH", file=sys.stderr)
         sys.exit(2)
-    if not Path(args.icarium_bin).is_file():
-        print(f"run.py: no such binary {args.icarium_bin}", file=sys.stderr)
+    if not os.access(args.icarium_bin, os.X_OK):
+        print(f"run.py: not executable {args.icarium_bin}", file=sys.stderr)
         sys.exit(2)
     manifests = sorted((ROOT / "cases").rglob("manifest.json"))
     selected = []
     for mf in manifests:
-        try:
-            m = json.loads(mf.read_text())
-            mid, mtier = m.get("id"), m.get("tier")
-        except (json.JSONDecodeError, OSError):
-            mid, mtier = mf.parent.name, None
-        if args.tier is not None and mtier != args.tier:
+        m = read_manifest(mf)
+        if not isinstance(m, dict):
+            if args.case is not None and mf.parent.name != args.case:
+                continue
+            selected.append(mf)
             continue
-        if args.case is not None and mid != args.case:
+        if args.tier is not None and m.get("tier") != args.tier:
+            continue
+        if args.case is not None and m.get("id") != args.case:
             continue
         selected.append(mf)
     if not selected:

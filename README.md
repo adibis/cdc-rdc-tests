@@ -47,6 +47,8 @@ should agree with.
 - `docs/method.md` — how verdicts read and how to run another checker
 - `docs/attributes.md` — waiver-attribute spellings and semantics
 - `docs/rule-map.md` — corpus rule numbering with contracts
+- `docs/locators.md` — which endpoint each rule reports on
+- `docs/sdc-subset.md` — the five SDC commands cases use
 - `schema/manifest.json` — manifest schema
 - `run.py` — elaborate, check, diff to oracle
 
@@ -57,4 +59,6 @@ python3 run.py --icarium-bin /path/to/icarium [--tier 1] [--case ID] [--ignore-n
 ```
 
 Needs `yosys` on PATH and an icarium binary. Exit 0 when every case
-matches its manifest.
+matches its manifest. The corpus is elaborated with Yosys 0.70;
+designs use SystemVerilog-2012 plus `(* blackbox *)` stubs only,
+and the runner needs Python 3 with the standard library.

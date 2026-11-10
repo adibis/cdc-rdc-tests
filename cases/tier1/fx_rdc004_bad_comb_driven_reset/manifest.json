@@ -11,5 +11,5 @@
    "severity": "error"
   }
  ],
- "notes": "RDC-004: a comb AND of two flop outputs drives an ARST pin. The gate glitches on near-simultaneous input changes, and each transient reads as a reset assertion. Single clock, so only the comb-on-reset rule fires. (Migrated from icarium carium fixtures/RDC-004/bad_comb_driven_reset.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-004: a comb AND of two flop outputs drives an ARST pin. The gate glitches on near-simultaneous input changes, and each transient reads as a reset assertion. Single clock, so only the comb-on-reset rule fires. (Migrated from icarium fixtures/RDC-004/bad_comb_driven_reset.sv; oracle rule set from fixture manifest.)"
 }

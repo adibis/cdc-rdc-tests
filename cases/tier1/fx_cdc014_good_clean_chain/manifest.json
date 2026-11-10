@@ -5,5 +5,5 @@
  "top": "good_clean_chain",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "CDC-014: a clean 2FF chain with no gate between stages. Nothing fires: CDC-001 sees depth 2, CDC-014 sees no gate. (Migrated from icarium carium fixtures/CDC-014/good_clean_chain.sv; oracle rule set from fixture manifest."
+ "notes": "CDC-014: a clean 2FF chain with no gate between stages. Nothing fires: CDC-001 sees depth 2, CDC-014 sees no gate. (Migrated from icarium fixtures/CDC-014/good_clean_chain.sv; oracle rule set from fixture manifest.)"
 }

@@ -16,5 +16,5 @@
    "severity": "note"
   }
  ],
- "notes": "RDC-002: single clock, no CDC crossing at all. The producer flop wakes from reset driving 0, but the consumer's ARST pin asserts on 1: the consumer never enters reset with the system. (Migrated from icarium carium fixtures/RDC-002/bad_flop_mismatch.sv; oracle rule set from fixture manifest."
+ "notes": "RDC-002: single clock, no CDC crossing at all. The producer flop wakes from reset driving 0, but the consumer's ARST pin asserts on 1: the consumer never enters reset with the system. (Migrated from icarium fixtures/RDC-002/bad_flop_mismatch.sv; oracle rule set from fixture manifest.)"
 }
