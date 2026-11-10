@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc012_good_handshake",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_handshake",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-012/good_handshake.sv; oracle rule set from fixture manifest."
+}

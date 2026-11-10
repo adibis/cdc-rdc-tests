@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc018_good_two_deep",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_two_deep",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-018/good_two_deep.sv; oracle rule set from fixture manifest."
+}

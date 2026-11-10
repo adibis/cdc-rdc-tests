@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [{"line": 11, "rule": "CDC-024"}], "id": "cdc024_fanout_two_syncs", "notes": "One source bit into two sync chains in cb. The source must report the independent-resolution fanout.", "sdc": "design.sdc", "tier": 1, "top": "cdc024_fanout_two_syncs"}

@@ -1,0 +1,1 @@
+{"id": "cdc009_pulse_fast_slow", "tier": 1, "design": "design.sv", "top": "cdc009_pulse_fast_slow", "sdc": "design.sdc", "expect": [{"rule": "CDC-009", "line": 16}], "notes": "One-cycle pulse crossing fast-to-slow (4ns to 10ns). Must warn CDC-009 on the pulse flop (source)."}

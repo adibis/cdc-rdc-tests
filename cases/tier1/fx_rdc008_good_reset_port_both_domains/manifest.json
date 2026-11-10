@@ -1,0 +1,18 @@
+{
+ "id": "fx_rdc008_good_reset_port_both_domains",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_reset_port_both_domains",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 18
+  },
+  {
+   "rule": "RDC-010",
+   "line": 26
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-008/good_reset_port_both_domains.sv; oracle rule set from fixture manifest."
+}

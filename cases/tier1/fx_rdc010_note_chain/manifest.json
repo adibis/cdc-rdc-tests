@@ -1,0 +1,14 @@
+{
+ "id": "fx_rdc010_note_chain",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "note_chain",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 14
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-010/note_chain.sv; oracle rule set from fixture manifest."
+}

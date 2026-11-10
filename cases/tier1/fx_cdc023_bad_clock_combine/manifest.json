@@ -1,0 +1,18 @@
+{
+ "id": "fx_cdc023_bad_clock_combine",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_clock_combine",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-023",
+   "line": 10
+  },
+  {
+   "rule": "CDC-025",
+   "line": 11
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-023/bad_clock_combine.sv; oracle rule set from fixture manifest."
+}

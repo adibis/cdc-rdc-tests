@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc017_good_same_domain_latch",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_same_domain_latch",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-017/good_same_domain_latch.sv; oracle rule set from fixture manifest."
+}

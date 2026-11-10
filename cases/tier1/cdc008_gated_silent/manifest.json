@@ -1,0 +1,1 @@
+{"id": "cdc008_gated_silent", "tier": 1, "design": "design.sv", "top": "cdc008_gated_silent", "sdc": "design.sdc", "expect": [], "notes": "AND-gated clock with same-domain enable. The gate is distribution, never data use; must stay silent."}

@@ -33,9 +33,9 @@ def elaborate(sv, top, out):
     return None
 
 
-def check(icarium, net, sdc, out):
+def check(icarium, net, sdc, top, args, out):
     cmd = [str(icarium), "check", "--yosys-json", str(net),
-           "--sdc", str(sdc), "--format", "json"]
+           "--top", top, "--sdc", str(sdc), "--format", "json"] + args
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode not in (0, 1):
         return f"check exit {r.returncode}: {r.stderr.strip()[:200]}"
@@ -53,19 +53,30 @@ def run_case(icarium, manifest):
         err = elaborate(cdir / m["design"], m["top"], net)
         if err:
             return [err]
-        got = check(icarium, net, cdir / m["sdc"], None)
+        got = check(icarium, net, cdir / m["sdc"], m["top"],
+                    m.get("args", []), None)
         if isinstance(got, str):
             return [got]
-    findings = [(g["rule"], src_line((it.get("dst") or {}).get("src")))
+    findings = [(g["rule"], src_line((it.get("dst") or {}).get("src")),
+                 (it.get("dst") or {}).get("name") or "")
                 for g in got.get("groups", []) for it in g.get("items", [])]
-    want = [(e["rule"], e["line"]) for e in m["expect"]]
     errors = []
     unmatched = list(findings)
-    for w in want:
-        if w in unmatched:
-            unmatched.remove(w)
+    for e in m["expect"]:
+        hit = None
+        for f in unmatched:
+            if f[0] != e["rule"]:
+                continue
+            if "line" in e and f[1] != e["line"]:
+                continue
+            if "dst" in e and e["dst"] not in f[2]:
+                continue
+            hit = f
+            break
+        if hit is not None:
+            unmatched.remove(hit)
         else:
-            errors.append(f"missing {w[0]} at line {w[1]}; got {findings}")
+            errors.append(f"missing {e}; got {[(f[0], f[1]) for f in findings]}")
     if unmatched and not m.get("allow_extra", False):
         errors.append(f"extra findings {unmatched}")
     return errors

@@ -1,0 +1,18 @@
+{
+ "id": "fx_cdc002_bad_depth_short",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_depth_short",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-002",
+   "line": 10
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-002/bad_depth_short.sv; oracle rule set from fixture manifest.",
+ "args": [
+  "--sync-depth",
+  "3"
+ ]
+}

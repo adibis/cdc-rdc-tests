@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 16, "rule": "CDC-009"}], "id": "cdc009_swapped_legs", "notes": "Edge detector with swapped AND legs (~reqd & req) crossing 4ns to 20ns: either leg order matches, so the pulse flop must warn and nothing else may fire.", "sdc": "design.sdc", "tier": 1, "top": "cdc009_swapped_legs"}

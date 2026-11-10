@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 15, "rule": "RDC-005"}], "id": "rdc005_three_port_tree", "notes": "Three independent top ports through a two-level (AND then OR) tree into one async reset pin, no flop behind either gate.", "sdc": "design.sdc", "tier": 1, "top": "rdc005_three_port_tree"}

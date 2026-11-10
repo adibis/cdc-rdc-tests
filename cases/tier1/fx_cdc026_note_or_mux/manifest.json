@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc026_note_or_mux",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "note_or_mux",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-026",
+   "line": 25
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-026/note_or_mux.sv; oracle rule set from fixture manifest."
+}

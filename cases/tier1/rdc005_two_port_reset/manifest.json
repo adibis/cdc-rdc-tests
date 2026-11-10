@@ -1,0 +1,12 @@
+{
+  "id": "rdc005_two_port_reset",
+  "tier": 1,
+  "design": "design.sv",
+  "top": "rdc005_two_port_reset",
+  "sdc": "design.sdc",
+  "expect": [
+    {"rule": "RDC-005", "line": 12}
+  ],
+  "allow_extra": false,
+  "notes": "From unit test 'a two-port comb reset fires RDC-005 alone'. Two independent top ports ANDed into the async reset pin with no flop behind the gate."
+}

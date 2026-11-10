@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc004_good_mux_gated",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_mux_gated",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-012",
+   "line": 11
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-004/good_mux_gated.sv; oracle rule set from fixture manifest."
+}

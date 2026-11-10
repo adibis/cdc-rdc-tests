@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc008_good_forwarded_clock",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_forwarded_clock",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-008/good_forwarded_clock.sv; oracle rule set from fixture manifest."
+}

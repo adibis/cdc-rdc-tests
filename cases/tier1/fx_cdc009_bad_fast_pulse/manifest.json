@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc009_bad_fast_pulse",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_fast_pulse",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-009",
+   "line": 11
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-009/bad_fast_pulse.sv; oracle rule set from fixture manifest."
+}

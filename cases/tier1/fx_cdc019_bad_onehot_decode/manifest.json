@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc019_bad_onehot_decode",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_onehot_decode",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-019",
+   "line": 18
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-019/bad_onehot_decode.sv; oracle rule set from fixture manifest."
+}

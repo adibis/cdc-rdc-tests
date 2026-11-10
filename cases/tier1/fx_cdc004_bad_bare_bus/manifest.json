@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc004_bad_bare_bus",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_bare_bus",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-004",
+   "line": 10
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-004/bad_bare_bus.sv; oracle rule set from fixture manifest."
+}

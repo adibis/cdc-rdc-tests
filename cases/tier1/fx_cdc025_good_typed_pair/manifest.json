@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc025_good_typed_pair",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_typed_pair",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-025/good_typed_pair.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [], "id": "e2e_negedge_clock", "notes": "Inverted clock feeds same-domain capture. Inversion is not a crossing: silence is the verdict.", "sdc": "design.sdc", "tier": 1, "top": "negedge_clock"}

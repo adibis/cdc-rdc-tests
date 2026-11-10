@@ -1,0 +1,1 @@
+{"id": "cdc004_vouched_gray_silent", "tier": 1, "design": "design.sv", "top": "cdc004_vouched_gray_silent", "sdc": "design.sdc", "expect": [], "notes": "Single-stage bus crossing with a cdc_gray promise on the source net. User vouched; must stay silent."}

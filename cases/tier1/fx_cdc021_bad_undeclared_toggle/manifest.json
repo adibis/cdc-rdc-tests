@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc021_bad_undeclared_toggle",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_undeclared_toggle",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-021",
+   "line": 10
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-021/bad_undeclared_toggle.sv; oracle rule set from fixture manifest."
+}

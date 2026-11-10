@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 12, "rule": "CDC-020"}], "id": "cdc020_shift_register_fanout", "notes": "Four-bit serial-in shift register fanned lane by lane into four 2FF chains: the shift register must report the sliced-bus reconvergence.", "sdc": "design.sdc", "tier": 1, "top": "cdc020_shift_register_fanout"}

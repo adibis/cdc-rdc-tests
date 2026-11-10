@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc016_bad_opposite_edge",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_opposite_edge",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-016",
+   "line": 19
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-016/bad_opposite_edge.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc011_bad_port_two_domains",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_port_two_domains",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-011",
+   "line": 11
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-011/bad_port_two_domains.sv; oracle rule set from fixture manifest."
+}

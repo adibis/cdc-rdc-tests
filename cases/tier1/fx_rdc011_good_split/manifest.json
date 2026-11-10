@@ -1,0 +1,9 @@
+{
+ "id": "fx_rdc011_good_split",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_split",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/RDC-011/good_split.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "rdc009_ordered_release",
+  "tier": 1,
+  "design": "design.sv",
+  "top": "rdc009_ordered_release",
+  "sdc": "design.sdc",
+  "expect": [],
+  "allow_extra": false,
+  "notes": "From unit test 'ordered release through a derived reset stays silent for RDC-009'. dst reset derives from a flop in the source reset domain so release is ordered. sync D follows src (unit ties it const, which incidentally forms a chain note) and sync reset value matches dst sense (unit JSON omits ARST_VALUE); the asserted RDC-009 silence is unchanged."
+}

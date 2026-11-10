@@ -1,0 +1,14 @@
+{
+ "id": "fx_rdc002_bad_port_declared",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_port_declared",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-002",
+   "line": 10
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-002/bad_port_declared.sv; oracle rule set from fixture manifest."
+}

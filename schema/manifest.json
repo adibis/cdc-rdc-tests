@@ -13,14 +13,16 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["rule", "line"],
+        "required": ["rule"],
         "properties": {
           "rule": {"type": "string"},
-          "line": {"type": "integer"}
+          "line": {"type": "integer"},
+          "dst": {"type": "string"}
         }
       }
     },
     "allow_extra": {"type": "boolean", "default": false},
+    "args": {"type": "array", "items": {"type": "string"}},
     "notes": {"type": "string"}
   }
 }

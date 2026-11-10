@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [{"dst": "q", "rule": "CDC-001"}], "id": "cdc001_boundary_fire", "notes": "Launch flop drives output port q typed to a foreign virtual clock; CDC-001 must fire on port q. Port dsts carry no src line, so this oracle matches on the port name.", "sdc": "design.sdc", "tier": 1, "top": "cdc001_boundary_fire"}

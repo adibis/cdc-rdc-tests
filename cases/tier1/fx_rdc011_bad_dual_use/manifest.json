@@ -1,0 +1,14 @@
+{
+ "id": "fx_rdc011_bad_dual_use",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_dual_use",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-011",
+   "line": 21
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-011/bad_dual_use.sv; oracle rule set from fixture manifest."
+}

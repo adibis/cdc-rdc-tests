@@ -1,0 +1,14 @@
+{
+ "id": "fx_rdc006_bad_muxed_reset_unsync",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_muxed_reset_unsync",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-006",
+   "line": 16
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-006/bad_muxed_reset_unsync.sv; oracle rule set from fixture manifest."
+}

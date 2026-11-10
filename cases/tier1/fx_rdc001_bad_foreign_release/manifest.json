@@ -1,0 +1,34 @@
+{
+ "id": "fx_rdc001_bad_foreign_release",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_foreign_release",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-015",
+   "line": 29
+  },
+  {
+   "rule": "RDC-001",
+   "line": 35
+  },
+  {
+   "rule": "RDC-010",
+   "line": 17
+  },
+  {
+   "rule": "RDC-010",
+   "line": 23
+  },
+  {
+   "rule": "RDC-010",
+   "line": 29
+  },
+  {
+   "rule": "RDC-010",
+   "line": 35
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-001/bad_foreign_release.sv; oracle rule set from fixture manifest."
+}

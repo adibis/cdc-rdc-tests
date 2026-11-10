@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc026_note_nested_mux",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "note_nested_mux",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-026",
+   "line": 29
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-026/note_nested_mux.sv; oracle rule set from fixture manifest."
+}

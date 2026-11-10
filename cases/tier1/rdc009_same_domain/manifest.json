@@ -1,0 +1,10 @@
+{
+  "id": "rdc009_same_domain",
+  "tier": 1,
+  "design": "design.sv",
+  "top": "rdc009_same_domain",
+  "sdc": "design.sdc",
+  "expect": [],
+  "allow_extra": false,
+  "notes": "From unit test 'data inside one reset domain stays silent for RDC-009'. Shared reset orders the release; the design is fully clean."
+}

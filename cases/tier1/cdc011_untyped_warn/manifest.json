@@ -1,0 +1,1 @@
+{"id": "cdc011_untyped_warn", "tier": 1, "design": "design.sv", "top": "cdc011_untyped_warn", "sdc": "design.sdc", "expect": [{"rule": "CDC-011", "line": 8}], "notes": "Untyped input captured in one domain. Must warn CDC-011 on the capture flop."}

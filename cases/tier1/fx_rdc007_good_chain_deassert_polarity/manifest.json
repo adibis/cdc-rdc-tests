@@ -1,0 +1,14 @@
+{
+ "id": "fx_rdc007_good_chain_deassert_polarity",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_chain_deassert_polarity",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 12
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-007/good_chain_deassert_polarity.sv; oracle rule set from fixture manifest."
+}

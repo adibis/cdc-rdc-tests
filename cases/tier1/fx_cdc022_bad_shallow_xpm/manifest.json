@@ -1,0 +1,18 @@
+{
+ "id": "fx_cdc022_bad_shallow_xpm",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_shallow_xpm",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-022",
+   "line": 34
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-022/bad_shallow_xpm.sv; oracle rule set from fixture manifest.",
+ "args": [
+  "--sync-depth",
+  "3"
+ ]
+}

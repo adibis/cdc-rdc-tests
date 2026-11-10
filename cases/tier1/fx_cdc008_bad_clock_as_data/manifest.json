@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc008_bad_clock_as_data",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_clock_as_data",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-008",
+   "line": 9
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-008/bad_clock_as_data.sv; oracle rule set from fixture manifest."
+}

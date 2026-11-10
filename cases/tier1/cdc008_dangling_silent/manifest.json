@@ -1,0 +1,1 @@
+{"id": "cdc008_dangling_silent", "tier": 1, "design": "design.sv", "top": "cdc008_dangling_silent", "sdc": "design.sdc", "expect": [], "notes": "Transparent chain on a clock ending at an output tap with no data load. Nothing samples the clock; must stay silent."}

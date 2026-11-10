@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc013_bad_toggle_bare",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_toggle_bare",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-013",
+   "line": 13
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-013/bad_toggle_bare.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,18 @@
+{
+ "id": "fx_cdc010_bad_async_mux_select",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_async_mux_select",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-010",
+   "line": 12
+  },
+  {
+   "rule": "CDC-026",
+   "line": 14
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-010/bad_async_mux_select.sv; oracle rule set from fixture manifest."
+}

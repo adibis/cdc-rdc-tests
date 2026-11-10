@@ -1,0 +1,18 @@
+{
+ "id": "fx_rdc010_warn_raw_root",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "warn_raw_root",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 15
+  },
+  {
+   "rule": "RDC-010",
+   "line": 27
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-010/warn_raw_root.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [], "id": "cdc003_reset_mux_ok", "notes": "A lone reset mux on the synchronizer entry counts as part of the head flop, not logic before it: silent, no CDC-003 and no CDC-001.", "sdc": "design.sdc", "tier": 1, "top": "cdc003_reset_mux_ok"}

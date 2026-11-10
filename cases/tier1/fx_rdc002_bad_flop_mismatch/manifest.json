@@ -1,0 +1,18 @@
+{
+ "id": "fx_rdc002_bad_flop_mismatch",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_flop_mismatch",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-002",
+   "line": 16
+  },
+  {
+   "rule": "RDC-010",
+   "line": 11
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-002/bad_flop_mismatch.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,14 @@
+{
+ "id": "fx_rdc006_good_muxed_reset_synced",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_muxed_reset_synced",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 17
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-006/good_muxed_reset_synced.sv; oracle rule set from fixture manifest."
+}

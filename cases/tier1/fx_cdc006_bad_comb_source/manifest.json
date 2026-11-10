@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc006_bad_comb_source",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_comb_source",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-006",
+   "line": 10
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-006/bad_comb_source.sv; oracle rule set from fixture manifest."
+}

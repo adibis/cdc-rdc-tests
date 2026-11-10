@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc001_good_srst_2ff",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_srst_2ff",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-001/good_srst_2ff.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,14 @@
+{
+ "id": "fx_rdc004_bad_comb_driven_reset",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_comb_driven_reset",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-004",
+   "line": 28
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-004/bad_comb_driven_reset.sv; oracle rule set from fixture manifest."
+}

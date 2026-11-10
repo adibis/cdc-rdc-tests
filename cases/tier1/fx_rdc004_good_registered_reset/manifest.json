@@ -1,0 +1,9 @@
+{
+ "id": "fx_rdc004_good_registered_reset",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_registered_reset",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/RDC-004/good_registered_reset.sv; oracle rule set from fixture manifest."
+}

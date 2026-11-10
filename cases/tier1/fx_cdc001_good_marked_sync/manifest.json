@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc001_good_marked_sync",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_marked_sync",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-001/good_marked_sync.sv; oracle rule set from fixture manifest."
+}

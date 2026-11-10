@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc023_good_gated_clock",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_gated_clock",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-023/good_gated_clock.sv; oracle rule set from fixture manifest."
+}

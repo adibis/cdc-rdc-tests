@@ -1,0 +1,12 @@
+{
+  "id": "rdc011_dual_use",
+  "tier": 1,
+  "design": "design.sv",
+  "top": "rdc011_dual_use",
+  "sdc": "design.sdc",
+  "expect": [
+    {"rule": "RDC-011", "line": 11}
+  ],
+  "allow_extra": false,
+  "notes": "From unit test 'one net on ARST and SRST fires RDC-011'. One net reaches an async pin and a sync reset (stock flow lowers the latter to a const-leg D-mux, which the rule covers); reported on the async user."
+}

@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc009_good_slow_ratio",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_slow_ratio",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-009/good_slow_ratio.sv; oracle rule set from fixture manifest."
+}

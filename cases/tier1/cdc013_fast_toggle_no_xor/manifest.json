@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [{"line": 11, "rule": "CDC-013"}], "id": "cdc013_fast_toggle_no_xor", "notes": "Toggle source 10x faster than the destination with a plain 2FF tail. The toggle flop must report event-loss risk.", "sdc": "design.sdc", "tier": 1, "top": "cdc013_fast_toggle_no_xor"}

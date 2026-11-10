@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 16, "rule": "CDC-019"}], "id": "cdc019_mux_decode_apart", "notes": "One 2-bit select mux fans to two source flops crossing apart to cb. The first-sorted source lane must report.", "sdc": "design.sdc", "tier": 1, "top": "cdc019_mux_decode_apart"}

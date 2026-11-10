@@ -1,0 +1,22 @@
+{
+ "id": "fx_rdc010_bad_chain_clock",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_chain_clock",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-001",
+   "line": 22
+  },
+  {
+   "rule": "RDC-010",
+   "line": 16
+  },
+  {
+   "rule": "RDC-010",
+   "line": 22
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-010/bad_chain_clock.sv; oracle rule set from fixture manifest."
+}

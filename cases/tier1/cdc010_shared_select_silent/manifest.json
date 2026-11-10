@@ -1,0 +1,1 @@
+{"id": "cdc010_shared_select_silent", "tier": 1, "design": "design.sv", "top": "cdc010_shared_select_silent", "sdc": "design.sdc", "expect": [], "notes": "Clock mux with a port select sharing a gated clock. Select is safe; constant data keeps the case free of crossings."}

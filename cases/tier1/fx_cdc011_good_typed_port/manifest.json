@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc011_good_typed_port",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_typed_port",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-011/good_typed_port.sv; oracle rule set from fixture manifest."
+}

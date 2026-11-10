@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc016_good_same_edge",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_same_edge",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-016/good_same_edge.sv; oracle rule set from fixture manifest."
+}

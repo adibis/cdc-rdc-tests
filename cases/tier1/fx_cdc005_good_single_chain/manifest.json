@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc005_good_single_chain",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_single_chain",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-005/good_single_chain.sv; oracle rule set from fixture manifest."
+}

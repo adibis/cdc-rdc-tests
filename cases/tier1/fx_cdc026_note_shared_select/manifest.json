@@ -1,0 +1,22 @@
+{
+ "id": "fx_cdc026_note_shared_select",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "note_shared_select",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-006",
+   "line": 24
+  },
+  {
+   "rule": "CDC-026",
+   "line": 24
+  },
+  {
+   "rule": "CDC-026",
+   "line": 29
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-026/note_shared_select.sv; oracle rule set from fixture manifest."
+}

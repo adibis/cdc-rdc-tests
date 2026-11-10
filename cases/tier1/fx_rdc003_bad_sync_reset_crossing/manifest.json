@@ -1,0 +1,18 @@
+{
+ "id": "fx_rdc003_bad_sync_reset_crossing",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_sync_reset_crossing",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-001",
+   "line": 27
+  },
+  {
+   "rule": "RDC-003",
+   "line": 27
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-003/bad_sync_reset_crossing.sv; oracle rule set from fixture manifest."
+}

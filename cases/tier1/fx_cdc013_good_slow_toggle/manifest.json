@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc013_good_slow_toggle",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_slow_toggle",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-013/good_slow_toggle.sv; oracle rule set from fixture manifest."
+}

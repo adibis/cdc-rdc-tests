@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [], "id": "cdc024_single_sync_clean", "notes": "One source into one sync chain. The canonical clean crossing: silence is the verdict.", "sdc": "design.sdc", "tier": 1, "top": "cdc024_single_sync_clean"}

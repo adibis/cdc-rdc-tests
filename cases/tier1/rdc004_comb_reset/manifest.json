@@ -1,0 +1,12 @@
+{
+  "id": "rdc004_comb_reset",
+  "tier": 1,
+  "design": "design.sv",
+  "top": "rdc004_comb_reset",
+  "sdc": "design.sdc",
+  "expect": [
+    {"rule": "RDC-004", "line": 14}
+  ],
+  "allow_extra": false,
+  "notes": "From unit test 'a flopped comb reset fires RDC-004 alone'. AND of two same-clock flops drives the async reset pin."
+}

@@ -1,0 +1,22 @@
+{
+ "id": "fx_rdc010_bad_output_comb",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_output_comb",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-004",
+   "line": 23
+  },
+  {
+   "rule": "RDC-010",
+   "line": 15
+  },
+  {
+   "rule": "RDC-010",
+   "line": 23
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-010/bad_output_comb.sv; oracle rule set from fixture manifest."
+}

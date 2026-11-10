@@ -1,0 +1,1 @@
+{"id": "cdc010_async_select_port", "tier": 1, "design": "design.sv", "top": "cdc010_async_select_port", "sdc": "design.sdc", "expect": [{"rule": "CDC-010", "line": 15}, {"rule": "CDC-026", "line": 17}], "notes": "Clock mux with a port select typed to a virtual third clock. The mux must report CDC-010; the data crossing adds one CDC-026 leg-pair note."}

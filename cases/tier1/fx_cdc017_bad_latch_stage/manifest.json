@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc017_bad_latch_stage",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_latch_stage",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-017",
+   "line": 16
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-017/bad_latch_stage.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc004_good_marked_gray",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_marked_gray",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-004/good_marked_gray.sv; oracle rule set from fixture manifest."
+}

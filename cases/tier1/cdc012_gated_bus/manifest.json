@@ -1,0 +1,1 @@
+{"id": "cdc012_gated_bus", "tier": 1, "design": "design.sv", "top": "cdc012_gated_bus", "sdc": "design.sdc", "expect": [{"rule": "CDC-012", "line": 13}], "notes": "Mux-gated bus with no synced-back handshake. Clears CDC-004; must warn CDC-012 on the source register."}

@@ -1,0 +1,14 @@
+{
+ "id": "fx_rdc010_note_single_flop",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "note_single_flop",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 10
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-010/note_single_flop.sv; oracle rule set from fixture manifest."
+}

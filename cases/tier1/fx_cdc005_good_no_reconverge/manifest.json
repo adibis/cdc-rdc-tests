@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc005_good_no_reconverge",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_no_reconverge",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-024",
+   "line": 12
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-005/good_no_reconverge.sv; oracle rule set from fixture manifest."
+}

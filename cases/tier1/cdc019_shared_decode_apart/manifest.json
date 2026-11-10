@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [{"line": 14, "rule": "CDC-019"}], "id": "cdc019_shared_decode_apart", "notes": "Shared 2-bit decode into two source flops crossing apart to cb. The first-sorted source lane must report.", "sdc": "design.sdc", "tier": 1, "top": "cdc019_shared_decode_apart"}

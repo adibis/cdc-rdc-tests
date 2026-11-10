@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 13, "rule": "RDC-005"}], "id": "rdc005_inverted_leg", "notes": "Two independent top ports with one leg inverted (rsta AND NOT rstb) into one async reset pin, no flop behind the gate.", "sdc": "design.sdc", "tier": 1, "top": "rdc005_inverted_leg"}

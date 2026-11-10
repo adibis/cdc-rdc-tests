@@ -1,0 +1,1 @@
+{"design": "design.sv", "expect": [], "id": "cdc001_two_stage_quiet", "notes": "Two back-to-back capture flops synchronize the crossing; CDC-001 must stay silent. From unit test 'a second stage silences the rule'.", "sdc": "design.sdc", "tier": 1, "top": "cdc001_two_stage_quiet"}

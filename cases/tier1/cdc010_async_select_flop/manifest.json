@@ -1,0 +1,1 @@
+{"id": "cdc010_async_select_flop", "tier": 1, "design": "design.sv", "top": "cdc010_async_select_flop", "sdc": "design.sdc", "expect": [{"rule": "CDC-010", "line": 17}, {"rule": "CDC-026", "line": 19}], "notes": "Clock mux selected from a third async domain (flop). The mux must report CDC-010; the data crossing adds one CDC-026 leg-pair note."}

@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 13, "rule": "RDC-009"}], "id": "rdc009_inverted_data", "notes": "src on ra feeds dst on rb through an inverter: combinational data legs do not heal a split reset domain.", "sdc": "design.sdc", "tier": 1, "top": "rdc009_inverted_data"}

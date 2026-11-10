@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc009_good_level_signal",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_level_signal",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-009/good_level_signal.sv; oracle rule set from fixture manifest."
+}

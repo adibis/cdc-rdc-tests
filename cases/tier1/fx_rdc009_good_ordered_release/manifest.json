@@ -1,0 +1,18 @@
+{
+ "id": "fx_rdc009_good_ordered_release",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_ordered_release",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 13
+  },
+  {
+   "rule": "RDC-010",
+   "line": 21
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-009/good_ordered_release.sv; oracle rule set from fixture manifest."
+}

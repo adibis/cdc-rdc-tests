@@ -1,0 +1,18 @@
+{
+ "id": "fx_cdc003_bad_comb_before_sync",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_comb_before_sync",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-003",
+   "line": 12
+  },
+  {
+   "rule": "CDC-003",
+   "line": 12
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-003/bad_comb_before_sync.sv; oracle rule set from fixture manifest."
+}

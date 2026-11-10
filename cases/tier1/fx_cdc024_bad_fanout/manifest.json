@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc024_bad_fanout",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_fanout",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-024",
+   "line": 13
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-024/bad_fanout.sv; oracle rule set from fixture manifest."
+}

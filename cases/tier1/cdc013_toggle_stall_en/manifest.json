@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 12, "rule": "CDC-013"}], "id": "cdc013_toggle_stall_en", "notes": "Toggle on an inverted stall enable into a 3FF dst chain: the mux(Q,~Q) shape matches any select and the extra stage still hides paired toggles, so the toggle flop must report alone.", "sdc": "design.sdc", "tier": 1, "top": "cdc013_toggle_stall_en"}

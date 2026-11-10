@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 16, "rule": "CDC-001"}, {"line": 16, "rule": "RDC-003"}], "id": "rdc003_srst_if_inverted", "notes": "A cb flop takes its sync reset from the negation of a ca flop. Inverted sense does not excuse the foreign SRST source.", "sdc": "design.sdc", "tier": 1, "top": "rdc003_srst_if_inverted"}

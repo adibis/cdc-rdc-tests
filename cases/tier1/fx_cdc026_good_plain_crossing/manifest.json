@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc026_good_plain_crossing",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_plain_crossing",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-026/good_plain_crossing.sv; oracle rule set from fixture manifest."
+}

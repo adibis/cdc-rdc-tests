@@ -1,0 +1,18 @@
+{
+ "id": "fx_rdc010_bad_internal_tap",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_internal_tap",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-010",
+   "line": 14
+  },
+  {
+   "rule": "RDC-010",
+   "line": 20
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-010/bad_internal_tap.sv; oracle rule set from fixture manifest."
+}

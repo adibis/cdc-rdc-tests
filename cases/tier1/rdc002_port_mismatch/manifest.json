@@ -1,0 +1,12 @@
+{
+  "id": "rdc002_port_mismatch",
+  "tier": 1,
+  "design": "design.sv",
+  "top": "rdc002_port_mismatch",
+  "sdc": "design.sdc",
+  "expect": [
+    {"rule": "RDC-002", "line": 8}
+  ],
+  "allow_extra": false,
+  "notes": "From unit test 'a declared polarity mismatch fires RDC-002 alone'. Port declares (* reset_polarity = \"high\" *) but the flop consumes it active-low; the attribute survives the stock yosys flow on the netname."
+}

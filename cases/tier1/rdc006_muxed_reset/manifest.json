@@ -1,0 +1,12 @@
+{
+  "id": "rdc006_muxed_reset",
+  "tier": 1,
+  "design": "design.sv",
+  "top": "rdc006_muxed_reset",
+  "sdc": "design.sdc",
+  "expect": [
+    {"rule": "RDC-006", "line": 13}
+  ],
+  "allow_extra": false,
+  "notes": "From unit test 'a muxed ARST fires RDC-006 alone'. Explicit assign mux selects the async reset leg with no local synchronizer."
+}

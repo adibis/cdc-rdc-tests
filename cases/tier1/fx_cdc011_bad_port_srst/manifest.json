@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc011_bad_port_srst",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_port_srst",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-011",
+   "line": 9
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-011/bad_port_srst.sv; oracle rule set from fixture manifest."
+}

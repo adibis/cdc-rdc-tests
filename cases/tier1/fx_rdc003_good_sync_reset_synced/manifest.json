@@ -1,0 +1,9 @@
+{
+ "id": "fx_rdc003_good_sync_reset_synced",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_sync_reset_synced",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/RDC-003/good_sync_reset_synced.sv; oracle rule set from fixture manifest."
+}

@@ -1,0 +1,18 @@
+{
+ "id": "fx_rdc008_bad_reset_port_missed_domain",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_reset_port_missed_domain",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "RDC-008",
+   "line": 28
+  },
+  {
+   "rule": "RDC-010",
+   "line": 19
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/RDC-008/bad_reset_port_missed_domain.sv; oracle rule set from fixture manifest."
+}

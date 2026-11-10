@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc002_good_default_silent",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_default_silent",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "Migrated from icarium fixtures/CDC-002/good_default_silent.sv; oracle rule set from fixture manifest."
+}

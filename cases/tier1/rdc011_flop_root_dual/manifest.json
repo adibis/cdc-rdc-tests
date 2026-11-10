@@ -1,0 +1,1 @@
+{"allow_extra": false, "design": "design.sv", "expect": [{"line": 13, "rule": "RDC-011"}], "id": "rdc011_flop_root_dual", "notes": "A flop Q (not a port) drives the async reset of one flop and the sync reset of another; the groups never leave reset together.", "sdc": "design.sdc", "tier": 1, "top": "rdc011_flop_root_dual"}

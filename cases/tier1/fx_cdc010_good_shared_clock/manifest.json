@@ -1,0 +1,14 @@
+{
+ "id": "fx_cdc010_good_shared_clock",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_shared_clock",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-026",
+   "line": 13
+  }
+ ],
+ "notes": "Migrated from icarium fixtures/CDC-010/good_shared_clock.sv; oracle rule set from fixture manifest."
+}
