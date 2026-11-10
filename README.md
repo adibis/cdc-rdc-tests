@@ -43,6 +43,8 @@ should agree with.
 ## Layout
 
 - `cases/tierN/<id>/` — `design.sv`, `design.sdc`, `manifest.json`
+- `docs/catalog.md` — per-rule case listing (generated, see `scripts/`)
+- `docs/method.md` — how verdicts read and how to run another checker
 - `schema/manifest.json` — manifest schema
 - `run.py` — elaborate, check, diff to oracle
 
