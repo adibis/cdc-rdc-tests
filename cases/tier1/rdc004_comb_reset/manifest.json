@@ -12,5 +12,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'a flopped comb reset fires RDC-004 alone'. AND of two same-clock flops drives the async reset pin."
+ "notes": "AND of two same-clock flops drives the async reset pin."
 }

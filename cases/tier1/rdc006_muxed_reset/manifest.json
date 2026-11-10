@@ -12,5 +12,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'a muxed ARST fires RDC-006 alone'. Explicit assign mux selects the async reset leg with no local synchronizer."
+ "notes": "Explicit assign mux selects the async reset leg with no local synchronizer."
 }

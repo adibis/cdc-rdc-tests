@@ -12,5 +12,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'data across reset domains fires RDC-009'. src on ra feeds dst on rb with no shared release; same clock, so clocks play no part."
+ "notes": "src on ra feeds dst on rb with no shared release; same clock, so clocks play no part."
 }

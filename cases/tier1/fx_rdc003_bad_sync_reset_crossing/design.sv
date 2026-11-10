@@ -1,5 +1,5 @@
 // RDC-003: a src-domain flop drives the sync reset of a dst
-// flop directly (mux-on-D spelling on the no-opt flow). The
+// flop directly (mux-on-D spelling). The
 // destination samples its reset on its own edge from a foreign
 // source, which is the SRST analogue of an ARST crossing.
 // CDC-001 fires beside it: the mux select reaches D through the

@@ -12,5 +12,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'one net on ARST and SRST fires RDC-011'. One net reaches an async pin and a sync reset (stock flow lowers the latter to a const-leg D-mux, which the rule covers); reported on the async user."
+ "notes": "One net reaches an async pin and a sync reset (elaboration lowers the latter to a const-leg D-mux, which the rule covers); reported on the async user."
 }

@@ -6,5 +6,5 @@
  "sdc": "design.sdc",
  "expect": [],
  "allow_extra": false,
- "notes": "From unit test 'data inside one reset domain stays silent for RDC-009'. Shared reset orders the release; the design is fully clean."
+ "notes": "Shared reset orders the release; the design is fully clean."
 }

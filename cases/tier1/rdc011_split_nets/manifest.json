@@ -6,5 +6,5 @@
  "sdc": "design.sdc",
  "expect": [],
  "allow_extra": false,
- "notes": "From unit test 'split reset nets stay silent on RDC-011'. Async and sync resets come from separate ports; the design is fully clean."
+ "notes": "Async and sync resets come from separate ports; the design is fully clean."
 }

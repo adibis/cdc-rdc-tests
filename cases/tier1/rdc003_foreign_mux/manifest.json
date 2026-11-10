@@ -17,5 +17,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'a foreign reset mux fires RDC-003 beside CDC-001'. Explicit const-leg assign mux (A=0,B=d,S=src_q) matches the unit netlist exactly; proc keeps the assign as $mux."
+ "notes": "Explicit const-leg assign mux (A=0,B=d,S=src_q); elaboration keeps the assign as $mux."
 }

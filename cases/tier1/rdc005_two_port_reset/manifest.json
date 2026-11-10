@@ -12,5 +12,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'a two-port comb reset fires RDC-005 alone'. Two independent top ports ANDed into the async reset pin with no flop behind the gate."
+ "notes": "Two independent top ports ANDed into the async reset pin with no flop behind the gate."
 }

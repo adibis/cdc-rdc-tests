@@ -19,26 +19,24 @@ checker params (sync-depth bar); every rule fires in at least two cases.
 
 ## Sources
 
-- `cdc*`, `rdc*` — hand-authored scenarios from rule contracts and unit
-  test conversions, one bug or one silence proof per case.
-- `fx_*` — migrated from icarium's rule fixtures, oracles reviewed
-  against the fixture rule sets.
-- `e2e_*`, `scan_design` — migrated from icarium's e2e and suppression
+- `cdc*`, `rdc*` — hand-authored scenarios from rule contracts,
+  one bug or one silence proof per case.
+- `fx_*` — scenarios drawn from icarium's rule fixtures, oracles
+  reviewed against the fixture rule sets.
+- `e2e_*`, `scan_design` — drawn from icarium's e2e and suppression
   suites where the verdict is tool-agnostic.
 
 ## Oracle discipline
 
 Each case owns a `manifest.json` with the findings its author intends.
-Expectations are calibrated once against reality at seed creation, then
-frozen; the runner diffs the checker against the manifest, never against
-a previous run of the same checker. Firing oracles locate by source line,
-or by destination name when the finding names a port (ports carry no
-source line).
+The manifest is ground truth: the runner diffs the checker against the
+manifest, never against an earlier run of the same checker. Firing
+oracles locate by source line, or by destination name when the finding
+names a port (ports carry no source line).
 
 Cases whose verdict depends on tool-specific modeling — gate-structure
-lint, memory opacity, reset-port policy — stay in icarium's own suite and
-are not migrated here. What this corpus asserts, any correct checker
-should agree with.
+lint, memory opacity, reset-port policy — stay out. What this corpus
+asserts, any correct checker should agree with.
 
 ## Layout
 
@@ -62,3 +60,7 @@ Needs `yosys` on PATH and an icarium binary. Exit 0 when every case
 matches its manifest. The corpus is elaborated with Yosys 0.70;
 designs use SystemVerilog-2012 plus `(* blackbox *)` stubs only,
 and the runner needs Python 3 with the standard library.
+
+## License
+
+Apache-2.0 — see `LICENSE`.

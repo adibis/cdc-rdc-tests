@@ -17,5 +17,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'a foreign-released chain fires CDC-015 and RDC-001'. A ca register releases the async reset of a two-flop cb chain whose data also crosses ca->cb. Both chain stages share one always block so the grouped RDC-001 dst line is unambiguous."
+ "notes": "A ca register releases the async reset of a two-flop cb chain whose data also crosses ca->cb. Both chain stages share one always block so the grouped RDC-001 dst line is unambiguous."
 }

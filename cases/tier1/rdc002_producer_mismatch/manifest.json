@@ -12,5 +12,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'a producer value mismatch fires RDC-002 alone'. Producer resets to 0, consumer reads it active-high. prod D is port-fed (unit ties it const, which incidentally forms a 1-flop chain note); the asserted RDC-002 verdict is unchanged."
+ "notes": "Producer resets to 0, consumer reads it active-high. prod D is port-fed so the oracle holds only RDC-002."
 }

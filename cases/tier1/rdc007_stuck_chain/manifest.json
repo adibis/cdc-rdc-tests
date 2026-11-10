@@ -17,5 +17,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'a chain loading assertion fires RDC-007 alone' (which admits RDC-010 notes). Active-low chain with head D tied to asserted 0. The RDC-010 record note on the authored chain is intended rule behavior, included here."
+ "notes": "Active-low chain with head D tied to asserted 0. The RDC-010 record note on the authored chain is intended rule behavior, included here."
 }

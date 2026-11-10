@@ -7,7 +7,8 @@ checkers map these ids to their own before comparing verdicts.
 
 The destination flop has no follow-on synchronizer in its own
 clock: a single-bit signal lands and is used directly, with no
-second stage to filter metastability. Add a 2FF chain, or assert
+second stage to filter metastability. Add a two-flop (2FF)
+chain, or assert
 (* cdc_sync *) on a vetted synchronizer, (* cdc_static *) on a
 source held constant, (* cdc_handshake *) on a capture register.
 Typed input ports fire as sources, and crossings leaving through
@@ -19,6 +20,8 @@ CDC-011, which owns the missing-typing verdict.
 A synchronizer chain exists but is shorter than the site minimum
 (--sync-depth, default 2): raise the depth or lower the bar.
 Silent at the default unless a project explicitly requires more.
+Each added stage buys a cycle of settling time; the minimum
+is the project's failure-rate margin.
 
 ## CDC-003 (error) — Combinational logic on the way to a synchronizer
 
@@ -32,7 +35,8 @@ first, then combine in the destination domain.
 A multi-bit path crosses domains with no coherence mechanism:
 lanes settle on different cycles, so the destination can sample
 a value never sent. Gate the bus behind a synchronized enable,
-gray-code it into a multi-bit chain, or assert the promise.
+gray-code it (one lane moves per transfer) into a multi-bit
+chain, or assert the promise.
 
 ## CDC-005 (warning) — Reconvergent synchronizers
 
@@ -90,10 +94,10 @@ A toggling source runs fast to slow past the period ratio:
 two toggles between destination samples cancel to zero edges
 and both events are silently lost. Handshake, backpressure,
 or the canonical XOR-tail pulse synchronizer closes it. The
-bar is a 1.5x period ratio — the rule fires when the source
-period times 1.5 still sits below the destination period —
-and both periods must come from declared clocks, since an
-undeclared frequency cannot ground a fast-to-slow claim.
+bar is a 1.5x period ratio: the rule fires when the source
+period times 1.5 still sits below the destination period.
+Both periods must come from declared clocks. An undeclared
+frequency cannot ground a fast-to-slow claim.
 
 ## CDC-014 (error) — Combinational logic between synchronizer stages
 
@@ -158,11 +162,13 @@ A CDC macro carries its stage count as a parameter, not a flop
 chain, so CDC-002 cannot see it. Under a project minimum the
 instance reads short. Raise the parameter or lower the bar.
 A macro is a blackbox instantiation recognized by its type
-name (XPM primitives and the runner's configured list); its
-depth comes from the vendor depth parameter (DEST_SYNC_FF
-and kin), never from assumed defaults — a macro without the
-parameter stays silent. The bar is the same `sync_depth`
-minimum CDC-002 uses, so one number governs both.
+name (XPM primitives and site-registered types); its depth
+comes from the vendor depth parameter (DEST_SYNC_FF and
+kin). XPM absences read the documented default of 4 — a
+default the vendor guarantees, not one the checker invents —
+while a site-registered macro without its parameter stays
+silent. The bar is the same `sync_depth` minimum CDC-002
+uses, so one number governs both.
 
 ## CDC-023 (warning) — Clock net driven by a combine of declared clocks
 

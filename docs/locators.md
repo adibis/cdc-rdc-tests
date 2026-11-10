@@ -21,7 +21,7 @@ and the message names the rest.
 | CDC-008 | terminal load cell sampling the clock | single |
 | CDC-009 | pulse source flop | single |
 | CDC-010 | clock-network cell (mux/gate) | single |
-| CDC-011 | representative capture cell | grouped |
+| CDC-011 | name-minimum capture cell | grouped |
 | CDC-012 | gated-bus source | single |
 | CDC-013 | toggle source flop | single |
 | CDC-014 | chain head stage | single |
@@ -31,25 +31,26 @@ and the message names the rest.
 | CDC-018 | chain head of the overlong chain | single |
 | CDC-019 | name-sorted-first source flop | grouped |
 | CDC-020 | sliced-bus source | single |
-| CDC-021 | representative consumer (collection order) | grouped |
+| CDC-021 | name-sorted-first consumer | grouped |
 | CDC-022 | macro instance | single |
 | CDC-023 | combine cell | single |
 | CDC-024 | fanout source | single |
 | CDC-025 | unresolved endpoint | single |
 | CDC-026 | multiclock receiver | single |
-| RDC-001 | representative consumer of the (source, clocks) group | grouped |
-| RDC-002 | representative mismatched consumer | grouped |
+| RDC-001 | name-sorted-first consumer of the (source, clocks) group | grouped |
+| RDC-002 | name-sorted-first mismatched consumer | grouped |
 | RDC-003 | name-sorted-first consumer | grouped |
 | RDC-004 | consumer flop | single |
 | RDC-005 | consumer flop | single |
 | RDC-006 | consumer flop | single |
 | RDC-007 | chain tail stage | single |
-| RDC-008 | representative consumer missing the domain | grouped |
+| RDC-008 | name-sorted-first consumer missing the domain | grouped |
 | RDC-009 | consumer flop | single |
 | RDC-010 | record on chain tail; defects on consumer | both |
-| RDC-011 | representative async-reset user | grouped |
+| RDC-011 | first async-reset user (discovery order) | grouped |
 
 "First" without qualification means first in sorted-name order
-where the rule sorts (CDC-019, RDC-003) and first in discovery
-order otherwise; only the pinned line is contractual, never the
-ordering behind it.
+where the rule sorts (CDC-011, CDC-019, CDC-021, RDC-001,
+RDC-002, RDC-003, RDC-008) and first in discovery order
+otherwise (RDC-011); only the pinned line is contractual,
+never the ordering behind it.

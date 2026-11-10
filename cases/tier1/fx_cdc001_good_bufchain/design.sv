@@ -1,5 +1,5 @@
 // CDC-001: a clean 2FF chain with an explicit buffer between
-// the stages, the shape slang emits on every net. The buffer
+// the stages. The buffer
 // is wire: depth reads 2 and nothing fires.
 module good_bufchain (
     input  logic src_clk,

@@ -7,10 +7,11 @@ the exact spelling it uses so no checker has to guess.
 All attributes attach to the signal declaration (`logic`, `input`,
 `output`). Matching is case-sensitive except where noted. A foreign
 checker implements these as waivers: when the promise holds for a
-finding's endpoint, the finding drops. The honored-by lists below
-match the reference checker's mark consumers exactly, and silence
-oracles pin the net effect on real designs; the two sections marked
-"not used in this corpus" specify spellings no case pins yet.
+finding's endpoint, the finding drops. The honored-by lists
+below match the reference checker's mark consumers exactly.
+Silence oracles pin the net effect on real designs. The two
+sections marked "not used in this corpus" specify spellings
+no case pins yet.
 
 ## cdc_sync
 
@@ -51,8 +52,10 @@ matched case-insensitively; the corpus spells them lowercase.
 ## reset_sync, reset_synchronizer
 
 Not used in this corpus. Where honored (RDC-002, RDC-004,
-RDC-005, RDC-006, RDC-008), the mark names a vetted reset
-synchronizer whose consumers are released cleanly.
+RDC-005, RDC-006, RDC-008), the mark vouches cells into the
+synchronizer-member set those rules skip: a vetted reset
+synchronizer whose consumers release cleanly needs no
+per-finding waiver, since its members never report.
 
 ## glitchless_clock_mux (and aliases)
 

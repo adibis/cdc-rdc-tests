@@ -1,11 +1,10 @@
 # Reading verdicts
 
-A case passes when the checker's findings match the manifest exactly:
-every `expect` entry matches one finding by rule id plus one locator
-(a source `line`, or a destination-name substring `dst` for port
-findings, which carry no source line), and no finding is left over
-unless the manifest sets `allow_extra`. Duplicate expects match
-duplicate findings one-for-one (multiset, not set).
+A case passes on an exact match. Each `expect` entry pairs with
+one finding by rule id plus one locator. The locator is a source
+`line`, or a `dst` substring for port findings. No finding may
+be left over unless the manifest sets `allow_extra`. Duplicate
+expects match duplicate findings one-for-one (multiset, not set).
 
 ## What the oracles assert
 

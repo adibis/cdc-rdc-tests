@@ -17,5 +17,5 @@
   }
  ],
  "allow_extra": false,
- "notes": "From unit test 'a missed domain fires RDC-008 alone' (which admits RDC-010 notes). rst is synced in ca but raw in cb with two direct consumers sharing one always block. The RDC-010 record note on the authored ca chain is intended rule behavior, included here."
+ "notes": "rst is synced in ca but raw in cb with two direct consumers sharing one always block. The RDC-010 record note on the authored ca chain is intended rule behavior, included here."
 }
