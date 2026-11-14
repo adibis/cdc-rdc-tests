@@ -54,13 +54,14 @@ an accidentally quiet design.
 ```sh
 python3 scripts/gen-catalog.py
 python3 scripts/compile-check.py --tool verilator
+python3 scripts/compile-check.py --tool yosys
 python3 run.py --icarium-bin <path-to-icarium>
 python3 run.py --icarium-bin <path-to-icarium> --ignore-notes
 ```
 
-Every case must compile and pass in both modes, and every rule
-must still fire in at least two cases. CI compiles every case
-with Verilator and Xezim.
+Every case must compile, synthesize and pass in both modes, and
+every rule must still fire in at least two cases. CI also runs
+Xezim, slang and the yosys-slang front end.
 
 ## Certifying your contribution
 

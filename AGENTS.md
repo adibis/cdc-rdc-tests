@@ -9,5 +9,6 @@ the AI policy.
 - A manifest is ground truth written from the rule contract. Never change one
   to match what a checker reported; a mismatch is a question about the design
   or the checker, answered before any edit.
-- Keep every case compiling: `python3 scripts/compile-check.py --tool verilator`.
+- Keep every case compiling and synthesizing: `python3 scripts/compile-check.py`
+  with `--tool verilator` and `--tool yosys`.
 - `docs/catalog.md` is generated; re-run `python3 scripts/gen-catalog.py`.

@@ -1,7 +1,7 @@
 name: compile
-# Every case must parse and elaborate in simulators that have no CDC/RDC
-# checks, so a case can only fail a checker on its crossing, never on its
-# SystemVerilog.
+# Every case must parse, elaborate and synthesize in tools that have no
+# CDC/RDC checks, so a case can only fail a checker on its crossing, never
+# on its SystemVerilog.
 on:
   push:
     branches: [master]
@@ -42,3 +42,27 @@ jobs:
         run: cargo install --git https://github.com/aionhw/xezim --tag "$XEZIM_VERSION" --locked --root ~/xezim --bin xezim xezim
       - run: ~/xezim/bin/xezim -V
       - run: python3 scripts/compile-check.py --tool xezim --bin ~/xezim/bin/xezim
+  synthesis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # One dated OSS CAD Suite build carries Yosys 0.70+16, the
+      # yosys-slang plugin and slang 12.
+      - id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/oss-cad-suite
+          key: oss-cad-suite-20261014-${{ runner.os }}
+      - name: Download OSS CAD Suite
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          curl -sSL https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2026-10-14/oss-cad-suite-linux-x64-20261014.tgz | tar -xz -C ~
+      - run: |
+          echo "$HOME/oss-cad-suite/bin" >> "$GITHUB_PATH"
+      - run: yosys -V && slang --version
+      - name: Synthesize with the Yosys front end
+        run: python3 scripts/compile-check.py --tool yosys
+      - name: Synthesize with the slang front end
+        run: python3 scripts/compile-check.py --tool yosys-slang
+      - name: Elaborate with slang
+        run: python3 scripts/compile-check.py --tool slang

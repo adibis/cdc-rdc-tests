@@ -22,10 +22,15 @@ silence. Silence is a verdict: a checker that reports everything fails.
   Planned.
 - **Tier 3**: clean production modules that must stay quiet. Planned.
 
-Every case is real SystemVerilog: CI compiles each one with
-[Verilator](https://github.com/verilator/verilator) and
-[Xezim](https://github.com/aionhw/xezim), neither of which checks crossings.
-So when a checker fails a case, the reason is the crossing, never the syntax.
+Every case is real, synthesizable SystemVerilog. CI compiles each one with
+[Verilator](https://github.com/verilator/verilator),
+[Xezim](https://github.com/aionhw/xezim) and
+[slang](https://github.com/MikePopoloski/slang), and synthesizes it with
+[Yosys](https://github.com/YosysHQ/yosys) through both its own front end and
+[yosys-slang](https://github.com/povik/yosys-slang). None of these checks
+crossings, and synthesis must also find no multiple drivers, undriven nets or
+combinational loops. So when a checker fails a case, the reason is the
+crossing, never the syntax or the netlist.
 
 ## How a case is scored
 
@@ -74,7 +79,7 @@ you ran and its output.
 - `docs/sdc-subset.md`: the five SDC commands cases use
 - `schema/manifest.json`: the manifest schema
 - `run.py`: elaborate, check, compare with the manifest
-- `scripts/compile-check.py`: compile every case with Verilator or Xezim
+- `scripts/compile-check.py`: compile or synthesize every case with one tool
 
 ## Where the cases come from
 
