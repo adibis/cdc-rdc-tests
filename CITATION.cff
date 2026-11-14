@@ -1,0 +1,22 @@
+# See https://citation-file-format.github.io/
+cff-version: 1.2.0
+title: cdc-rdc-tests
+message: >-
+  If you use this test suite, please cite it using the metadata from this file.
+type: dataset
+authors:
+  - given-names: Aditya
+    family-names: Shevade
+  - name: cdc-rdc-tests contributors
+repository-code: "https://github.com/adibis/cdc-rdc-tests"
+abstract: >-
+  A tool-neutral test suite for clock-domain and reset-domain crossing
+  checkers: small SystemVerilog designs, each with the exact findings a
+  correct checker reports.
+keywords:
+  - CDC
+  - RDC
+  - clock domain crossing
+  - SystemVerilog
+  - test suite
+license: Apache-2.0

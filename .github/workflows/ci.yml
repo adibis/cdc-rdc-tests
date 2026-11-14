@@ -1,0 +1,22 @@
+name: ci
+on:
+  push:
+    branches: [master]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  contributors:
+    # Every commit author must have signed CONTRIBUTORS (the DCO).
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: sh scripts/check-contributors.sh "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+  reuse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: fsfe/reuse-action@v5

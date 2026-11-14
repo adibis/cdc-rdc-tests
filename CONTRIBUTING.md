@@ -53,14 +53,45 @@ an accidentally quiet design.
 
 ```sh
 python3 scripts/gen-catalog.py
+python3 scripts/compile-check.py --tool verilator
 python3 run.py --icarium-bin <path-to-icarium>
 python3 run.py --icarium-bin <path-to-icarium> --ignore-notes
 ```
 
-Every case must pass in both modes, and every rule must still
-fire in at least two cases.
+Every case must compile and pass in both modes, and every rule
+must still fire in at least two cases. CI compiles every case
+with Verilator and Xezim.
 
-## License
+## Certifying your contribution
 
-Contributions are accepted under the Apache-2.0 license
-(`LICENSE`); no separate contributor agreement needed.
+Contributions must be certified as open source under the
+[Developer Certificate of Origin](https://developercertificate.org/)
+(DCO). On your first contribution, add your name to
+[CONTRIBUTORS](CONTRIBUTORS) in the same pull request; that
+certifies this and all your future contributions. Your name
+must match the author name on your commits; CI checks it.
+
+Designs must be your own or openly licensed. Never contribute
+proprietary RTL, even reduced.
+
+Contributions are licensed under the Apache License 2.0
+([LICENSE](LICENSE)). There is no separate contributor
+agreement.
+
+## AI policy
+
+AI tools may help you write a contribution; they may not
+submit one. A human is in the loop on every issue, pull
+request and commit, and is responsible for reviewing, testing
+and understanding what they submit. By signing CONTRIBUTORS
+you certify that generated content is effectively your own
+work. Disclose significant AI assistance in the pull request.
+A generated verdict needs the same justification from the rule
+contract as a hand-written one.
+
+## Code of conduct
+
+The suite follows the
+[Contributor Covenant 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
+Report conduct concerns privately to the maintainer (adibis on
+GitHub).

@@ -1,0 +1,44 @@
+name: compile
+# Every case must parse and elaborate in simulators that have no CDC/RDC
+# checks, so a case can only fail a checker on its crossing, never on its
+# SystemVerilog.
+on:
+  push:
+    branches: [master]
+  pull_request:
+permissions:
+  contents: read
+env:
+  XEZIM_VERSION: "0.11.6"
+jobs:
+  verilator:
+    runs-on: ubuntu-latest
+    # `env` is not available in `container:`, so the pin lives here.
+    container: verilator/verilator:v5.054
+    steps:
+      - uses: actions/checkout@v4
+      - run: verilator --version
+      - run: python3 scripts/compile-check.py --tool verilator
+  xezim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/xezim
+          key: xezim-${{ env.XEZIM_VERSION }}-${{ runner.os }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: dtolnay/rust-toolchain@stable
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq clang llvm
+      - name: Build Xezim ${{ env.XEZIM_VERSION }}
+        if: steps.cache.outputs.cache-hit != 'true'
+        # Xezim publishes no binaries. Full LTO is skipped: it only speeds
+        # simulation, and compiling cases does not simulate.
+        env:
+          CARGO_PROFILE_RELEASE_LTO: "false"
+          CARGO_PROFILE_RELEASE_CODEGEN_UNITS: "16"
+        run: cargo install --git https://github.com/aionhw/xezim --tag "$XEZIM_VERSION" --locked --root ~/xezim --bin xezim xezim
+      - run: ~/xezim/bin/xezim -V
+      - run: python3 scripts/compile-check.py --tool xezim --bin ~/xezim/bin/xezim

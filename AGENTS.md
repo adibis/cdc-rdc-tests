@@ -1,0 +1,13 @@
+# Notes for AI agents
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) first; its rules apply to you, including
+the AI policy.
+
+- A human reviews and submits everything. Draft issues and pull requests for
+  your user to post; never open them yourself.
+- Never edit `CONTRIBUTORS`. Only a human can certify a contribution.
+- A manifest is ground truth written from the rule contract. Never change one
+  to match what a checker reported; a mismatch is a question about the design
+  or the checker, answered before any edit.
+- Keep every case compiling: `python3 scripts/compile-check.py --tool verilator`.
+- `docs/catalog.md` is generated; re-run `python3 scripts/gen-catalog.py`.

@@ -1,71 +1,107 @@
 # cdc-rdc-tests
 
-A tool-neutral test suite for CDC/RDC checkers: small designs with
-known-good verdicts, so any checker can measure recall and precision
-against ground truth instead of against another tool's output.
+[![compile](https://github.com/adibis/cdc-rdc-tests/actions/workflows/compile.yml/badge.svg?branch=master)](https://github.com/adibis/cdc-rdc-tests/actions/workflows/compile.yml)
+[![license](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
-Tier 1 holds 206 micro-cases covering all 36 rules, each with
-firing and silence verdicts. 60 cases expect silence; 7 pass neutral
-checker params (sync-depth bar); every rule fires in at least two cases.
+A tool-neutral test suite for clock-domain crossing (CDC) and reset-domain
+crossing (RDC) checkers. Each case is a small SystemVerilog design with the
+exact findings a correct checker reports, so any checker, open or commercial,
+can measure recall and precision against fixed ground truth instead of against
+another tool's output. It plays the role [sv-tests](https://github.com/chipsalliance/sv-tests)
+plays for SystemVerilog front ends.
 
-## Tiers
+## What is in it
 
-- **Tier 1** — micro-seeds: one scenario per case, exact expected findings.
-  Silence is a verdict too; extra findings fail.
-- **Tier 2** — OpenTitan positives: real waiver-backed violations, traced
-  to endpoints. Planned.
-- **Tier 3** — negatives: clean production modules that must stay quiet.
+Tier 1 holds 206 cases covering 36 rules. 146 cases plant one bug that a rule
+must report at a given line; 60 plant the approved pattern (a two-flop
+synchronizer, a gray-coded bus, a locally synchronized reset) and require
+silence. Silence is a verdict: a checker that reports everything fails.
+
+- **Tier 1**: one scenario per case, exact expected findings. Shipped.
+- **Tier 2**: OpenTitan crossings its designers waived, traced to endpoints.
   Planned.
+- **Tier 3**: clean production modules that must stay quiet. Planned.
 
-## Sources
+Every case is real SystemVerilog: CI compiles each one with
+[Verilator](https://github.com/verilator/verilator) and
+[Xezim](https://github.com/aionhw/xezim), neither of which checks crossings.
+So when a checker fails a case, the reason is the crossing, never the syntax.
 
-- `cdc*`, `rdc*` — hand-authored scenarios from rule contracts,
-  one bug or one silence proof per case.
-- `fx_*` — scenarios drawn from icarium's rule fixtures, oracles
-  reviewed against the fixture rule sets.
-- `e2e_*`, `scan_design` — drawn from icarium's e2e and suppression
-  suites where the verdict is tool-agnostic.
+## How a case is scored
 
-## Oracle discipline
+A case passes on an exact match. Each expected finding pairs with one reported
+finding by rule id and location (a source line, or the destination name for a
+port). Nothing may be left over unless the case says extra findings are
+allowed. Rule ids are the suite's own numbering; [docs/rule-map.md](docs/rule-map.md)
+defines each one, so another checker can map its rules onto them.
+[docs/method.md](docs/method.md) has the full contract.
 
-Each case owns a `manifest.json` with the findings its author intends.
-The manifest is ground truth: the runner diffs the checker against the
-manifest, never against an earlier run of the same checker. Firing
-oracles locate by source line, or by destination name when the finding
-names a port (ports carry no source line).
+## Run it
 
-Cases whose verdict depends on tool-specific modeling — gate-structure
-lint, memory opacity, reset-port policy — stay out. What this suite
-asserts, any correct checker should agree with.
-
-## Layout
-
-- `cases/tierN/<id>/` — `design.sv`, `design.sdc`, `manifest.json`
-- `docs/catalog.md` — per-rule case listing (generated, see `scripts/`)
-- `docs/method.md` — how verdicts read and how to run another checker
-- `docs/attributes.md` — waiver-attribute spellings and semantics
-- `docs/rule-map.md` — the suite's rule numbering with contracts
-- `docs/locators.md` — which endpoint each rule reports on
-- `docs/sdc-subset.md` — the five SDC commands cases use
-- `schema/manifest.json` — manifest schema
-- `run.py` — elaborate, check, diff to oracle
-
-## Run
+The bundled runner drives [icarium](https://github.com/adibis/icarium):
 
 ```sh
 python3 run.py --icarium-bin /path/to/icarium [--tier 1] [--case ID] [--ignore-notes]
 ```
 
-Needs `yosys` on PATH and an icarium binary. Exit 0 when every case
-matches its manifest. Cases are elaborated with Yosys 0.70;
-designs use SystemVerilog-2012 plus `(* blackbox *)` stubs only,
-and the runner needs Python 3 with the standard library.
+It needs `yosys` on `PATH` (tested with 0.70) and Python 3, standard library
+only. It exits 0 when every case matches. `--ignore-notes` drops
+informational findings on both sides, for checkers that report violations
+only.
+
+To run another checker, give it each case's `design.sv`, `design.sdc` and
+`top`, and compare its findings with `manifest.json` as
+[docs/method.md](docs/method.md) describes. A runner for your tool is a welcome
+contribution.
+
+## Results
+
+| checker | version | strict | `--ignore-notes` |
+|---|---|---|---|
+| icarium | 0.1.0 | 206 / 206 | 206 / 206 |
+
+To add a row, open a pull request with the checker, its version, the command
+you ran and its output.
+
+## Layout
+
+- `cases/tierN/<id>/`: `design.sv`, `design.sdc`, `manifest.json`
+- `docs/catalog.md`: every case by rule (generated by `scripts/gen-catalog.py`)
+- `docs/method.md`: how verdicts read and how to run another checker
+- `docs/rule-map.md`: the suite's rule numbering, with contracts
+- `docs/locators.md`: which endpoint each rule reports on
+- `docs/attributes.md`: waiver-attribute spellings and meanings
+- `docs/sdc-subset.md`: the five SDC commands cases use
+- `schema/manifest.json`: the manifest schema
+- `run.py`: elaborate, check, compare with the manifest
+- `scripts/compile-check.py`: compile every case with Verilator or Xezim
+
+## Where the cases come from
+
+- `cdc*`, `rdc*`: written from the rule contracts, one bug or one silence
+  proof each.
+- `fx_*`: drawn from icarium's rule fixtures, with verdicts reviewed against
+  the rule contracts.
+- `e2e_*`, `scan_design`: drawn from icarium's end-to-end and suppression
+  suites, where the verdict does not depend on the tool.
+
+A manifest records the findings its author intends, and the runner compares a
+checker with that manifest, never with an earlier run of the same checker.
+Cases whose verdict depends on one tool's modeling choices (gate-structure
+lint, memory opacity, reset-port policy) stay out: what this suite asserts,
+any correct checker should agree with.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). One scenario per
-case; every case must pass.
+New cases, runners for other checkers and corrections to verdicts are all
+welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Citing
+
+If you use this suite in published work, cite it with the metadata in
+[CITATION.cff](CITATION.cff).
 
 ## License
 
-Apache-2.0 — see `LICENSE`.
+Copyright 2026 Aditya Shevade and the [cdc-rdc-tests contributors](CONTRIBUTORS).
+Licensed under the [Apache License 2.0](LICENSE).
