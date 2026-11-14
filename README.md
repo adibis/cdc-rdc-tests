@@ -32,6 +32,13 @@ crossings, and synthesis must also find no multiple drivers, undriven nets or
 combinational loops. So when a checker fails a case, the reason is the
 crossing, never the syntax or the netlist.
 
+Where a verdict rests on what the hardware does, it is proved formally. Every
+CDC-013 case (toggle-synchronizer event loss) has a SymbiYosys check at its
+SDC clock ratio: bug cases must drop events under an unconstrained stream and
+keep them when events are spaced out, and quiet cases must never drop one. A
+cover in each run proves events really flow, so a vacuous check cannot pass.
+See `formal/`.
+
 ## How a case is scored
 
 A case passes on an exact match. Each expected finding pairs with one reported
@@ -80,6 +87,7 @@ you ran and its output.
 - `schema/manifest.json`: the manifest schema
 - `run.py`: elaborate, check, compare with the manifest
 - `scripts/compile-check.py`: compile or synthesize every case with one tool
+- `formal/`, `scripts/formal-check.py`: formal proofs behind behavioral verdicts
 
 ## Where the cases come from
 

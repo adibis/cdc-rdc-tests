@@ -92,8 +92,9 @@ payload until a synced-back ack confirms the sample.
 
 A toggling source runs fast to slow past the period ratio:
 two toggles between destination samples cancel to zero edges
-and both events are silently lost. Handshake, backpressure,
-or the canonical XOR-tail pulse synchronizer closes it. The
+and both events are silently lost. A handshake or
+backpressure closes it. An XOR tail does not: it turns each
+toggle into a pulse, but cancelled toggles never reach it. The
 bar is a 1.5x period ratio: the rule fires when the source
 period times 1.5 still sits below the destination period.
 Both periods must come from declared clocks. An undeclared

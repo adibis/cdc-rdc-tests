@@ -12,3 +12,6 @@ the AI policy.
 - Keep every case compiling and synthesizing: `python3 scripts/compile-check.py`
   with `--tool verilator` and `--tool yosys`.
 - `docs/catalog.md` is generated; re-run `python3 scripts/gen-catalog.py`.
+- A CDC-013 case needs a formal verdict in `formal/cases.json` that
+  `scripts/formal-check.py` confirms. Never weaken the harness or drop a cover
+  to make a check pass.

@@ -63,6 +63,11 @@ Every case must compile, synthesize and pass in both modes, and
 every rule must still fire in at least two cases. CI also runs
 Xezim, slang and the yosys-slang front end.
 
+A CDC-013 case also needs a formal verdict in `formal/cases.json`
+("loses" or "conserves"), and `python3 scripts/formal-check.py`
+must confirm it; it needs sby from OSS CAD Suite. A verdict about
+behavior is proved, not argued.
+
 ## Certifying your contribution
 
 Contributions must be certified as open source under the

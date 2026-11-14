@@ -1,0 +1,15 @@
+{
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 15,
+   "rule": "CDC-013",
+   "severity": "warning"
+  }
+ ],
+ "id": "fx_cdc013_bad_xor_tail",
+ "notes": "CDC-013: a pulse synchronizer crossing fast to slow. The XOR tail rebuilds one pulse per toggle, but two events between destination samples cancel before it sees them, so the toggle flop must report. (Migrated from icarium fixtures/CDC-013/bad_xor_tail.sv.)",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "bad_xor_tail"
+}

@@ -1,0 +1,30 @@
+name: formal
+# Behavioral claims behind verdicts, such as "two fast toggles cancel and
+# the event is lost", are proved or refuted with SymbiYosys at each case's
+# SDC clock ratio. A vacuous run fails.
+on:
+  push:
+    branches: [master]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  event-conservation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      # Same dated OSS CAD Suite build as the synthesis job: sby, Yosys
+      # 0.70+16 and yices.
+      - id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/oss-cad-suite
+          key: oss-cad-suite-20261014-${{ runner.os }}
+      - name: Download OSS CAD Suite
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          curl -sSL https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2026-10-14/oss-cad-suite-linux-x64-20261014.tgz | tar -xz -C ~
+      - run: |
+          echo "$HOME/oss-cad-suite/bin" >> "$GITHUB_PATH"
+      - run: python3 scripts/formal-check.py
