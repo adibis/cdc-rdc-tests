@@ -61,6 +61,11 @@ matches its manifest. The corpus is elaborated with Yosys 0.70;
 designs use SystemVerilog-2012 plus `(* blackbox *)` stubs only,
 and the runner needs Python 3 with the standard library.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). One scenario per
+case; the full corpus must pass.
+
 ## License
 
 Apache-2.0 — see `LICENSE`.
