@@ -1,0 +1,9 @@
+{
+ "design": "design.sv",
+ "expect": [],
+ "id": "cdc001_boundary_related_quiet",
+ "notes": "Control for cdc001_boundary_fire: the same output port q typed to virtual clock virt, with no clock groups. Clocks are related unless the SDC declares them asynchronous, so the boundary path is timed and CDC-001 must stay silent.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc001_boundary_related_quiet"
+}
