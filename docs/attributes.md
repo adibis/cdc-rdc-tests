@@ -1,7 +1,7 @@
 # Waiver attributes
 
 Eleven cases depend on synthesis attributes. Each is a promise the
-designer makes and the checker takes at face value; the corpus pins
+designer makes and the checker takes at face value; the suite pins
 the exact spelling it uses so no checker has to guess.
 
 All attributes attach to the signal declaration (`logic`, `input`,
@@ -10,7 +10,7 @@ checker implements these as waivers: when the promise holds for a
 finding's endpoint, the finding drops. The honored-by lists
 below match the reference checker's mark consumers exactly.
 Silence oracles pin the net effect on real designs. The two
-sections marked "not used in this corpus" specify spellings
+sections marked "not used in this suite" specify spellings
 no case pins yet.
 
 ## cdc_sync
@@ -47,11 +47,11 @@ Honored by: CDC-004, CDC-012, CDC-019, CDC-020.
 on a reset input port — declares the port's active value. RDC-002
 compares the declaration against the flop's reset-edge
 sensitivity and fires on mismatch. Values are `high`/`low`,
-matched case-insensitively; the corpus spells them lowercase.
+matched case-insensitively; the suite spells them lowercase.
 
 ## reset_sync, reset_synchronizer
 
-Not used in this corpus. Where honored (RDC-002, RDC-004,
+Not used in this suite. Where honored (RDC-002, RDC-004,
 RDC-005, RDC-006, RDC-008), the mark vouches cells into the
 synchronizer-member set those rules skip: a vetted reset
 synchronizer whose consumers release cleanly needs no
@@ -59,7 +59,7 @@ per-finding waiver, since its members never report.
 
 ## glitchless_clock_mux (and aliases)
 
-Not used in this corpus. On a clock-mux select it vouches a
+Not used in this suite. On a clock-mux select it vouches a
 glitch-free switchover; CDC-010 stays silent. Aliases:
 `glitchless_mux`, `glitchfree_clock_mux`.
 
@@ -67,6 +67,6 @@ glitch-free switchover; CDC-010 stays silent. Aliases:
 
 `(* scan_en *)` on the scan-enable port — marks scan-mode
 plumbing for tools with a scan-waiver mode (icarium:
-`--ignore-scan-mode`). The corpus runner never sets that
+`--ignore-scan-mode`). The runner never sets that
 mode: scan-tagged crossings must still report, and the
 `scan_design` oracle pins all six.

@@ -1,6 +1,6 @@
 # Rule map
 
-The corpus's own CDC/RDC numbering with contracts. Foreign
+The suite's own CDC/RDC numbering with contracts. Foreign
 checkers map these ids to their own before comparing verdicts.
 
 ## CDC-001 (error) — Unsynchronized control crossing

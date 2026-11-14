@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "icarium_benchmark case manifest",
+  "title": "cdc-rdc-tests case manifest",
   "type": "object",
   "required": ["id", "tier", "design", "top", "sdc", "expect"],
   "additionalProperties": false,

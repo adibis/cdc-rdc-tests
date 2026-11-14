@@ -41,18 +41,18 @@ expects match duplicate findings one-for-one (multiset, not set).
    boundary case). No Tcl substitution, no wildcards.
 3. Compare your findings to `expect` by (rule, line-or-dst).
 
-Rule ids are the corpus's own numbering, defined in
+Rule ids are the suite's own numbering, defined in
 `docs/rule-map.md`; map them to yours before comparing. Silence
 cases must stay silent under your mapping too — a category error
 there is a false positive, not a naming difference. Waiver
 attributes (`(* cdc_sync *)` and friends) are specified in
 `docs/attributes.md`.
 
-## What the corpus does not assert
+## What the suite does not assert
 
 Verdicts that depend on tool-internal modeling — gate-structure
 lint, memory opacity, reset-port policy — are excluded on purpose
-(see the README). What this corpus asserts, any correct checker
+(see the README). What this suite asserts, any correct checker
 should agree with; where reasonable checkers disagree, the case
 doesn't belong here. CDC-007 is reserved (no rule claims it),
 which is why no case targets it. Which endpoint each pinned line
