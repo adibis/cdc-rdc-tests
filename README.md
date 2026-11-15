@@ -84,6 +84,7 @@ you ran and its output.
 - `docs/locators.md`: which endpoint each rule reports on
 - `docs/attributes.md`: waiver-attribute spellings and meanings
 - `docs/sdc-subset.md`: the five SDC commands cases use
+- `docs/assumptions.md`: the reset, startup and traffic every verdict assumes
 - `schema/manifest.json`: the manifest schema
 - `run.py`: elaborate, check, compare with the manifest
 - `scripts/compile-check.py`: compile or synthesize every case with one tool

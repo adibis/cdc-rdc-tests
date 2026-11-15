@@ -101,14 +101,18 @@ backpressure closes it. An XOR tail does not: it turns each
 toggle into a pulse, but cancelled toggles never reach it.
 A toggle whose enable waits on its own acknowledgement, the
 destination's synchronized toggle returned through a 2FF
-chain, never toggles twice between samples and is silent.
+chain, never toggles twice between samples and is silent. The
+bar is a 1.5x period ratio: the rule fires when the source
+period times 1.5 still sits below the destination period.
+Both periods must come from declared clocks. An undeclared
+frequency cannot ground a fast-to-slow claim.
 
 ## CDC-014 (error) — Combinational logic between synchronizer stages
 
-A gate sits between two stages of a synchronizer: the second
-stage may sample the first while still metastable, destroying
-the resolution time the chain was meant to provide. Move the
-gate past the chain's final stage.
+A gate sits between two stages of a synchronizer: its delay
+eats into the resolution time the chain was meant to provide,
+and it can pass a metastable or glitching value on to the
+next stage. Move the gate past the chain's final stage.
 
 ## CDC-015 (error) — Synchronizer chain released by a foreign-domain reset
 
@@ -122,9 +126,11 @@ chain's release, RDC-001 the consumer's, each a different fix.
 ## CDC-016 (error) — Opposite-edge stages in a synchronizer chain
 
 Adjacent chain stages sample on opposite edges of one clock,
-halving the resolution time a same-edge chain would provide.
-The RTL reads as a symmetric 2FF, but MTBF roughly halves.
-Sample every stage on the same edge.
+so the earlier stage gets about half a period to resolve
+instead of a full one (at 50% duty). MTBF falls exponentially
+with resolution time by an amount that depends on the flop and
+the data rate, which the netlist does not carry: the contract
+is the shape, not a number. Sample every stage on the same edge.
 
 ## CDC-017 (error) — Transparent latch in a CDC path
 
@@ -133,12 +139,14 @@ different clocks: while the enable holds, the foreign signal
 flows transparently to the destination with no resolution
 time. Replace the latch with a 2FF chain on the dst clock.
 
-## CDC-018 (warning) — Cascaded synchronizer chain past the depth threshold
+## CDC-018 (warning) — Synchronizer chain deeper than the policy threshold
 
-A destination chain runs deeper than the threshold (default
-4): two stacked 2FF syncs, or a refactor leftover. Extra
-stages add latency without improving resolution. Trim to 2,
-raise the threshold, or vouch the head.
+A destination chain runs deeper than the configured threshold
+(default 4). This is a policy check, not a defect: each extra
+stage adds resolution time as well as latency, and fast clocks
+or high data rates can need more than two. Stacked 2FF syncs
+and refactor leftovers are the usual causes. Trim the chain,
+set the threshold the library needs, or vouch the head.
 
 ## CDC-019 (warning) — Independently-synced one-hot decode across CDC
 
@@ -269,9 +277,12 @@ uses the raw port; that simplification is a separate review.
 
 A flop's data input is driven from another reset domain with
 no shared release: the source can come out of reset while the
-receiver samples. Both sides need an async reset to trip it;
-a side with none never releases, so unreset storage fed from
-a reset domain stays silent. Clocks do not matter here.
+receiver samples. Both sides need an async reset to trip it.
+This is a release check only: unreset storage fed from a reset
+domain stays silent, though an async assertion at the source can
+still corrupt what it captures. Assertion-time corruption is a
+separate analysis no case in this suite claims. Clocks do not
+matter here.
 
 ## RDC-010 (note) — Reset synchronizer chain record and checks
 

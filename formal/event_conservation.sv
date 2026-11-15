@@ -7,6 +7,12 @@
 // destination once the source has been quiet for a while. A cover
 // proves events really flow end to end, so a vacuous run cannot pass.
 //
+// Reset, startup and traffic (docs/assumptions.md): the reset, if
+// any, is held through the settle phase and never asserted again.
+// State starts arbitrary and the settle phase flushes it. After it,
+// events are unconstrained, or spaced 3 destination periods apart
+// with SPACED; with P_RDY only events offered while ready count.
+//
 // Defines, set by scripts/formal-check.py from formal/cases.json:
 //   DUT, SRC_HALF, DST_HALF  module and half-periods in formal steps
 //   P_SRC, P_DST, P_EV, P_OUT port names; P_RST if the design has a reset

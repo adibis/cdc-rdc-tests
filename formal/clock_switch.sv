@@ -5,14 +5,14 @@
 // steps too, through any select change: a shorter phase is a runt
 // pulse no downstream flop can be trusted with.
 //
-// Reset, startup and traffic: a warm-up holds both legs' resets and
-// runs all clocks regularly, so synchronizers flush and the mux
-// starts on clk0. After it, the control-domain select register may
-// be written only once the previous switch has landed, as the
-// design's `on` output reports. A glitch-free mux needs that
-// assumption; a design that fails even under it is unsafe outright.
-// A cover requires edges from clk1 and then clk0 after switching
-// back, so a vacuous run cannot pass.
+// Reset, startup and traffic (docs/assumptions.md): a warm-up holds
+// both legs' resets and runs all clocks regularly, so synchronizers
+// flush and the mux starts on clk0. After it, the control-domain
+// select register may be written only once the previous switch has
+// landed, as the design's `on` output reports. A glitch-free mux
+// needs that assumption; a design that fails even under it is unsafe
+// outright. A cover requires edges from clk1 and then clk0 after
+// switching back, so a vacuous run cannot pass.
 //
 // Defines, set by scripts/formal-check.py: DUT. Every listed case
 // has the same ports: clk0, clk1, rst0, rst1 (sync, active high, one

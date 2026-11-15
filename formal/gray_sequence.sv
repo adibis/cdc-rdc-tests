@@ -10,6 +10,11 @@
 // replaces a destination value that had no reset. A cover requires a
 // full wrap of the sequence, so a vacuous run cannot pass.
 //
+// Reset, startup and traffic (docs/assumptions.md): the source reset
+// is held through warm-up and never asserted again. State starts
+// arbitrary; warm-up and the exempt first change cover it. The
+// source has no data inputs, except P_IN, which is driven freely.
+//
 // Defines, set by scripts/formal-check.py from formal/cases.json:
 //   DUT, W                    module and output width
 //   P_SRC, P_DST, P_RST, P_OUT port names; P_RST is a sync active-high
