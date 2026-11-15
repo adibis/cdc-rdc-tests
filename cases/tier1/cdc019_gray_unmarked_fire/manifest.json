@@ -3,7 +3,7 @@
  "design": "design.sv",
  "expect": [
   {
-   "line": 16,
+   "line": 17,
    "rule": "CDC-019",
    "severity": "warning"
   }

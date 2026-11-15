@@ -2,7 +2,7 @@
  "design": "design.sv",
  "expect": [],
  "id": "cdc004_gated_gray_bus_clean",
- "notes": "Gray-coded bus sampled behind a synced enable mux. Gating clears CDC-004, gray clears CDC-012: silence is the verdict.",
+ "notes": "Gray-coded payload carried by a four-phase req/ack handshake: the source holds the payload from req until the synchronized ack has risen and fallen, and the destination captures on the synchronized req's rising edge. The req-gated capture clears CDC-004, the held payload clears CDC-012: silence is the verdict.",
  "sdc": "design.sdc",
  "tier": 1,
  "top": "cdc004_gated_gray_bus_clean"

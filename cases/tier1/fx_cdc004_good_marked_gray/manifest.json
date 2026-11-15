@@ -5,5 +5,5 @@
  "top": "good_marked_gray",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "src_q carries (* cdc_gray *), the user promise that the bus is gray-coded, which CDC-004 honors despite the single-stage crossing. (Migrated from icarium fixtures/CDC-004/good_marked_gray.sv; oracle rule set from fixture manifest.)"
+ "notes": "src_q steps the 4-bit gray sequence from reset by flipping one bit per clock, which no structural check recognizes; its (* cdc_gray *) promise is what CDC-004 honors despite the single-stage crossing. (Migrated from icarium fixtures/CDC-004/good_marked_gray.sv; oracle rule set from fixture manifest.)"
 }

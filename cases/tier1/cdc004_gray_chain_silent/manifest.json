@@ -5,5 +5,5 @@
  "top": "cdc004_gray_chain_silent",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Gray-coded bus into a 2-deep multi-bit chain. Structural gray plus chain clears CDC-004; must stay silent."
+ "notes": "A binary counter stepping by one from reset, gray-encoded into a 2-deep multi-bit chain, so the bus changes one bit per source clock. Structural gray plus chain clears CDC-004; must stay silent."
 }

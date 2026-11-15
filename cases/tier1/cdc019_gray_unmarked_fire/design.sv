@@ -4,12 +4,13 @@
 module cdc019_gray_unmarked_fire (
     input  logic ca,
     input  logic cb,
+    input  logic rst,
     output logic [2:0] q
 );
     logic [2:0] bin;
     logic [2:0] gray;
     logic d0, d1, d2, m0, s0, m1, s1, m2, s2;
-    always_ff @(posedge ca) bin <= bin + 1'b1;
+    always_ff @(posedge ca) bin <= rst ? 3'd0 : bin + 3'd1;
     assign gray = bin ^ (bin >> 1);
     always_ff @(posedge ca) d0 <= gray[0];
     always_ff @(posedge ca) d1 <= gray[1];

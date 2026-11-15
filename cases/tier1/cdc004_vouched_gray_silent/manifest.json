@@ -5,5 +5,5 @@
  "top": "cdc004_vouched_gray_silent",
  "sdc": "design.sdc",
  "expect": [],
- "notes": "Single-stage bus crossing with a cdc_gray promise on the source net. User vouched; must stay silent."
+ "notes": "Single-stage bus crossing whose source steps the 2-bit gray sequence from reset through an explicit next-state table. No structural check sees gray there, so the cdc_gray promise on the source net is what clears it; must stay silent."
 }
