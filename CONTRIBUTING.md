@@ -34,6 +34,10 @@ The manifest pins the verdict:
 }
 ```
 
+A new rule gets a contract in `docs/rule-map.md` and a category in
+`docs/rules.json`; `scripts/gen-catalog.py` refuses a rule without
+one.
+
 Locate by source `line`, or by `dst` substring when the finding
 names a port. Set `allow_extra` only when the verdict truly
 varies by checker; set `params` only when the scenario needs a

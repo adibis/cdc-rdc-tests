@@ -6,8 +6,15 @@ rule id plus one locator (source line, or destination name for port
 findings). Extras fail unless the manifest allows them, so a seed can
 only pass by reporting exactly what its author intended.
 Usage: run.py --icarium-bin PATH [--tier N] [--case ID] [--ignore-notes]
+              [--results FILE]
 
-Exit codes: 0 all pass, 1 verdict failures, 2 usage/environment error
+Each case ends pass, fail (a missed or extra finding) or error (the
+manifest, elaboration or checker failed). --results writes every case's
+state with its expected, observed, missing and extra findings, in the
+shape docs/method.md asks of any runner. icarium maps every suite rule
+one to one, so no case is unsupported.
+
+Exit codes: 0 all pass, 1 any fail or error, 2 usage/environment error
 (includes empty selection: a filter matching nothing is loud, never
 green).
 """
@@ -123,23 +130,27 @@ def params_to_args(m):
     return []
 
 
+def errored(cid, why):
+    return {"id": cid, "state": "error", "errors": [why]}
+
+
 def run_case(icarium, manifest, ignore_notes):
     m = read_manifest(manifest)
     if not isinstance(m, dict):
-        return manifest.parent.name, [f"bad manifest: {m}"]
+        return errored(manifest.parent.name, f"bad manifest: {m}")
     bad = validate_manifest(m)
     if bad:
-        return m.get("id", manifest.parent.name), [bad]
+        return errored(m.get("id", manifest.parent.name), bad)
     cdir = manifest.parent
     with tempfile.TemporaryDirectory() as tmp:
         net = Path(tmp) / "net.json"
         err = elaborate(cdir / m["design"], m["top"], net)
         if err:
-            return m["id"], [err]
+            return errored(m["id"], err)
         got = check(icarium, net, cdir / m["sdc"], m["top"],
                     params_to_args(m))
         if isinstance(got, str):
-            return m["id"], [got]
+            return errored(m["id"], got)
     findings = []
     for g in got["groups"]:
         for it in g.get("items", []):
@@ -147,12 +158,14 @@ def run_case(icarium, manifest, ignore_notes):
                 continue
             dst = it.get("dst") or {}
             findings.append((g["rule"], src_line(dst.get("src")),
-                             dst.get("name") or "", dst.get("kind") or ""))
+                             dst.get("name") or "", dst.get("kind") or "",
+                             it.get("severity")))
     errors = []
+    expected = [e for e in m["expect"]
+                if not (ignore_notes and e.get("severity", "error") == "note")]
+    missing = []
     unmatched = list(findings)
-    for e in m["expect"]:
-        if ignore_notes and e.get("severity", "error") == "note":
-            continue
+    for e in expected:
         hit = None
         for f in unmatched:
             if f[0] != e["rule"]:
@@ -166,10 +179,28 @@ def run_case(icarium, manifest, ignore_notes):
         if hit is not None:
             unmatched.remove(hit)
         else:
+            missing.append(e)
             errors.append(f"missing {e}; got {[(f[0], f[1], f[2]) for f in findings]}")
     if unmatched and not m.get("allow_extra", False):
         errors.append(f"extra findings {unmatched}")
-    return m["id"], errors
+
+    def as_dict(f):
+        return {"rule": f[0], "line": f[1], "name": f[2], "kind": f[3],
+                "severity": f[4]}
+    return {"id": m["id"], "state": "fail" if errors else "pass",
+            "errors": errors, "expected": expected,
+            "observed": [as_dict(f) for f in findings],
+            "missing": missing, "extra": [as_dict(f) for f in unmatched]}
+
+
+def describe(cmd):
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
+    except OSError:
+        return None
+    if r.returncode != 0:
+        return None
+    return r.stdout.strip() or None
 
 
 def main():
@@ -178,6 +209,8 @@ def main():
     ap.add_argument("--tier", type=int, default=None)
     ap.add_argument("--case", default=None)
     ap.add_argument("--ignore-notes", action="store_true")
+    ap.add_argument("--results", default=None,
+                    help="write per-case results as JSON to this file")
     args = ap.parse_args()
     if shutil.which("yosys") is None:
         print("run.py: yosys not on PATH", file=sys.stderr)
@@ -202,18 +235,29 @@ def main():
     if not selected:
         print("run.py: selection matched no cases", file=sys.stderr)
         sys.exit(2)
-    fails = 0
+    results = []
     for mf in selected:
-        cid, errs = run_case(Path(args.icarium_bin), mf, args.ignore_notes)
-        if errs:
-            fails += 1
-            print(f"FAIL {cid}")
-            for e in errs:
-                print(f"    {e}")
-        else:
-            print(f"PASS {cid}")
-    print(f"{len(selected) - fails} pass, {fails} fail", file=sys.stderr)
-    sys.exit(1 if fails else 0)
+        r = run_case(Path(args.icarium_bin), mf, args.ignore_notes)
+        results.append(r)
+        print(f"{r['state'].upper()} {r['id']}")
+        for e in r["errors"]:
+            print(f"    {e}")
+    counts = {s: sum(r["state"] == s for r in results)
+              for s in ("pass", "fail", "unsupported", "error")}
+    if args.results:
+        doc = {
+            "checker": "icarium",
+            "version": describe([str(Path(args.icarium_bin).resolve()), "--version"]),
+            "suite_commit": describe(["git", "rev-parse", "HEAD"]),
+            "mode": "ignore-notes" if args.ignore_notes else "strict",
+            "counts": counts,
+            "cases": results,
+        }
+        Path(args.results).write_text(json.dumps(doc, indent=1) + "\n")
+    print(f"{counts['pass']} pass, {counts['fail']} fail"
+          + (f", {counts['error']} error" if counts["error"] else ""),
+          file=sys.stderr)
+    sys.exit(0 if counts["pass"] == len(results) else 1)
 
 
 if __name__ == "__main__":

@@ -48,6 +48,44 @@ there is a false positive, not a naming difference. Waiver
 attributes (`(* cdc_sync *)` and friends) are specified in
 `docs/attributes.md`.
 
+## Writing a runner
+
+A runner turns one checker's output into verdicts another reader
+can reproduce and challenge. Publish four things with it.
+
+1. **Rule mapping.** For each suite rule, the checker's rule or
+   rules that report it, or "unmapped". One checker rule may map
+   to several suite rules if its findings carry enough detail to
+   tell them apart; if they do not, map it to none of them.
+2. **Supported scope.** Which suite rules, categories
+   (`docs/rules.json`) and waiver attributes the checker claims to
+   handle, and the checker settings used. A setting that changes a
+   verdict (a depth threshold, a waiver file) is part of the scope.
+3. **Command.** The exact checker version and command line, so the
+   run can be repeated.
+4. **Results file.** One entry per case, in the shape `run.py
+   --results` writes: the case id, its state, the expected
+   findings, the observed findings after mapping, and which
+   expected findings were missed and which observed ones were left
+   over.
+
+Each case ends in exactly one state:
+
+| State | Meaning | Counts as a pass |
+|---|---|---|
+| `pass` | Observed findings match `expect` exactly | yes |
+| `fail` | A finding was missed, or an extra one was reported | no |
+| `unsupported` | The case expects a rule the runner leaves unmapped, or rests on an attribute the checker does not honor | no |
+| `error` | Elaboration failed, the checker crashed or timed out, or its output could not be read | no |
+
+A score is passes out of every case in the suite, so unsupported
+and error cases lower it; report the four counts beside it. A
+finding from a checker rule outside the mapping is listed in the
+results as unmapped, not compared: the comparison covers mapped
+rules only, and the scope says which those are. Never mark a case
+unsupported to hide a disagreement: a mapped rule that reports
+the wrong thing is a `fail`.
+
 ## What the suite does not assert
 
 Verdicts that depend on tool-internal modeling — gate-structure

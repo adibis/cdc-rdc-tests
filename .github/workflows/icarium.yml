@@ -44,6 +44,14 @@ jobs:
         working-directory: icarium
         run: zig build
       - name: Every case, strict
-        run: python3 run.py --icarium-bin icarium/zig-out/bin/icarium
+        run: python3 run.py --icarium-bin icarium/zig-out/bin/icarium --results results-strict.json
       - name: Every case, notes ignored
-        run: python3 run.py --icarium-bin icarium/zig-out/bin/icarium --ignore-notes
+        if: always()
+        run: python3 run.py --icarium-bin icarium/zig-out/bin/icarium --ignore-notes --results results-ignore-notes.json
+      - name: Keep the per-case results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: icarium-results
+          path: results-*.json
+          if-no-files-found: ignore
