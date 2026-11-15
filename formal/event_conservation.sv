@@ -10,6 +10,8 @@
 // Defines, set by scripts/formal-check.py from formal/cases.json:
 //   DUT, SRC_HALF, DST_HALF  module and half-periods in formal steps
 //   P_SRC, P_DST, P_EV, P_OUT port names; P_RST if the design has a reset
+//   P_RDY                   ready output: only events offered while it is
+//                           high are accepted (backpressure)
 //   EV_LOW                  the event port is active low (a stall)
 //   PULSE                   the output pulses per event (else it toggles)
 //   SPACED                  events at least 3 destination periods apart
@@ -35,6 +37,9 @@ module fv_top (input logic ev);
     always @* if (!run) assume (!ev);
 
     logic out;
+`ifdef P_RDY
+    logic rdy;
+`endif
 `ifdef EV_LOW
     wire ev_port = !ev;
 `else
@@ -45,13 +50,21 @@ module fv_top (input logic ev);
 `ifdef P_RST
         .`P_RST(run),
 `endif
+`ifdef P_RDY
+        .`P_RDY(rdy),
+`endif
         .`P_EV(ev_port), .`P_OUT(out)
     );
+`ifdef P_RDY
+    wire accept = ev && rdy;
+`else
+    wire accept = ev;
+`endif
 
-    // Source side: count accepted events.
+    // Source side: count accepted events, as the design sees them.
     logic [7:0] in_cnt = 0, since = 8'hff;
     always @(posedge src_clk)
-        if (run && ev) begin
+        if (run && accept) begin
             in_cnt <= in_cnt + 1;
             since <= 0;
         end else if (since != 8'hff) since <= since + 1;

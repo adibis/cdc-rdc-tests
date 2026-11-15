@@ -1,0 +1,9 @@
+{
+ "design": "design.sv",
+ "expect": [],
+ "id": "fx_cdc013_good_toggle_ack",
+ "notes": "CDC-013 clean counterpart to fx_cdc013_bad_xor_tail: the same fast-to-slow pulse synchronizer, but the destination's synchronized toggle returns through a 2FF acknowledgement and the source accepts a new event only when ready. It can never toggle twice between destination samples, so no accepted event is lost and CDC-013 must stay silent.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "good_toggle_ack"
+}

@@ -61,6 +61,8 @@ def defines(entry, hs, hd, spaced):
          "P_SRC": entry["src"], "P_DST": entry["dst"], "P_EV": entry["ev"], "P_OUT": entry["out"]}
     if "rst" in entry:
         d["P_RST"] = entry["rst"]
+    if "ready" in entry:
+        d["P_RDY"] = entry["ready"]
     flags = []
     if entry.get("ev_low"):
         flags.append("EV_LOW")

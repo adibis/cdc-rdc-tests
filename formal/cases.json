@@ -1,11 +1,12 @@
 {
-  "_note": "Formal verdicts for cases whose claim is about behavior, not structure. Clock ratios come from each case's design.sdc. events: loses = an unconstrained event stream drops events, and events spaced 3 destination periods apart do not; conserves = no event is ever dropped.",
+  "_note": "Formal verdicts for cases whose claim is about behavior, not structure. Clock ratios come from each case's design.sdc. events: loses = an unconstrained event stream drops events, and events spaced 3 destination periods apart do not; conserves = no accepted event is ever dropped (with a ready output, events offered while busy are refused, not accepted).",
   "event_conservation": [
     {"case": "cdc013_fast_toggle_no_xor", "src": "fc", "dst": "sc", "ev": "en", "out": "q", "output": "toggle", "events": "loses"},
     {"case": "cdc013_toggle_stall_en", "src": "fc", "dst": "sc", "ev": "stall", "ev_low": true, "out": "q", "output": "toggle", "events": "loses"},
     {"case": "cdc013_toggle_sync_ratio", "src": "fc", "dst": "sc", "ev": "en", "out": "q", "output": "toggle", "events": "loses"},
     {"case": "fx_cdc013_bad_toggle_bare", "src": "src_clk", "dst": "dst_clk", "rst": "rst_n", "ev": "event_in", "out": "event_seen", "output": "toggle", "events": "loses"},
     {"case": "fx_cdc013_bad_xor_tail", "src": "src_clk", "dst": "dst_clk", "rst": "rst_n", "ev": "event_in", "out": "event_seen", "output": "pulse", "events": "loses"},
-    {"case": "fx_cdc013_good_slow_toggle", "src": "src_clk", "dst": "dst_clk", "rst": "rst_n", "ev": "event_in", "out": "event_seen", "output": "toggle", "events": "conserves"}
+    {"case": "fx_cdc013_good_slow_toggle", "src": "src_clk", "dst": "dst_clk", "rst": "rst_n", "ev": "event_in", "out": "event_seen", "output": "toggle", "events": "conserves"},
+    {"case": "fx_cdc013_good_toggle_ack", "src": "src_clk", "dst": "dst_clk", "rst": "rst_n", "ev": "event_in", "ready": "ready", "out": "event_seen", "output": "pulse", "events": "conserves"}
   ]
 }
