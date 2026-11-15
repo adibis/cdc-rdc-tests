@@ -1,6 +1,9 @@
 # cdc-rdc-tests
 
 [![compile](https://github.com/adibis/cdc-rdc-tests/actions/workflows/compile.yml/badge.svg?branch=master)](https://github.com/adibis/cdc-rdc-tests/actions/workflows/compile.yml)
+[![formal](https://github.com/adibis/cdc-rdc-tests/actions/workflows/formal.yml/badge.svg?branch=master)](https://github.com/adibis/cdc-rdc-tests/actions/workflows/formal.yml)
+[![icarium](https://github.com/adibis/cdc-rdc-tests/actions/workflows/icarium.yml/badge.svg?branch=master)](https://github.com/adibis/cdc-rdc-tests/actions/workflows/icarium.yml)
+[![ci](https://github.com/adibis/cdc-rdc-tests/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/adibis/cdc-rdc-tests/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
 A tool-neutral test suite for clock-domain crossing (CDC) and reset-domain
