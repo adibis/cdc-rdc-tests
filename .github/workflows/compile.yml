@@ -66,3 +66,5 @@ jobs:
         run: python3 scripts/compile-check.py --tool yosys-slang
       - name: Elaborate with slang
         run: python3 scripts/compile-check.py --tool slang
+      - name: Dual-use reset cases keep both roles after synthesis
+        run: python3 scripts/reset-roles.py

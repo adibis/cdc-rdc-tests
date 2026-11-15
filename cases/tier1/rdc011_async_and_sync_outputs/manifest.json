@@ -1,0 +1,16 @@
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [
+  {
+   "line": 13,
+   "rule": "RDC-011",
+   "severity": "error"
+  }
+ ],
+ "id": "rdc011_async_and_sync_outputs",
+ "notes": "One reset net is the async reset of qa and the sync reset of qs, each on its own output, so both uses survive synthesis (scripts/reset-roles.py checks it). Replaces a single-flop case whose sync branch sat under its own async condition and was dead.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "rdc011_async_and_sync_outputs"
+}
