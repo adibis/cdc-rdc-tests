@@ -1,5 +1,5 @@
-// Five-deep chain: more than two stacked syncs of latency with no
-// extra resolution. Must report CDC-018 on the chain head.
+// Five-deep chain: one stage past the default CDC-018 threshold of
+// 4. Must report CDC-018 once, on the chain head, not per stage.
 module cdc018_five_deep (
     input  logic ca,
     input  logic cb,

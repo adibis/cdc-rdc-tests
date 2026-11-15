@@ -28,7 +28,7 @@ and the message names the rest.
 | CDC-015 | first sync stage of the chain | single |
 | CDC-016 | first sync stage of the mixed-edge chain | single |
 | CDC-017 | latch cell | single |
-| CDC-018 | chain head of the overlong chain | single |
+| CDC-018 | head of the longest chain at or past the threshold | single |
 | CDC-019 | name-sorted-first source flop | grouped |
 | CDC-020 | sliced-bus source | single |
 | CDC-021 | name-sorted-first consumer | grouped |

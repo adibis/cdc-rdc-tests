@@ -8,7 +8,9 @@
 // values, every change of the output must be the gray successor of
 // the value before it. The first change after warm-up is exempt: it
 // replaces a destination value that had no reset. A cover requires a
-// full wrap of the sequence, so a vacuous run cannot pass.
+// full wrap of the sequence, so a vacuous run cannot pass. The check
+// is bounded: a pass means no out-of-order change within the depth
+// formal-check.py sets.
 //
 // Reset, startup and traffic (docs/assumptions.md): the source reset
 // is held through warm-up and never asserted again. State starts

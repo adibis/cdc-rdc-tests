@@ -9,7 +9,7 @@
   }
  ],
  "id": "cdc018_five_deep",
- "notes": "Five-deep chain past the default threshold of 4. The head must report the excess latency.",
+ "notes": "Five-deep chain, one stage past the default threshold of 4. The head reports once, not each stage at or past the threshold.",
  "sdc": "design.sdc",
  "tier": 1,
  "top": "cdc018_five_deep"

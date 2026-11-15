@@ -14,7 +14,7 @@
   }
  ],
  "id": "cdc018_stacked_pair",
- "notes": "One source flop feeds two independent 4-deep chains to separate outputs: CDC-018 reports once per (source, clock) naming the longest head, and CDC-024 flags the fanout at the source.",
+ "notes": "One source flop feeds two independent 4-deep chains (at the default threshold of 4) to separate outputs: CDC-018 reports once per (source, clock) naming the longest head, and CDC-024 flags the fanout at the source.",
  "sdc": "design.sdc",
  "tier": 1,
  "top": "cdc018_stacked_pair"

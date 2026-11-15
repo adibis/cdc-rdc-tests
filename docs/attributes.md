@@ -1,6 +1,6 @@
 # Waiver attributes
 
-Eleven cases depend on synthesis attributes. Each is a promise the
+<!-- stats:attr -->16<!-- /stats:attr --> cases depend on synthesis attributes. Each is a promise the
 designer makes and the checker takes at face value; the suite pins
 the exact spelling it uses so no checker has to guess.
 
@@ -63,7 +63,8 @@ per-finding waiver, since its members never report.
 
 Not used in this suite. On a clock-mux select it vouches a
 glitch-free switchover; CDC-010 stays silent. It is a promise, not
-a proof: fx_cdc010_good_glitch_free_mux is the proved shape. Aliases:
+a proof: fx_cdc010_good_glitch_free_mux is the shape checked formally,
+within a bound and under its traffic assumption. Aliases:
 `glitchless_mux`, `glitchfree_clock_mux`.
 
 ## scan_en

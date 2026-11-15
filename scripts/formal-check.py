@@ -3,25 +3,29 @@
 
 Structural verdicts say where a checker must report; some also claim what the
 hardware does, such as "two fast toggles cancel and the event is lost". Each
-case in formal/cases.json carries that claim, and this script proves or
-refutes it.
+case in formal/cases.json carries that claim, and this script checks it by
+bounded model checking. A counterexample refutes a claim; a pass means none
+exists within the harness depth (DEPTH, GRAY_DEPTH, SWITCH_DEPTH formal
+steps), not that none exists at all.
 
 event_conservation (formal/event_conservation.sv, at the case's SDC ratio):
 
 - loses: unconstrained events must produce a counterexample, and events
   spaced 3 destination periods apart must be conserved (so the rate is the
   only defect).
-- conserves: no event is ever lost.
+- conserves: no accepted event is lost within the depth.
 
 The verdicts are tied to the manifests: a case loses events exactly when its
 manifest expects CDC-013, and every case that touches CDC-013 must be listed.
 
 gray_sequence (formal/gray_sequence.sv): every case named for gray coding or
 carrying a cdc_gray mark must be listed, and its crossing value must step
-through reflected gray order. A mark is a promise; this checks it is kept.
+through reflected gray order within the depth. A mark is a promise; this
+checks it is kept.
 
 clock_switch (formal/clock_switch.sv): clean = no runt pulse on the muxed
-clock through any select change, under the harness's traffic assumption;
+clock through any select change within the depth, under the harness's
+traffic assumption;
 runt = a counterexample even under it. A case is runt exactly when its
 manifest expects CDC-010.
 

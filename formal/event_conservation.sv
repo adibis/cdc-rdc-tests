@@ -4,8 +4,10 @@
 // ratio, with a free starting phase. After a settle phase with no
 // events (which also flushes unknown start values from designs with
 // no reset), every event accepted at the source must come out of the
-// destination once the source has been quiet for a while. A cover
-// proves events really flow end to end, so a vacuous run cannot pass.
+// destination once the source has been quiet for a while. The check
+// is bounded: a pass means no loss within the depth formal-check.py
+// sets. A cover that must be reached shows events really flow end to
+// end, so a vacuous run cannot pass.
 //
 // Reset, startup and traffic (docs/assumptions.md): the reset, if
 // any, is held through the settle phase and never asserted again.

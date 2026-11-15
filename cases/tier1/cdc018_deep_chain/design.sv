@@ -1,5 +1,5 @@
-// Four-deep chain: two stacked syncs worth of latency with no extra
-// resolution. Must report CDC-018 on the chain head.
+// Four-deep chain at the default CDC-018 threshold of 4 (depth >=
+// threshold warns): two syncs of latency. Must report on the head.
 module cdc018_deep_chain (
     input  logic ca,
     input  logic cb,

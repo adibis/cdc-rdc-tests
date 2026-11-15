@@ -139,14 +139,19 @@ different clocks: while the enable holds, the foreign signal
 flows transparently to the destination with no resolution
 time. Replace the latch with a 2FF chain on the dst clock.
 
-## CDC-018 (warning) — Synchronizer chain deeper than the policy threshold
+## CDC-018 (warning) — Synchronizer chain at or past the depth policy threshold
 
-A destination chain runs deeper than the configured threshold
-(default 4). This is a policy check, not a defect: each extra
-stage adds resolution time as well as latency, and fast clocks
-or high data rates can need more than two. Stacked 2FF syncs
-and refactor leftovers are the usual causes. Trim the chain,
-set the threshold the library needs, or vouch the head.
+A destination chain whose depth is at least the configured
+threshold warns: depth >= threshold, default 4, so a 3-deep
+chain is quiet and 4- and 5-deep chains warn. It reports once
+per source and destination clock, on the head of the longest
+chain. A head marked `cdc_sync` abstains. This is a latency and
+area policy, not a safety defect: every stage adds latency and
+a flop, and also resolution time, which fast clocks or high
+data rates can need. Stacked 2FF syncs and refactor leftovers
+are the usual causes. Trim the chain, set the threshold the
+library needs, or vouch the head. Every case runs at the
+default threshold.
 
 ## CDC-019 (warning) — Independently-synced one-hot decode across CDC
 

@@ -52,13 +52,17 @@ and every case it checks gets that same traffic:
 
 The formal checks are bounded: no counterexample within the depth
 above, in formal steps, plus a cover that must be reached so a vacuous
-run cannot pass. They are not unbounded proofs.
+run cannot pass. They are not unbounded proofs. A bug verdict rests on
+a counterexample, which is a concrete trace and holds outright; a
+quiet verdict holds only to the depth, under the assumptions on this
+page.
 
 ## Out of scope
 
-- **MTBF.** The resolution-time rules (CDC-014, CDC-016, CDC-018)
-  are about shape. How much margin a design needs depends on the flop
-  library, clock rates and data rates, which no case carries.
+- **MTBF.** The resolution-time rules (CDC-014, CDC-016) are about
+  shape, and CDC-018 is a latency policy. How much margin a design
+  needs depends on the flop library, clock rates and data rates,
+  which no case carries.
 - **Reset assertion.** See [Reset](#reset).
 - **Timing.** A verdict says nothing about setup, hold or skew
   margins.

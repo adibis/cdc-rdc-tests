@@ -1,7 +1,7 @@
 // A control-domain select is synchronized into clk0, one of the
 // muxed clocks, and a plain mux switches the clocks. The select is
 // synchronous to a muxed leg, yet a switch can still cut a clk1
-// phase short: a runt pulse, proved by formal/clock_switch.sv under
+// phase short: formal/clock_switch.sv finds such a runt pulse under
 // the same traffic assumption the glitch-free mux needs. Must
 // report CDC-010.
 module cdc010_leg_synced_select_runt (

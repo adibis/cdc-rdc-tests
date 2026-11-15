@@ -8,7 +8,7 @@
   }
  ],
  "id": "cdc018_deep_chain",
- "notes": "Four-deep chain past the default threshold. The head must report the excess latency.",
+ "notes": "Four-deep chain at the default threshold of 4: CDC-018 warns at depth >= threshold. The head must report the latency.",
  "sdc": "design.sdc",
  "tier": 1,
  "top": "cdc018_deep_chain"

@@ -1,7 +1,8 @@
 name: formal
 # Behavioral claims behind verdicts, such as "two fast toggles cancel and
-# the event is lost", are proved or refuted with SymbiYosys at each case's
-# SDC clock ratio. A vacuous run fails.
+# the event is lost", are checked with bounded SymbiYosys runs: a
+# counterexample refutes a claim, and a claim holds only to the run's depth.
+# Every run must reach its cover, so a vacuous run fails.
 on:
   push:
     branches: [master]

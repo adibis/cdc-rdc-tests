@@ -1,0 +1,10 @@
+{
+ "allow_extra": false,
+ "design": "design.sv",
+ "expect": [],
+ "id": "cdc018_three_deep_quiet",
+ "notes": "Three-deep chain, one stage under the default threshold of 4: CDC-018 warns at depth >= threshold, so depth 3 stays silent.",
+ "sdc": "design.sdc",
+ "tier": 1,
+ "top": "cdc018_three_deep_quiet"
+}

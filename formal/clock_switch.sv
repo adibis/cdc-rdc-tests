@@ -12,7 +12,9 @@
 // landed, as the design's `on` output reports. A glitch-free mux
 // needs that assumption; a design that fails even under it is unsafe
 // outright. A cover requires edges from clk1 and then clk0 after
-// switching back, so a vacuous run cannot pass.
+// switching back, so a vacuous run cannot pass. The check is
+// bounded: a pass means no runt pulse within the depth formal-check.py
+// sets; a runt case must produce a counterexample.
 //
 // Defines, set by scripts/formal-check.py: DUT. Every listed case
 // has the same ports: clk0, clk1, rst0, rst1 (sync, active high, one

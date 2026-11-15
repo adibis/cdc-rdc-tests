@@ -15,6 +15,13 @@ jobs:
         with:
           fetch-depth: 0
       - run: sh scripts/check-contributors.sh "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+  generated-docs:
+    # The catalog and the case counts in README.md and docs/attributes.md
+    # come from the manifests; fail if they drifted.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/gen-catalog.py --check
   reuse:
     runs-on: ubuntu-latest
     steps:

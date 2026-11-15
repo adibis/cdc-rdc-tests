@@ -11,5 +11,5 @@
    "severity": "warning"
   }
  ],
- "notes": "CDC-018: a 4-deep destination chain. It resolves fine, but two stacked 2FF syncs smell of a doubled fix or a leftover wrapper. Depth checks pass; only the cascade rule fires. (Migrated from icarium fixtures/CDC-018/bad_deep_chain.sv; oracle rule set from fixture manifest.)"
+ "notes": "CDC-018: a 4-deep destination chain, at the default threshold. It is safe, but two stacked 2FF syncs cost latency and often mark a doubled fix or a leftover wrapper. Depth checks pass; only the policy rule fires. (Migrated from icarium fixtures/CDC-018/bad_deep_chain.sv; oracle rule set from fixture manifest.)"
 }

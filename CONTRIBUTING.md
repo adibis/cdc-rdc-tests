@@ -52,7 +52,7 @@ an accidentally quiet design.
 ## Before every commit
 
 ```sh
-python3 scripts/gen-catalog.py
+python3 scripts/gen-catalog.py      # catalog and README counts
 python3 scripts/compile-check.py --tool verilator
 python3 scripts/compile-check.py --tool yosys
 python3 run.py --icarium-bin <path-to-icarium>
@@ -76,8 +76,10 @@ whose verdict claims a clock switch is or is not runt-free needs a
 `clock_switch` verdict. An RDC-011 case must keep both reset roles
 after synthesis: `python3 scripts/reset-roles.py`.
 `python3 scripts/formal-check.py` must confirm every verdict; it
-needs sby from OSS CAD Suite. A verdict about behavior is proved,
-not argued.
+needs sby from OSS CAD Suite. A verdict about behavior is checked,
+not argued: a bug verdict needs a counterexample, and a quiet one
+needs a bounded run with none and a reached cover. The checks are
+bounded, not unbounded proofs; see `docs/assumptions.md`.
 
 ## Certifying your contribution
 

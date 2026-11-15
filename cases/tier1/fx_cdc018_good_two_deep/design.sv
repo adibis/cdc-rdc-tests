@@ -1,5 +1,5 @@
-// CDC-018: the textbook 2FF chain. Below the threshold,
-// so nothing fires.
+// CDC-018: the textbook 2FF chain. Below the threshold of
+// 4, so nothing fires.
 module good_two_deep (
     input  logic src_clk,
     input  logic dst_clk,
