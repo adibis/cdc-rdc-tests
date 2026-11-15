@@ -1,0 +1,49 @@
+name: icarium
+# icarium as a reference checker, at the commit in .github/icarium-commit.
+# Its verdicts are not ground truth; the manifests are. Bump the pin when a
+# case lands together with the icarium change that makes it pass.
+on:
+  push:
+    branches: [master]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read the pinned icarium commit
+        id: pin
+        run: |
+          echo "commit=$(tr -d '[:space:]' < .github/icarium-commit)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          repository: adibis/icarium
+          ref: ${{ steps.pin.outputs.commit }}
+          path: icarium
+      - name: Read icarium's pinned Zig version
+        id: zig
+        run: |
+          echo "version=$(sed -n 's/^  "zig_version": "\(.*\)",$/\1/p' icarium/pins.json)" >> "$GITHUB_OUTPUT"
+      - uses: mlugg/setup-zig@v2
+        with:
+          version: ${{ steps.zig.outputs.version }}
+      - id: yosys-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/oss-cad-suite
+          key: oss-cad-suite-20261014-${{ runner.os }}
+      - name: Download OSS CAD Suite
+        if: steps.yosys-cache.outputs.cache-hit != 'true'
+        run: |
+          curl -sSL https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2026-10-14/oss-cad-suite-linux-x64-20261014.tgz | tar -xz -C ~
+      - run: |
+          echo "$HOME/oss-cad-suite/bin" >> "$GITHUB_PATH"
+      - name: Build icarium
+        working-directory: icarium
+        run: zig build
+      - name: Every case, strict
+        run: python3 run.py --icarium-bin icarium/zig-out/bin/icarium
+      - name: Every case, notes ignored
+        run: python3 run.py --icarium-bin icarium/zig-out/bin/icarium --ignore-notes

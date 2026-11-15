@@ -70,7 +70,11 @@ contribution.
 
 | checker | version | strict | `--ignore-notes` |
 |---|---|---|---|
-| icarium | 0.1.0 | 206 / 206 | 206 / 206 |
+| icarium | `c8b1b75` | 211 / 211 | 211 / 211 |
+
+CI runs icarium as a reference checker at the commit in
+`.github/icarium-commit`. Its verdicts are not the ground truth; the
+manifests are, and a case that icarium gets wrong stays as written.
 
 To add a row, open a pull request with the checker, its version, the command
 you ran and its output.

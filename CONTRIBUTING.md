@@ -59,6 +59,11 @@ python3 run.py --icarium-bin <path-to-icarium>
 python3 run.py --icarium-bin <path-to-icarium> --ignore-notes
 ```
 
+CI runs these against icarium at the commit in `.github/icarium-commit`.
+A case that lands together with the icarium change that makes it pass
+moves that pin; a case icarium gets wrong is an icarium bug, not a
+reason to change the manifest.
+
 Every case must compile, synthesize and pass in both modes, and
 every rule must still fire in at least two cases. CI also runs
 Xezim, slang and the yosys-slang front end.
