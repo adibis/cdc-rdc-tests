@@ -1,0 +1,15 @@
+{
+ "id": "fx_cdc010_good_glitch_free_mux",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_glitch_free_mux",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-024",
+   "line": 24,
+   "severity": "warning"
+  }
+ ],
+ "notes": "CDC-010 silent, CDC-024 warns: a break-before-make glitch-free clock mux (each leg's enable synchronized into that leg, combined with the other leg's synchronized off state, retimed on the leg's falling edge). It is an AND-OR, not a mux cell. CDC-024 warns because sel fans into both leg synchronizers; the design is runt-free only if sel holds until the switch lands, which formal/clock_switch.sv assumes and a human must confirm. (Migrated from icarium fixtures/CDC-010/good_glitch_free_mux.sv; oracle rule set from fixture manifest.)"
+}

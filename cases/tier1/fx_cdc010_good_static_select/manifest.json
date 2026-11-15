@@ -1,0 +1,9 @@
+{
+ "id": "fx_cdc010_good_static_select",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "good_static_select",
+ "sdc": "design.sdc",
+ "expect": [],
+ "notes": "CDC-010 silent: a plain clock mux whose select carries cdc_static, the designer's promise that it only changes while both clocks are stopped. This is a policy test of the mark; nothing checks the promise. (Migrated from icarium fixtures/CDC-010/good_static_select.sv; oracle rule set from fixture manifest.)"
+}

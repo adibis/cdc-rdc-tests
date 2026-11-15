@@ -1,0 +1,15 @@
+{
+ "id": "cdc010_shared_select_runt",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc010_shared_select_runt",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-010",
+   "line": 12,
+   "severity": "error"
+  }
+ ],
+ "notes": "Clock mux with a port select typed to ca, one of the muxed clocks. The plain mux still switches between asynchronous clocks and can emit a runt pulse, so CDC-010 must fire. Constant data keeps the case free of crossings."
+}

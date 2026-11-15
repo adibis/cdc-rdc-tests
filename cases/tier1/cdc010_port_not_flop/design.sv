@@ -1,6 +1,8 @@
-// Clock mux with a port select sharing a gated clock, with a
-// real data crossing: sel is typed to ca. No wrong-domain
-// verdict may fire; only CDC-026 leg-pair notes report.
+// Clock mux with a port select typed to ca, one of the muxed
+// clocks, with a real data crossing. No wrong-domain verdict
+// applies, but the plain mux still switches between asynchronous
+// clocks, so CDC-010 reports the switch; CDC-026 notes the
+// muxed-clock crossing.
 module cdc010_port_not_flop (
     input  logic ca,
     input  logic cb,

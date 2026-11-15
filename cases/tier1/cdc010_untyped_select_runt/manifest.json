@@ -1,0 +1,20 @@
+{
+ "id": "cdc010_untyped_select_runt",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc010_untyped_select_runt",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-010",
+   "line": 12,
+   "severity": "error"
+  },
+  {
+   "rule": "CDC-025",
+   "line": 13,
+   "severity": "warning"
+  }
+ ],
+ "notes": "Clock mux with an untyped port select: CDC-025 warns on the unresolved load, and CDC-010 fires because a plain mux between asynchronous clocks can emit a runt pulse whatever the select's domain. Constant data isolates the select verdict."
+}

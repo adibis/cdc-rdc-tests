@@ -6,10 +6,15 @@
  "sdc": "design.sdc",
  "expect": [
   {
-   "rule": "CDC-026",
+   "rule": "CDC-010",
    "line": 16,
+   "severity": "error"
+  },
+  {
+   "rule": "CDC-026",
+   "line": 18,
    "severity": "note"
   }
  ],
- "notes": "Port select sharing a gated clock with a real data crossing. No wrong-domain verdict may fire; only the CDC-026 leg-pair note reports."
+ "notes": "Port select typed to a muxed clock, with a real data crossing. No wrong-domain verdict applies, but CDC-010 reports the plain mux switching between asynchronous clocks, and the CDC-026 leg-pair note reports the crossing."
 }

@@ -7,19 +7,19 @@
  "expect": [
   {
    "rule": "CDC-006",
-   "line": 24,
+   "line": 26,
    "severity": "error"
   },
   {
    "rule": "CDC-026",
-   "line": 24,
+   "line": 26,
    "severity": "note"
   },
   {
    "rule": "CDC-026",
-   "line": 29,
+   "line": 31,
    "severity": "note"
   }
  ],
- "notes": "CDC-026: source and destination muxed by the same select. Cross leg-pairs can never co-occur, so the record marks them exclusive instead of async. CDC-006 joins in: port d is async to the cb leg feeding the union-clocked head. (Migrated from icarium fixtures/CDC-026/note_shared_select.sv; oracle rule set from fixture manifest.)"
+ "notes": "CDC-026: source and destination muxed by the same select. Cross leg-pairs can never co-occur, so the record marks them exclusive instead of async. CDC-006 joins in: port d is async to the cb leg feeding the union-clocked head. The select is a static mode select (cdc_static), so the runt hazard CDC-010 covers is out of scope here. (Migrated from icarium fixtures/CDC-026/note_shared_select.sv; oracle rule set from fixture manifest.)"
 }

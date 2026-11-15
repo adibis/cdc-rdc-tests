@@ -20,6 +20,11 @@ gray_sequence (formal/gray_sequence.sv): every case named for gray coding or
 carrying a cdc_gray mark must be listed, and its crossing value must step
 through reflected gray order. A mark is a promise; this checks it is kept.
 
+clock_switch (formal/clock_switch.sv): clean = no runt pulse on the muxed
+clock through any select change, under the harness's traffic assumption;
+runt = a counterexample even under it. A case is runt exactly when its
+manifest expects CDC-010.
+
 Every case must also hit its cover, so a vacuous run fails instead of passing.
 
 Usage: formal-check.py [--case ID] [--jobs N]
@@ -42,6 +47,8 @@ HARNESS = os.path.join(ROOT, "formal", "event_conservation.sv")
 GRAY_HARNESS = os.path.join(ROOT, "formal", "gray_sequence.sv")
 DEPTH = 450
 GRAY_DEPTH = 160
+SWITCH_HARNESS = os.path.join(ROOT, "formal", "clock_switch.sv")
+SWITCH_DEPTH = 200
 RULE = "CDC-013"  # the structural rule whose claim event conservation checks
 
 
@@ -96,6 +103,9 @@ def run(kind, entry, task, spaced, mode):
     case_dir = os.path.join(ROOT, "cases", "tier1", entry["case"])
     if kind == "gray_sequence":
         harness, depth, defs = GRAY_HARNESS, GRAY_DEPTH, gray_defines(entry)
+    elif kind == "clock_switch":
+        top = json.load(open(os.path.join(case_dir, "manifest.json")))["top"]
+        harness, depth, defs = SWITCH_HARNESS, SWITCH_DEPTH, f"-D DUT={top}"
     else:
         hs, hd = halves(entry, os.path.join(case_dir, "design.sdc"))
         harness, depth, defs = HARNESS, DEPTH, defines(entry, hs, hd, spaced)
@@ -130,6 +140,9 @@ def plan(kind, entry):
     if kind == "gray_sequence":
         want = {"gray": "PASS", "not_gray": "FAIL"}[entry["sequence"]]
         return [("sequence", False, "bmc", want), ("cover", False, "cover", "PASS")]
+    if kind == "clock_switch":
+        want = {"clean": "PASS", "runt": "FAIL"}[entry["switch"]]
+        return [("switch", False, "bmc", want), ("cover", False, "cover", "PASS")]
     if entry["events"] == "loses":
         return [("free", False, "bmc", "FAIL"),
                 ("spaced", True, "bmc", "PASS"),
@@ -151,6 +164,18 @@ def gray_consistency(entries, only):
         design = open(os.path.join(os.path.dirname(path), m["design"])).read()
         if ("gray" in m["id"] or "cdc_gray" in design) and m["id"] not in listed:
             errors.append(f"{m['id']}: rests on gray coding but has no gray_sequence verdict in formal/cases.json")
+    return errors
+
+
+def switch_consistency(entries):
+    """A clock-switch case is runt exactly when its manifest expects CDC-010."""
+    errors = []
+    for e in entries:
+        m = json.load(open(os.path.join(ROOT, "cases", "tier1", e["case"], "manifest.json")))
+        fires = any(x["rule"] == "CDC-010" for x in m["expect"])
+        if fires != (e["switch"] == "runt"):
+            errors.append(f"{e['case']}: formal verdict '{e['switch']}' but the manifest "
+                          f"{'expects' if fires else 'does not expect'} CDC-010")
     return errors
 
 
@@ -183,13 +208,14 @@ def main():
 
     spec = json.load(open(os.path.join(ROOT, "formal", "cases.json")))
     kinds = {k: [e for e in spec[k] if not a.case or e["case"] == a.case]
-             for k in ("event_conservation", "gray_sequence")}
+             for k in ("event_conservation", "gray_sequence", "clock_switch")}
     if not any(kinds.values()) and not a.case:
         print("formal/cases.json lists no cases")
         return 2
 
     errors = consistency(kinds["event_conservation"], a.case)
     errors += gray_consistency(kinds["gray_sequence"], a.case)
+    errors += switch_consistency(kinds["clock_switch"])
     for msg in errors:
         print(f"FAIL {msg}")
 

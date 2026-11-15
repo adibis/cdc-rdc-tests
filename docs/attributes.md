@@ -25,7 +25,9 @@ CDC-016, CDC-017, CDC-018, CDC-019.
 
 `(* cdc_static *)` — the source never toggles in operation
 (tie-offs, straps, quasi-static config). Aliases: `quasi_static`.
-Honored by: CDC-001, CDC-002, CDC-003, CDC-004, CDC-019, CDC-020.
+Honored by: CDC-001, CDC-002, CDC-003, CDC-004, CDC-010, CDC-019, CDC-020.
+On a clock-mux select it promises the select only changes while
+both clocks are stopped; nothing checks that promise.
 
 ## cdc_handshake
 
@@ -60,7 +62,8 @@ per-finding waiver, since its members never report.
 ## glitchless_clock_mux (and aliases)
 
 Not used in this suite. On a clock-mux select it vouches a
-glitch-free switchover; CDC-010 stays silent. Aliases:
+glitch-free switchover; CDC-010 stays silent. It is a promise, not
+a proof: fx_cdc010_good_glitch_free_mux is the proved shape. Aliases:
 `glitchless_mux`, `glitchfree_clock_mux`.
 
 ## scan_en

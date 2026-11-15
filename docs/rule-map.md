@@ -67,12 +67,16 @@ times 1.5 below the destination period) and the source flop
 is an edge detector: a 1-cycle pulse may slip between slow
 edges. Stretch the pulse, toggle it, or handshake it.
 
-## CDC-010 (error) — Glitch on the clock network from a wrong-domain control signal
+## CDC-010 (error) — Clock mux or gate control that can emit a runt pulse
 
-A clock mux select or gate enable is driven from a domain
-async to every clock the cell gates: the transition chops the
-output clock into runt pulses no sink synchronizer can heal.
-Synchronize the control into one of the gated-clock domains.
+A clock mux select or gate enable can chop the output clock
+into runt pulses no sink synchronizer can heal. Two shapes
+fire. A control driven from a domain async to every clock the
+cell gates. And a plain mux switching between asynchronous
+clocks, whatever domain its select comes from: a select
+synchronous to one leg still lands mid-phase on the other.
+Use a glitch-free (break-before-make) mux, or mark the select
+cdc_static if it only changes while the clocks are stopped.
 
 ## CDC-011 (warning) — Unconstrained primary input captured by clocked logic
 
@@ -94,11 +98,10 @@ A toggling source runs fast to slow past the period ratio:
 two toggles between destination samples cancel to zero edges
 and both events are silently lost. A handshake or
 backpressure closes it. An XOR tail does not: it turns each
-toggle into a pulse, but cancelled toggles never reach it. The
-bar is a 1.5x period ratio: the rule fires when the source
-period times 1.5 still sits below the destination period.
-Both periods must come from declared clocks. An undeclared
-frequency cannot ground a fast-to-slow claim.
+toggle into a pulse, but cancelled toggles never reach it.
+A toggle whose enable waits on its own acknowledgement, the
+destination's synchronized toggle returned through a 2FF
+chain, never toggles twice between samples and is silent.
 
 ## CDC-014 (error) — Combinational logic between synchronizer stages
 

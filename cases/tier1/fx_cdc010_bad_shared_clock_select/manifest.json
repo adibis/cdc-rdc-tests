@@ -1,0 +1,20 @@
+{
+ "id": "fx_cdc010_bad_shared_clock_select",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "bad_shared_clock_select",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-010",
+   "line": 16,
+   "severity": "error"
+  },
+  {
+   "rule": "CDC-026",
+   "line": 18,
+   "severity": "note"
+  }
+ ],
+ "notes": "CDC-010 fires: the select flop en_q is in cb, one of the muxed clocks, but a plain mux still switches between asynchronous clocks, so a switch can land mid-phase on the other leg and emit a runt pulse. The CDC-026 leg-pair note still reports the muxed-clock crossing. (Migrated from icarium fixtures/CDC-010/bad_shared_clock_select.sv; oracle rule set from fixture manifest.)"
+}

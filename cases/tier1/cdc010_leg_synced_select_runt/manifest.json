@@ -1,0 +1,15 @@
+{
+ "id": "cdc010_leg_synced_select_runt",
+ "tier": 1,
+ "design": "design.sv",
+ "top": "cdc010_leg_synced_select_runt",
+ "sdc": "design.sdc",
+ "expect": [
+  {
+   "rule": "CDC-010",
+   "line": 27,
+   "severity": "error"
+  }
+ ],
+ "notes": "Negative control for fx_cdc010_good_glitch_free_mux: the same ports and select register, but the select is synchronized into clk0 only and drives a plain mux. Formally it emits a runt pulse even when the select changes only after the last switch landed, so CDC-010 must fire."
+}

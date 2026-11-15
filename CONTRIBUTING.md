@@ -66,7 +66,9 @@ Xezim, slang and the yosys-slang front end.
 A CDC-013 case also needs a formal verdict in `formal/cases.json`
 ("loses" or "conserves"), and so does any case that rests on gray
 coding (named for gray, or carrying a `cdc_gray` mark): its crossing
-value must step through gray order from a defined reset.
+value must step through gray order from a defined reset. A case
+whose verdict claims a clock switch is or is not runt-free needs a
+`clock_switch` verdict.
 `python3 scripts/formal-check.py` must confirm every verdict; it
 needs sby from OSS CAD Suite. A verdict about behavior is proved,
 not argued.

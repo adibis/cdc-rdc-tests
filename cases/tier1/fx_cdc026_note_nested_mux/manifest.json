@@ -7,9 +7,9 @@
  "expect": [
   {
    "rule": "CDC-026",
-   "line": 29,
+   "line": 31,
    "severity": "note"
   }
  ],
- "notes": "CDC-026: nested clock muxes. The union still resolves, but mode conditions past the outer select stay unrecorded, and the ledger says so instead of guessing. (Migrated from icarium fixtures/CDC-026/note_nested_mux.sv; oracle rule set from fixture manifest.)"
+ "notes": "CDC-026: nested clock muxes. The union still resolves, but mode conditions past the outer select stay unrecorded, and the ledger says so instead of guessing. The select is a static mode select (cdc_static), so the runt hazard CDC-010 covers is out of scope here. (Migrated from icarium fixtures/CDC-026/note_nested_mux.sv; oracle rule set from fixture manifest.)"
 }
