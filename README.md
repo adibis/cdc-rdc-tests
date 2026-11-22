@@ -97,7 +97,7 @@ contribution.
 
 | checker | version | strict | `--ignore-notes` |
 |---|---|---|---|
-| icarium | `c8b1b75` | 213 / 213 | 213 / 213 |
+| icarium | v0.1.0 (`62bf1a4`) | 213 / 213 | 213 / 213 |
 
 CI runs icarium as a reference checker at the commit in
 `.github/icarium-commit`. Its verdicts are not the ground truth; the
